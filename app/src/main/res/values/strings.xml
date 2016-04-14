@@ -1,0 +1,41 @@
+<resources>
+
+    <string name="app_name">Mi Alarma</string>
+    <string name="NuevaAlarma">Añadir alarma</string>
+    <string name="tvAlarma">Alarma</string>
+    <string name="twitter">Twitter</string>
+    <string name="weather">El Tiempo</string>
+    <string name="ubuMail">UBU Mail</string>
+    <string name="ubuCalendar">Ubu Calendario</string>
+    <string name="accept">Aceptar</string>
+    <string name="DateTime">Dias</string>
+    <string name="CustomMessage">Mensaje personalizado</string>
+    <string name="Time">Hora</string>
+    <string name="Days">Dias</string>
+    <string name="Access">Accesos</string>
+    <string name="UBU">UBU</string>
+    <string name="twitterAccess">Acceso a twitter</string>
+    <string name="User">Usuario</string>
+    <string name="Password">Contraseña</string>
+    <string name="twitterAccessHint">Télefono, correo o usuario</string>
+    <string name="cancel">Cancelar</string>
+    <string name="options">Opciones</string>
+    <string name="accessUbu">Acceso a UBU</string>
+    <string name="accessWeather">Acceso a el Tiempo</string>
+    <string name="accessCp">Introduce Código Postal</string>
+    <string name="cp">Codigo postal</string>
+    <string name="accessMessage">Introduce tu mensaje personalizado</string>
+    <string name="accessCustomMessage">Introduce el mensaje personalizado</string>
+    <string name="Music">Música</string>
+    <string name="SelectSong">Selecciona canción</string>
+    <string name="mail">Correo</string>
+    <!-- Dias de la semana -->
+    <string name="Monday">Lunes</string>
+    <string name="Tuesday">Martes</string>
+    <string name="Wednesday">Miercoles</string>
+    <string name="Thursday">Jueves</string>
+    <string name="Friday">Viernes</string>
+    <string name="Saturday">Sábado</string>
+    <string name="Sunday">Domingo</string>
+
+</resources>
