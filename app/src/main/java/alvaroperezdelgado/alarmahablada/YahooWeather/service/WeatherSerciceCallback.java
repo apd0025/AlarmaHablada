@@ -1,7 +1,7 @@
 package alvaroperezdelgado.alarmahablada.YahooWeather.service;
 
 
-import YahooWeather.data.Channel;
+import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 
 /**
  * Created by perez on 6/4/16.

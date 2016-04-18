@@ -11,24 +11,26 @@ import java.util.List;
  */
 
 public class Alarm {
-    int id=1;
+    int id = 1;
     private int hour;
     private int min;
     private Calendar calendar;
-    private enum week{mon, tue, wed,thu,fri,sat,sun};
+
+    private enum week {mon, tue, wed, thu, fri, sat, sun};
+
     //0-Mon,1-tue,2-wed,3-thu,4-fri,5-sat,6-sun
-    private static List <Boolean> alarmDays=new ArrayList<Boolean>(7);
-    //0-customMessage, 1-ubuMail, 2-ubuCalendar, 3-twitter, 4-weather, 5-music
-    private static List <Boolean> choosenoptions=new ArrayList<Boolean>(6);
-    private String description;
+    private static List<Boolean> alarmDays = new ArrayList<Boolean>(7);
+    //0-customMessage, 1-ubuMail, 2-ubuCalendar, 3-twitter, 4-weathfer, 5-music
+    private static List<Boolean> choosenoptions = new ArrayList<Boolean>(6);
+    private String name;
     private static Alarm alarm;
 
     //con este metodo obtenemos la instancia de alarm
      /*
     Metodo para obtener una instancia de la clase que es singleton
      */
-    public static Alarm getInstance(){
-        if(alarm==null) {
+    public static Alarm getInstance() {
+        if (alarm == null) {
             alarm = new Alarm();
             //quiero forzar que de primeras todos los dias salgan activados
             for (int i = 0; i < 7; i++) {
@@ -59,28 +61,28 @@ public class Alarm {
         return alarmDays;
     }
 
-    public void setAlarmDays(int index,boolean value) {
-        switch (index){
+    public void setAlarmDays(int index, boolean value) {
+        switch (index) {
             case 1:
-                alarmDays.add(0,value);
+                alarmDays.add(0, value);
                 break;
             case 2:
-                alarmDays.add(1,value);
+                alarmDays.add(1, value);
                 break;
             case 3:
-                alarmDays.add(2,value);
+                alarmDays.add(2, value);
                 break;
             case 4:
-                alarmDays.add(3,value);
+                alarmDays.add(3, value);
                 break;
             case 5:
-                alarmDays.add(4,value);
+                alarmDays.add(4, value);
                 break;
             case 6:
-                alarmDays.add(5,value);
+                alarmDays.add(5, value);
                 break;
             case 7:
-                alarmDays.add(6,value);
+                alarmDays.add(6, value);
                 break;
             default:
                 break;
@@ -90,7 +92,7 @@ public class Alarm {
     /*
     Borra la lista de los dias
      */
-    public void deleteListDays(){
+    public void deleteListDays() {
 
         alarmDays.removeAll(alarmDays);
     }
@@ -100,47 +102,45 @@ public class Alarm {
         return choosenoptions;
     }
 
-    public void setChoosenoptions(int index,boolean value) {
-        switch (index){
+    public void setChoosenoptions(int index, boolean value) {
+        switch (index) {
             case 1:
                 choosenoptions.add(0, value);
                 break;
             case 2:
-                choosenoptions.add(1,value);
+                choosenoptions.add(1, value);
                 break;
             case 3:
-                choosenoptions.add(2,value);
+                choosenoptions.add(2, value);
                 break;
             case 4:
-                choosenoptions.add(3,value);
+                choosenoptions.add(3, value);
                 break;
             case 5:
-                choosenoptions.add(4,value);
+                choosenoptions.add(4, value);
                 break;
             case 6:
-                choosenoptions.add(5,value);
+                choosenoptions.add(5, value);
                 break;
             case 7:
-                choosenoptions.add(6,value);
+                choosenoptions.add(6, value);
                 break;
             default:
                 break;
         }
     }
 
-    public void deleteListChoosenoptions(){
+    public void deleteListChoosenoptions() {
         choosenoptions.removeAll(choosenoptions);
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
-
-
 
 
 }

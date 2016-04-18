@@ -8,26 +8,29 @@ import java.io.File;
  */
 public class Container {
     //guarda el string con el mensaje customizado
-    private String customMessage="Este es un mensaje personalizado";
+    private String customMessage = "Este es un mensaje personalizado";
     //guarda el string con los mails que vayamos a leer
-    private String ubuMailString=null;
+    private String ubuMailString = "No hay ningun Mail";
     //guarda el string con lo que queremos leer del calendario
-    private String ubuCalendarString=null;
+    private String ubuCalendarString = "No tienes eventos para hoy";
     //guarda un String con los mensajes de twiter que queremos que lea
-    private String twitterString=null;
+    private String twitterString = null;
     //guarda un string con la informacion metereologica
-    private String weatherString=null;
+    private String weatherString = "No hay informacion del tiempo";
     //guarda la cancion que queramos reproducir
-    private File song=null;
+    private File song = null;
+    //guarda el objeto tiempo
+    private Weather weather = Weather.getInstance();
     //guarda un objeto contenedor
     private static Container container;
 
+
     /*
-   Metodo para obtener una instancia de la clase que es singleton
-    */
-    public static Container getInstance(){
-        if(container==null){
-            container=new Container();
+       Metodo para obtener una instancia de la clase que es singleton
+        */
+    public static Container getInstance() {
+        if (container == null) {
+            container = new Container();
         }
         return container;
     }
@@ -78,6 +81,10 @@ public class Container {
 
     public void setSong(File song) {
         this.song = song;
+    }
+
+    public Weather getWeather() {
+        return weather;
     }
 
 }

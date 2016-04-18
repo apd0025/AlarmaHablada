@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import YahooWeather.data.Channel;
+import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 
 
 /**

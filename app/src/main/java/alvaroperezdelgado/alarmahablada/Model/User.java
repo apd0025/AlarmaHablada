@@ -5,22 +5,22 @@ package alvaroperezdelgado.alarmahablada.Model;
  * Como solo habra una instancia de usuario y no queremos que se creen mas
  * esta clase sera singleton
  */
-public class User{
+public class User {
 
-    private int id=1;
+    private int id = 1;
     private String ubuUser;
     private String ubuPass;
     private String twitterUser;
     private String twitterPass;
-    private String zipCode="Burgos";
+    private String city = "Burgos";
     private static User user;
 
     /*
     Metodo para obtener una instancia de la clase que es singleton
      */
-    public static User getInstance(){
-        if(user==null){
-            user=new User();
+    public static User getInstance() {
+        if (user == null) {
+            user = new User();
         }
         return user;
     }
@@ -57,11 +57,11 @@ public class User{
         this.twitterPass = twitterPass;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getCity() {
+        return city;
     }
 
-    public void setZipCode(String city) {
-        this.zipCode = city;
+    public void setCity(String city) {
+        this.city = city;
     }
 }

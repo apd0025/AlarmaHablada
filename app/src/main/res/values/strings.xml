@@ -29,6 +29,7 @@
     <string name="Music">Música</string>
     <string name="SelectSong">Selecciona canción</string>
     <string name="mail">Correo</string>
+    <string name="Description">Descripción</string>
     <!-- Dias de la semana -->
     <string name="Monday">Lunes</string>
     <string name="Tuesday">Martes</string>
@@ -37,5 +38,11 @@
     <string name="Friday">Viernes</string>
     <string name="Saturday">Sábado</string>
     <string name="Sunday">Domingo</string>
+    <string name="Name">Nombre</string>
+    <string name="Song">Canción</string>
+    <string name="calendar">Calendario</string>
+    <string name="DeleteAlarm">Borra Alarma</string>
+    <string name="setAlarmName">Introduce nombre</string>
+
 
 </resources>
