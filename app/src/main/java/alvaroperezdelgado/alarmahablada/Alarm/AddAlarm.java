@@ -35,6 +35,7 @@ public class AddAlarm extends AppCompatActivity {
     private TextView tvDaysClick;
     private TextView tvSongClick;
     private TextView tvNameClick;
+    private TextView tvSetAlarmClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class AddAlarm extends AppCompatActivity {
         tvDaysClick = (TextView) findViewById(R.id.tvDaysAddClick);
         tvSongClick = (TextView) findViewById(R.id.tvSongAddClick);
         tvNameClick = (TextView) findViewById(R.id.tvNameAddClick);
+        tvSetAlarmClick=(TextView)findViewById(R.id.tvTimeAddClick);
 
         tvDaysClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,13 @@ public class AddAlarm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AddAlarm.this, SetAlarmName.class));
+            }
+        });
+
+        tvSetAlarmClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddAlarm.this,SetAlarm.class));
             }
         });
 
