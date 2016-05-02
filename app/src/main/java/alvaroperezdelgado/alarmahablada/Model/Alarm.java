@@ -12,8 +12,8 @@ import java.util.List;
 
 public class Alarm {
     int id = 1;
-    private int hour;
-    private int min;
+    private int hour=0;
+    private int min=00;
     private Calendar calendar;
 
     private enum week {mon, tue, wed, thu, fri, sat, sun};
@@ -22,7 +22,7 @@ public class Alarm {
     private static List<Boolean> alarmDays = new ArrayList<Boolean>(7);
     //0-customMessage, 1-ubuMail, 2-ubuCalendar, 3-twitter, 4-weathfer, 5-music
     private static List<Boolean> choosenoptions = new ArrayList<Boolean>(6);
-    private String name;
+    private String name="Androide";
     private static Alarm alarm;
 
     //con este metodo obtenemos la instancia de alarm

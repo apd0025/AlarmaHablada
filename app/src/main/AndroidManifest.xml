@@ -24,8 +24,13 @@
         <activity android:name=".Alarm.SelectSong" />
         <activity android:name=".Alarm.SetAlarmName" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".weather" />
         <activity android:name=".Alarm.SetAlarm"></activity>
+
+        <receiver android:name=".Alarm.AlarmReceiver" />
+
+        <service
+            android:name=".Alarm.RingTonePlayingService"
+            android:enabled="true" />
     </application>
 
 </manifest>

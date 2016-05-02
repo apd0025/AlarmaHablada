@@ -168,19 +168,19 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btAcceptAddAlarm"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/accept"
-                android:layout_above="@+id/button"
+                android:layout_above="@+id/btCancelAddAlarm"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btCancelAddAlarm"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/DeleteAlarm"
+                android:text="@string/cancel"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
