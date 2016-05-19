@@ -7,7 +7,7 @@ public class Weather {
     public int degrees=1;
     public String location="Burgos";
     public String condition="Hola";
-    public String speechWeather;
+    public String speechWeather="Vacio";
     public int iconResourceId=1;
 
 
@@ -44,7 +44,10 @@ public class Weather {
     }
 
     public void setSpeechWeather() {
-        this.speechWeather = "El tiempo en " + location + " es de " + degrees + " grados centigrados y el clima esta " + condition;
+        this.speechWeather = "El tiempo en " + location + " es de " + degrees + " grados centígrados y el clima esta " + condition;
+    }
+    public String getSpeechWeather() {
+        return speechWeather;
     }
 
     public int getIconResourceId() {

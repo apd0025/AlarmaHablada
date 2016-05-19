@@ -47,7 +47,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cancel"
+                android:text="@string/stopAlarm"
                 android:id="@+id/btSetAlarmCancel"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true" />

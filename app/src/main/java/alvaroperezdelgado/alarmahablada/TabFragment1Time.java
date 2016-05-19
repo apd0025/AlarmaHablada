@@ -27,7 +27,8 @@ public class TabFragment1Time extends Fragment {
     private TextView tvCondition;
     private TextView tvTemperature;
     private ImageView ivIconWeather;
-
+    private TextView tvMail1,tvMail2,tvMail3,tvMail4,tvMail5;
+    private TextView tvCalendar1,tvCalendar2,tvCalendar3,tvCalendar4,tvCalendar5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,13 +54,27 @@ public class TabFragment1Time extends Fragment {
             tvDate.setText(dateFormat.format(cal.getTime()));
 
         }
-
+        //creamos los widgets que van a visualizar el tiempo
         tvLocation = (TextView) v.findViewById(R.id.tvLocation1);
         tvCondition = (TextView) v.findViewById(R.id.tvCondition1);
         tvTemperature = (TextView) v.findViewById(R.id.tvTemperature1);
         ivIconWeather = (ImageView) v.findViewById(R.id.ivIconWeather1);
 
+        //creamos los widgets que van a visualizar los mail
+        tvMail1 = (TextView) v.findViewById(R.id.tvMail1);
+        tvMail2 = (TextView) v.findViewById(R.id.tvMail2);
+        tvMail3 = (TextView) v.findViewById(R.id.tvMail3);
+        tvMail4 = (TextView) v.findViewById(R.id.tvMail4);
+        tvMail5 = (TextView) v.findViewById(R.id.tvMail5);
 
+        //creamos los widgets que van a visualizar los calendarios
+        tvCalendar1 = (TextView) v.findViewById(R.id.tvCalendar1);
+        tvCalendar2 = (TextView) v.findViewById(R.id.tvCalendar2);
+        tvCalendar3 = (TextView) v.findViewById(R.id.tvCalendar3);
+        tvCalendar4 = (TextView) v.findViewById(R.id.tvCalendar4);
+        tvCalendar5 = (TextView) v.findViewById(R.id.tvCalendar5);
+
+        //ponemos en los widgets antes creados la infomacion que necesitamos
         tvLocation.setText(Container.getInstance().getWeather().getLocation());
         tvCondition.setText(Container.getInstance().getWeather().getCondition());
         tvTemperature.setText(Container.getInstance().getWeather().getDegrees() + "\u00B0"+"C");

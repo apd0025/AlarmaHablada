@@ -25,8 +25,8 @@ public class YahooWeatherService {
     private Exception error;
 
 
-    public YahooWeatherService(WeatherSerciceCallback callback){
-        this.callback=callback;
+    public YahooWeatherService(WeatherSerciceCallback callback) {
+        this.callback = callback;
     }
 
     public String getLocation() {
@@ -34,60 +34,60 @@ public class YahooWeatherService {
     }
 
 
-
-    public void refreshWeather(final String location){
-        this.location=location;
+    public void refreshWeather(final String location) {
+        this.location = location;
         new AsyncTask<String, Void, String>() {
             @Override
             protected String doInBackground(String... strings) {
-                String YQL=String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\")and u='c'",location);
+                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\")and u='c'", location);
 
-                String endpoint=String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
+                String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
                 try {
-                    URL url=new URL(endpoint);
+                    URL url = new URL(endpoint);
 
-                    URLConnection connection=url.openConnection();
+                    URLConnection connection = url.openConnection();
 
-                    InputStream inputStream =connection.getInputStream();
+                    InputStream inputStream = connection.getInputStream();
 
-                    BufferedReader reader=new BufferedReader(new InputStreamReader(inputStream));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-                    StringBuilder result=new StringBuilder();
+                    StringBuilder result = new StringBuilder();
 
                     String line;
 
-                    while((line=reader.readLine())!=null){
+                    while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
                     return result.toString();
 
                 } catch (Exception e) {
-                    error=e;
+                    error = e;
 
                 }
                 return null;
             }
-            @Override
-        protected void onPostExecute(String s){
 
-                if (s==null&&error!=null){
+            @Override
+            protected void onPostExecute(String s) {
+
+                if (s == null && error != null) {
                     callback.serviceFailure(error);
                     return;
                 }
                 try {
-                    JSONObject data=new JSONObject(s);
+                    JSONObject data = new JSONObject(s);
 
-                    JSONObject queryResults=data.optJSONObject("query");
+                    JSONObject queryResults = data.optJSONObject("query");
 
                     int count = queryResults.optInt("count");
-                    if (count==0){
-                        callback.serviceFailure(new LocationWeatherException("No weather information found for "+location));
+                    if (count == 0) {
+                        callback.serviceFailure(new LocationWeatherException("No weather information found for " + location));
                         return;
                     }
 
-                    Channel channel=new Channel();
-                    
+                    Channel channel = new Channel();
+
                     channel.populate(queryResults.optJSONObject("results").optJSONObject("channel"));
                     callback.serviceSuccess(channel);
                 } catch (JSONException e) {
@@ -97,9 +97,10 @@ public class YahooWeatherService {
         }.execute(location);
 
     }
-    public class LocationWeatherException extends Exception{
-        public LocationWeatherException(String detailMessage){
-            super (detailMessage);
+
+    public class LocationWeatherException extends Exception {
+        public LocationWeatherException(String detailMessage) {
+            super(detailMessage);
         }
     }
 }

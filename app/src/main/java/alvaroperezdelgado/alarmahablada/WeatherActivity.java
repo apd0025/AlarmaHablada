@@ -74,10 +74,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
         tvTemperatura.setText(temperature +" "+channel.getUnits().getTemperature()+(char) 0x00B0);
         tvCondicion.setText(description);
         tvLocalizacion.setText(service.getLocation());
-        //TODO
-        container.setWeatherString("En " + tvLocalizacion.getText().toString() + ", hace una temperatura de " +
-                tvTemperatura.getText().toString() + channel.getUnits().getTemperature().toString() + "el tiempo esta" +
-                description.toString());
+
 
     }
 

@@ -43,6 +43,7 @@
     <string name="calendar">Calendario</string>
     <string name="DeleteAlarm">Borra Alarma</string>
     <string name="setAlarmName">Introduce nombre</string>
+    <string name="stopAlarm">Para alarma</string>
 
 
 </resources>
