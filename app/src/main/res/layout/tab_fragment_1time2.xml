@@ -9,7 +9,7 @@
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="145dp"
+        android:layout_height="160dp"
         android:padding="@dimen/PaddingRelativeLayout">
 
         <TextView
@@ -52,7 +52,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp">
+        android:layout_height="95dp">
 
         <DigitalClock
             android:layout_width="wrap_content"
@@ -77,7 +77,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="120dp"
+        android:layout_marginLeft="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,19 +126,12 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail5"
-            android:layout_below="@+id/tvMail4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="120dp"
+        android:layout_marginLeft="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -185,14 +179,6 @@
             android:layout_below="@+id/tvCalendar3"
             android:layout_alignParentLeft="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvCalendar5"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tvCalendar4"
-            android:layout_alignParentLeft="true" />
     </RelativeLayout>
 
 

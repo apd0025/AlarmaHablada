@@ -45,6 +45,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
         btSpeechMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getActivity(),MailActivity.class));
                 speak(Container.getInstance().getUbuMailString());
             }
         });
