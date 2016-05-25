@@ -77,8 +77,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginLeft="5dp">
+        android:layout_height="130dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,44 +94,108 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/from"
+            android:id="@+id/tvFrom"
             android:layout_below="@+id/tvMail"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="175dp"
+            android:layout_height="17dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/tvMail1"
+            android:text="hoooooooo"
+            android:layout_below="@+id/tvFrom"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="17dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/tvMail2"
+            android:text="hoooooooo"
             android:layout_below="@+id/tvMail1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="175dp"
+            android:layout_height="17dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/tvMail3"
             android:layout_below="@+id/tvMail2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:text="hoooooooo" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="175dp"
+            android:layout_height="17dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/tvMail4"
             android:layout_below="@+id/tvMail3"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:text="hoooooooo" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="17dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/tvMail11"
+            android:layout_alignTop="@+id/tvMail1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="17dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/tvMail22"
+            android:layout_below="@+id/tvMail11"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="17dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/tvMail33"
+            android:layout_below="@+id/tvMail22"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="17dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/tvMail44"
+            android:layout_alignTop="@+id/tvMail4"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Subject"
+            android:id="@+id/tvSubject"
+            android:layout_alignTop="@+id/tvFrom"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="130dp"
         android:layout_marginLeft="5dp">
 
         <TextView
@@ -150,7 +215,8 @@
             android:id="@+id/tvCalendar1"
             android:layout_below="@+id/tvCalendar"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:text="hoooooooo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -159,7 +225,8 @@
             android:id="@+id/tvCalendar2"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvCalendar1"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:text="hoooooooo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -168,7 +235,8 @@
             android:id="@+id/tvCalendar3"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvCalendar2"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:text="hoooooooo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -177,7 +245,8 @@
             android:id="@+id/tvCalendar4"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvCalendar3"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:text="hoooooooo" />
 
     </RelativeLayout>
 

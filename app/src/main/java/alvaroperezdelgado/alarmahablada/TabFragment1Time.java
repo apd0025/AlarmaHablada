@@ -28,7 +28,7 @@ public class TabFragment1Time extends Fragment {
     private TextView tvCondition;
     private TextView tvTemperature;
     private ImageView ivIconWeather;
-    private TextView tvMail1,tvMail2,tvMail3,tvMail4;
+    private TextView tvMail1,tvMail2,tvMail3,tvMail4,tvMail11,tvMail22,tvMail33,tvMail44;
     private TextView tvCalendar1,tvCalendar2,tvCalendar3,tvCalendar4,tvCalendar5;
     private Emails emails;
 
@@ -67,6 +67,10 @@ public class TabFragment1Time extends Fragment {
         tvMail2 = (TextView) v.findViewById(R.id.tvMail2);
         tvMail3 = (TextView) v.findViewById(R.id.tvMail3);
         tvMail4 = (TextView) v.findViewById(R.id.tvMail4);
+        tvMail11 = (TextView) v.findViewById(R.id.tvMail11);
+        tvMail22 = (TextView) v.findViewById(R.id.tvMail22);
+        tvMail33 = (TextView) v.findViewById(R.id.tvMail33);
+        tvMail44 = (TextView) v.findViewById(R.id.tvMail44);
 
 
         //creamos los widgets que van a visualizar los calendarios
@@ -86,11 +90,15 @@ public class TabFragment1Time extends Fragment {
             ivIconWeather.setImageDrawable(weatherIconDrawable);
         }
         int tam=emails.size();
-        tvMail1.setText(emails.getEmail(tam-1));
-        tvMail2.setText(emails.getEmail(tam-2));
-        tvMail3.setText(emails.getEmail(tam-3));
-        tvMail4.setText(emails.getEmail(tam-4));
 
+        tvMail1.setText(emails.getEmail(tam-1)[0]);
+        tvMail2.setText(emails.getEmail(tam-2)[0]);
+        tvMail3.setText(emails.getEmail(tam-3)[0]);
+        tvMail4.setText(emails.getEmail(tam-4)[0]);
+        tvMail11.setText("| "+emails.getEmail(tam-1)[1]);
+        tvMail22.setText("| "+emails.getEmail(tam-2)[1]);
+        tvMail33.setText("| "+emails.getEmail(tam-3)[1]);
+        tvMail44.setText("| "+emails.getEmail(tam-4)[1]);
 
         return v;
     }

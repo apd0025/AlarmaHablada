@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +68,6 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
             public void onClick(View v) {
                 Container.getInstance().getWeather().setSpeechWeather();
                 String cadena=Container.getInstance().getWeather().getSpeechWeather().toString();
-                Log.d("Hola",cadena);
                 speak(cadena);
             }
         });

@@ -44,6 +44,8 @@
     <string name="DeleteAlarm">Borra Alarma</string>
     <string name="setAlarmName">Introduce nombre</string>
     <string name="stopAlarm">Para alarma</string>
+    <string name="from">Remitente</string>
+    <string name="Subject">Asunto</string>
 
 
 </resources>
