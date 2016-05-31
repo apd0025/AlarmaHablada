@@ -22,7 +22,7 @@ public class Alarm {
     private static List<Boolean> alarmDays = new ArrayList<Boolean>(7);
     //0-customMessage, 1-ubuMail, 2-ubuCalendar, 3-twitter, 4-weathfer, 5-music
     private static List<Boolean> choosenoptions = new ArrayList<Boolean>(6);
-    private String name="Androide";
+
     private static Alarm alarm;
 
     //con este metodo obtenemos la instancia de alarm
@@ -134,13 +134,6 @@ public class Alarm {
         choosenoptions.removeAll(choosenoptions);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 
 }

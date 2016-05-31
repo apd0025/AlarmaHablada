@@ -46,7 +46,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
         service=new YahooWeatherService(this);
         dialog=new ProgressDialog(this);
         dialog.setMessage("Loading..");
-        dialog.show();
+       // dialog.show();
         user=User.getInstance();
         service.refreshWeather(user.getCity().toString());
 

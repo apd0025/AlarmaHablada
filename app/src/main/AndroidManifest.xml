@@ -22,7 +22,7 @@
         <activity android:name=".Alarm.AddAlarm" />
         <activity android:name=".Alarm.Days" />
         <activity android:name=".Alarm.SelectSong" />
-        <activity android:name=".Alarm.SetAlarmName" />
+        <activity android:name=".Alarm.SetAlarmCustomMessage" />
         <activity android:name=".WeatherActivity" />
         <activity android:name=".Alarm.SetAlarm" />
 
@@ -32,7 +32,11 @@
             android:name=".Alarm.RingTonePlayingService"
             android:enabled="true" />
 
-        <activity android:name=".MailActivity"></activity>
+        <activity android:name=".MailActivity" />
+        <activity android:name=".Options.SetNameOptions" />
+        <activity android:name=".Options.SetCityOptions" />
+        <activity android:name=".Options.SetMailOptions" />
+        <activity android:name=".Options.SetTitleOptions"></activity>
     </application>
 
 </manifest>

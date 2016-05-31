@@ -2,14 +2,123 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Tab 3"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar"
+             >
+
+            <TextView
+                android:id="@+id/tvNameOptions"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/tvCityOptionsDisplay"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/tvCityOptionsDisplay"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:text="@string/Name"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNameOptionsDisplay"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="@string/Name" />
+
+            <TextView
+                android:id="@+id/tvCityOptions"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvNameOptions"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:text="@string/City"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCityOptionsDisplay"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tvNameOptionsDisplay"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="@string/City" />
+
+            <TextView
+                android:id="@+id/tvMailOptions"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvCityOptions"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:text="@string/mail"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMailOptionsDisplay"
+                android:gravity="right"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tvMailOptions"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="@string/mail" />
+
+            <TextView
+                android:id="@+id/tvTitleOptions"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvMailOptions"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:text="@string/Title"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTitleOptionsDisplay"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tvMailOptions"
+                android:paddingTop="@dimen/ButtonPadding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="@string/Title" />
+
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

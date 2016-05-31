@@ -14,6 +14,7 @@ import android.widget.TextView;
 import alvaroperezdelgado.alarmahablada.Alarm.AddAlarm;
 import alvaroperezdelgado.alarmahablada.Alarm.AlarmReceiver;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
+import alvaroperezdelgado.alarmahablada.Model.User;
 
 /**
  * Esta clase es la que controla el layout que el TabLayout mostrará
@@ -50,7 +51,7 @@ public class TabFragment2Alarm extends Fragment {
 
         alarm=Alarm.getInstance();
         //Iniciamos los objetos visuales con valor
-        tvTabAlarmName.setText(alarm.getName().toString());
+        tvTabAlarmName.setText(User.getInstance().getName());
         tvTabAlarmTime.setText(alarm.getHour()+" : "+alarm.getMin());
         tvTabAlarmdays.setText("Dias TODO");
         btNewAlarm.setOnClickListener(new View.OnClickListener() {

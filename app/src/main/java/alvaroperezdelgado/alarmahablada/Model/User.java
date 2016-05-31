@@ -8,11 +8,13 @@ package alvaroperezdelgado.alarmahablada.Model;
 public class User {
 
     private int id = 1;
-    private String ubuUser;
-    private String ubuPass;
+    private String mailUser="Vacio";
+    private String mailPass="1234";
+    private String city = "Burgos";
+    private String name="Usuario";
+    private String title="Vacío";
     private String twitterUser;
     private String twitterPass;
-    private String city = "Burgos";
     private static User user;
 
     /*
@@ -25,20 +27,29 @@ public class User {
         return user;
     }
 
-    public String getUbuUser() {
-        return ubuUser;
+    public String getMailUser() {
+        return mailUser;
     }
 
-    public void setUbuUser(String ubuUser) {
-        this.ubuUser = ubuUser;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUbuPass() {
-        return ubuPass;
+    public String getName() {
+
+        return name;
     }
 
-    public void setUbuPass(String ubuPass) {
-        this.ubuPass = ubuPass;
+    public void setMailUser(String mailUser) {
+        this.mailUser = mailUser;
+    }
+
+    public String getMailPass() {
+        return mailPass;
+    }
+
+    public void setMailPass(String mailPass) {
+        this.mailPass = mailPass;
     }
 
     public String getTwitterUser() {
@@ -64,4 +75,20 @@ public class User {
     public void setCity(String city) {
         this.city = city;
     }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+    public static void setUser(User user) {
+        User.user = user;
+    }
+
+
 }

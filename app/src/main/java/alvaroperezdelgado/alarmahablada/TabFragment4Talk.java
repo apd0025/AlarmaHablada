@@ -27,6 +27,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
     private Button btSpeechCustom;
     private Button btSpeechWeather;
     private Button btWeather;
+    private Button btMail;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
         btSpeechCustom = (Button) v.findViewById(R.id.btSpeechCustom);
         btSpeechWeather = (Button) v.findViewById(R.id.btSpeechWeather);
         btWeather = (Button) v.findViewById(R.id.btWeather);
+        btMail = (Button) v.findViewById(R.id.btMail);
 
         textToSpeech = new TextToSpeech(getActivity(), this);
 
@@ -44,14 +46,17 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
         btSpeechMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),MailActivity.class));
-                speak(Container.getInstance().getUbuMailString());
+                //startActivity(new Intent(getActivity(),MailActivity.class));
+                Container.getInstance().getEmails().setSpeechMail();
+                System.out.println(Container.getInstance().getEmails().getSpeechMail().toString());
+                speak(Container.getInstance().getEmails().getSpeechMail().toString());
             }
         });
 
         btSpeechCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO
                 speak(Container.getInstance().getUbuCalendarString());
             }
         });
@@ -77,6 +82,12 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), WeatherActivity.class);
                 startActivity(intent);
+            }
+        });
+        btMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MailActivity.class));
             }
         });
         return v;

@@ -29,6 +29,8 @@ public class MailActivity extends AppCompatActivity {
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
+
+                startActivity(new Intent(MailActivity.this, MainActivity.class));
                 return null;
             }
 
@@ -36,7 +38,7 @@ public class MailActivity extends AppCompatActivity {
         findViewById(R.id.btMailBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MailActivity.this, TabFragment4Talk.class));
+                startActivity(new Intent(MailActivity.this, MainActivity.class));
             }
         });
     }

@@ -38,7 +38,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "alvaroperezdelgado.alarmahablada.Alarm.SetAlarmName"/>
+        className = "alvaroperezdelgado.alarmahablada.Alarm.SetAlarmCustomMessage"/>
       <point      
         x = "1768"      
         y = "2860"/>

@@ -42,10 +42,20 @@
     <string name="Song">Canción</string>
     <string name="calendar">Calendario</string>
     <string name="DeleteAlarm">Borra Alarma</string>
-    <string name="setAlarmName">Introduce nombre</string>
+    <string name="setName">Introduce tu nombre</string>
     <string name="stopAlarm">Para alarma</string>
     <string name="from">Remitente</string>
     <string name="Subject">Asunto</string>
+    <string name="setCustomMessage">Introduce mensaje personalizado</string>
+    <string name="City">Ciudad</string>
+    <string name="Title">Título</string>
+    <string name="SetCity">Introduce tu localidad</string>
+    <string name="SetMail">Introduce tu Mail</string>
+    <string name="SetPassword">Introduce Contraseña</string>
+    <string name="Sr">Don</string>
+    <string name="Mrs">Doña</string>
+    <string name="Empty">Vacío</string>
+    <string name="SetTitle">Introduce tu titulo</string>
 
 
 </resources>

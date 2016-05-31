@@ -14,6 +14,7 @@ import java.util.Calendar;
 
 import alvaroperezdelgado.alarmahablada.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
+import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
 
 
@@ -27,10 +28,10 @@ public class AddAlarm extends AppCompatActivity {
     //inicializar los componentes de la interfaz
     private TextView tvDaysClick;
     private TextView tvSongClick;
-    private TextView tvNameClick;
+    private TextView tvCustomMessageClick;
     private TextView tvSetAlarmClick;
     private TextView tvTimeShow;
-    private TextView tvNameAddShow;
+    private TextView tvCustomMessageAddShow;
     private TextView tvSongAddShow;
     private TextView tvDaysAddShow;
 
@@ -52,12 +53,12 @@ public class AddAlarm extends AppCompatActivity {
         setContentView(R.layout.activity_add_alarm);
         tvDaysClick = (TextView) findViewById(R.id.tvDaysAddClick);
         tvSongClick = (TextView) findViewById(R.id.tvSongAddClick);
-        tvNameClick = (TextView) findViewById(R.id.tvNameAddClick);
+        tvCustomMessageClick = (TextView) findViewById(R.id.tvCustomMessageAddClick);
         tvSetAlarmClick=(TextView)findViewById(R.id.tvTimeAddClick);
         btAccept=(Button)findViewById(R.id.btAcceptAddAlarm);
         btCancel=(Button)findViewById(R.id.btCancelAddAlarm);
         tvTimeShow=(TextView)findViewById(R.id.tvTimeShow);
-        tvNameAddShow=(TextView)findViewById(R.id.tvNameAddShow);
+        tvCustomMessageAddShow =(TextView)findViewById(R.id.tvCustomMessageAddShow);
         tvSongAddShow =(TextView)findViewById(R.id.tvSongAddShow);
         tvDaysAddShow=(TextView)findViewById(R.id.tvDaysAddShow);
 
@@ -66,7 +67,7 @@ public class AddAlarm extends AppCompatActivity {
 
         //mostrar informacion a traves de los textview
         tvTimeShow.setText(alarm.getHour()+" : "+alarm.getMin());
-        tvNameAddShow.setText(alarm.getName());
+        tvCustomMessageAddShow.setText(Container.getInstance().getCustomMessage());
         //tvSongAddShow.setText(Container.getInstance().getSong().getName().toString());
         tvDaysAddShow.setText("LUNES TODO");
 
@@ -84,10 +85,10 @@ public class AddAlarm extends AppCompatActivity {
                 startActivity(new Intent(AddAlarm.this, SelectSong.class));
             }
         });
-        tvNameClick.setOnClickListener(new View.OnClickListener() {
+        tvCustomMessageClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAlarm.this, SetAlarmName.class));
+                startActivity(new Intent(AddAlarm.this, SetAlarmCustomMessage.class));
             }
         });
 

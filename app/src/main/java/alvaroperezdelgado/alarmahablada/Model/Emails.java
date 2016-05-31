@@ -14,6 +14,7 @@ public class Emails {
     private Boolean isAdd=false;
     private List<String[]> emailList=new ArrayList<String[]>();
     private String[] fromSubject=null;
+    private String speechMail="";
     private static Emails emails;
     //Utilizaremos esta cadena para cuando no tengamos ningun Mail que mostrar
     private static String[] empty=new String[2];
@@ -60,6 +61,11 @@ public class Emails {
         }
         return emailList.get(index);
     }
+
+    public String getSpeechMail() {
+        return speechMail;
+    }
+
     public int size(){
 
         return emailList.size();
@@ -107,5 +113,17 @@ public class Emails {
         }
         string=string.substring(start,end);
         return string;
+    }
+    public void setSpeechMail(){
+        String aux="";
+
+        this.speechMail="Tienes "+emailList.size()+" emails en tu bandeja de entrada.";
+        for(int i=emailList.size()-1;i>emailList.size()-4;i--){
+
+            aux="Tienes un Email de "+emailList.get(i)[0]+", con asunto:"+emailList.get(i)[1]+". ";
+            this.speechMail=this.speechMail.concat(aux);
+        }
+
+
     }
 }

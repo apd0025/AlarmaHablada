@@ -44,7 +44,7 @@ public class Weather {
     }
 
     public void setSpeechWeather() {
-        this.speechWeather = "El tiempo en " + location + " es de " + degrees + " grados centígrados y el clima esta " + condition;
+        this.speechWeather = "El tiempo en " + location + " es de " + degrees + " grados centígrados y el clima está " + condition;
     }
     public String getSpeechWeather() {
         return speechWeather;

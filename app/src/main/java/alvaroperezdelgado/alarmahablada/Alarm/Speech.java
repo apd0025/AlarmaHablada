@@ -87,11 +87,11 @@ public class Speech extends Activity implements TextToSpeech.OnInitListener
                     //primero seleccionamos el idioma en el que queremos que lo lea
                     textToSpeech.setLanguage(new Locale("spa", "ESP"));
                     //con el metodo speak leemos el contenido de el string
-                    speak(container.getWeatherString().toString());
+                    speak(container.getWeather().getSpeechWeather().toString());
 
                 }else{
                     textToSpeech.setLanguage( Locale.ENGLISH );
-                    speak( container.getWeatherString().toString() );
+                    speak( container.getWeather().getSpeechWeather().toString());
                 }
             }
         });
