@@ -8,8 +8,8 @@ package alvaroperezdelgado.alarmahablada.Model;
 public class User {
 
     private int id = 1;
-    private String mailUser="Vacio";
-    private String mailPass="1234";
+    private String mailUser="apd0025tfg";
+    private String mailPass="444044ap";
     private String city = "Burgos";
     private String name="Usuario";
     private String title="Vacío";

@@ -6,4 +6,5 @@
     <dimen name="ButtonPaddingLeft">70dp</dimen>
     <dimen name="TextTittleSize">25sp</dimen>
     <dimen name="PaddingRelativeLayout">19dp</dimen>
+    <dimen name="HeightTalkButtons">75dp</dimen>
 </resources>

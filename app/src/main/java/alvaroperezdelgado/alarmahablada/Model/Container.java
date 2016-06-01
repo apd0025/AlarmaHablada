@@ -13,6 +13,11 @@ public class Container {
     //guarda el string con lo que queremos leer del calendario
     private String ubuCalendarString = "No tienes eventos para hoy";
 
+    //Guardamos el saludo
+    private final String goodMorning="Buenos dias";
+    private final String goodAfternoon="Buenas tardes";
+    private final String goodNight="Buenas noches";
+
 
     //guarda la cancion que queramos reproducir
     private File song = null;
@@ -20,6 +25,9 @@ public class Container {
     private Weather weather = Weather.getInstance();
     //guarda el objeto mail
     private Emails emails=Emails.getInstance();
+    //guarda el objeto user
+    private User user=User.getInstance();
+
 
     //guarda un objeto contenedor
     private static Container container;

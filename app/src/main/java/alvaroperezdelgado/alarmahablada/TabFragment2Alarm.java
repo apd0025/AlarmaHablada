@@ -49,10 +49,10 @@ public class TabFragment2Alarm extends Fragment {
         tvTabAlarmTime = (TextView) v.findViewById(R.id.tvTabAlarmTime);
         tvTabAlarmdays = (TextView) v.findViewById(R.id.tvTabAlarmdays);
 
-        alarm=Alarm.getInstance();
+        alarm = Alarm.getInstance();
         //Iniciamos los objetos visuales con valor
         tvTabAlarmName.setText(User.getInstance().getName());
-        tvTabAlarmTime.setText(alarm.getHour()+" : "+alarm.getMin());
+        tvTabAlarmTime.setText(alarm.getHour() + " : " + alarm.getMin());
         tvTabAlarmdays.setText("Dias TODO");
         btNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +65,6 @@ public class TabFragment2Alarm extends Fragment {
         final Intent intent = new Intent(getActivity(), AlarmReceiver.class);
         //inicialize our alarmManager
         alarmManager = (AlarmManager) this.getContext().getSystemService(getContext().ALARM_SERVICE);
-
-
 
 
         btCancelAlarm.setOnClickListener(new View.OnClickListener() {

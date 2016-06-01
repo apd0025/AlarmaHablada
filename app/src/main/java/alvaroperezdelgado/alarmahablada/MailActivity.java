@@ -10,6 +10,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 
 import alvaroperezdelgado.alarmahablada.Email.EmailManager;
+import alvaroperezdelgado.alarmahablada.Model.User;
 
 public class MailActivity extends AppCompatActivity {
     Message[] messages=null;
@@ -19,7 +20,8 @@ public class MailActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mail);
-        final EmailManager emailManager = new EmailManager("apd0025tfg", "444044ap", "gmail.com", "smtp.gmail.com", "imap.gmail.com");
+        User user=User.getInstance();
+        final EmailManager emailManager = new EmailManager(user.getMailUser(), user.getMailPass(), "gmail.com", "smtp.gmail.com", "imap.gmail.com");
 
         new AsyncTask<String, Void, String>() {
             @Override

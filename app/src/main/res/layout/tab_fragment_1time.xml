@@ -1,248 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
 
-
-    <RelativeLayout
-        android:orientation="horizontal"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:padding="@dimen/PaddingRelativeLayout">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="--------"
-            android:id="@+id/tvTemperature1"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:id="@+id/ivIconWeather1"
-            android:src="@drawable/na"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="--------"
-            android:id="@+id/tvLocation1"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="--------"
-            android:id="@+id/tvCondition1"
-            android:layout_below="@+id/ivIconWeather1"
-            android:layout_centerHorizontal="true" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/PaddingRelativeLayout">
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvTemperature1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="--------"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="105dp">
+                <ImageView
+                    android:id="@+id/ivIconWeather1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/na" />
 
-        <TextClock
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textClock"
-            android:textSize="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+                <TextView
+                    android:id="@+id/tvLocation1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="--------"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/tvDate"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/textClock"
-            android:layout_centerHorizontal="true" />
+                <TextView
+                    android:id="@+id/tvCondition1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivIconWeather1"
+                    android:layout_centerHorizontal="true"
+                    android:text="--------"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/mail"
-            android:id="@+id/tvMail"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="105dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/from"
-            android:id="@+id/tvFrom"
-            android:layout_below="@+id/tvMail"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+                <TextClock
+                    android:id="@+id/textClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="50dp" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail1"
-            android:text="hoooooooo"
-            android:layout_below="@+id/tvFrom"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textClock"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Large Text"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail2"
-            android:text="hoooooooo"
-            android:layout_below="@+id/tvMail1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail3"
-            android:layout_below="@+id/tvMail2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="hoooooooo" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvMail4"
-            android:layout_below="@+id/tvMail3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="hoooooooo" />
+                <TextView
+                    android:id="@+id/tvMail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/mail"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/tvMail11"
-            android:layout_alignTop="@+id/tvMail1"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvMail"
+                    android:text="@string/from"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/tvMail22"
-            android:layout_below="@+id/tvMail11"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvMail1"
+                    android:layout_width="175dp"
+                    android:layout_height="17dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvFrom"
+                    android:text="hoooooooo"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/tvMail33"
-            android:layout_below="@+id/tvMail22"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvMail2"
+                    android:layout_width="175dp"
+                    android:layout_height="17dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvMail1"
+                    android:text="hoooooooo"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="17dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/tvMail44"
-            android:layout_alignTop="@+id/tvMail4"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvMail3"
+                    android:layout_width="175dp"
+                    android:layout_height="17dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvMail2"
+                    android:text="hoooooooo"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/Subject"
-            android:id="@+id/tvSubject"
-            android:layout_alignTop="@+id/tvFrom"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvMail4"
+                    android:layout_width="175dp"
+                    android:layout_height="17dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvMail3"
+                    android:text="hoooooooo"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvMail11"
+                    android:layout_width="fill_parent"
+                    android:layout_height="17dp"
+                    android:text="Small Text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_alignTop="@+id/tvMail1"
+                    android:layout_toRightOf="@+id/tvMail1"
+                    android:layout_toEndOf="@+id/tvMail1" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginLeft="5dp">
+                <TextView
+                    android:id="@+id/tvMail22"
+                    android:layout_width="fill_parent"
+                    android:layout_height="17dp"
+                    android:text="Small Text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_below="@+id/tvMail1"
+                    android:layout_toRightOf="@+id/tvMail1"
+                    android:layout_toEndOf="@+id/tvMail1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/calendar"
-            android:id="@+id/tvCalendar"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+                <TextView
+                    android:id="@+id/tvMail33"
+                    android:layout_width="fill_parent"
+                    android:layout_height="17dp"
+                    android:text="Small Text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_below="@+id/tvMail2"
+                    android:layout_toRightOf="@+id/tvMail2"
+                    android:layout_toEndOf="@+id/tvMail2" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvCalendar1"
-            android:layout_below="@+id/tvCalendar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+                <TextView
+                    android:id="@+id/tvMail44"
+                    android:layout_width="fill_parent"
+                    android:layout_height="17dp"
+                    android:text="Small Text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_below="@+id/tvMail3"
+                    android:layout_toRightOf="@+id/tvMail3"
+                    android:layout_toEndOf="@+id/tvMail3" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvCalendar2"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tvCalendar1"
-            android:layout_alignParentLeft="true" />
+                <TextView
+                    android:id="@+id/tvSubject"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Subject"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_alignTop="@+id/tvFrom"
+                    android:layout_alignLeft="@+id/tvMail11"
+                    android:layout_alignStart="@+id/tvMail11" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvCalendar3"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tvCalendar2"
-            android:layout_alignParentLeft="true" />
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/tvCalendar4"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tvCalendar3"
-            android:layout_alignParentLeft="true" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginLeft="5dp">
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/calendar"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tvCalendar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvCalendar"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tvCalendar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvCalendar1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tvCalendar3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvCalendar2"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tvCalendar4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvCalendar3"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
