@@ -33,8 +33,7 @@
             android:id="@+id/swMonday"
             android:layout_column="0"
             android:layout_weight="1"
-            android:checked="false"
-            android:backgroundTint="#561717" />
+            android:checked="false" />
     </TableRow>
     <TableRow
         android:layout_width="match_parent"

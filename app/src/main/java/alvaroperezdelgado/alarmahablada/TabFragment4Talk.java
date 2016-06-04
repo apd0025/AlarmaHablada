@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
+import alvaroperezdelgado.alarmahablada.Calendar.CalendarActivity;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 
 /**
@@ -28,6 +29,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
     private Button btSpeechWeather;
     private Button btWeather;
     private Button btMail;
+    private Button btCalendar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
         btSpeechWeather = (Button) v.findViewById(R.id.btSpeechWeather);
         btWeather = (Button) v.findViewById(R.id.btWeather);
         btMail = (Button) v.findViewById(R.id.btMail);
+        btCalendar=(Button)v.findViewById(R.id.btCalendar);
 
         textToSpeech = new TextToSpeech(getActivity(), this);
 
@@ -56,8 +59,8 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
         btSpeechCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
-                speak(Container.getInstance().getUbuCalendarString());
+
+                speak(Container.getInstance().getListCalendarEvents().getSpeechCalendarEvents());
             }
         });
 
@@ -88,6 +91,12 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), MailActivity.class));
+            }
+        });
+        btCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), CalendarActivity.class));
             }
         });
         return v;

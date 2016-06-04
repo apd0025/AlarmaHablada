@@ -123,7 +123,6 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/tvFrom"
-                    android:text="hoooooooo"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -133,7 +132,6 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/tvMail1"
-                    android:text="hoooooooo"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -143,7 +141,6 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/tvMail2"
-                    android:text="hoooooooo"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -153,14 +150,12 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/tvMail3"
-                    android:text="hoooooooo"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/tvMail11"
                     android:layout_width="fill_parent"
                     android:layout_height="17dp"
-                    android:text="Small Text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_alignTop="@+id/tvMail1"
                     android:layout_toRightOf="@+id/tvMail1"
@@ -170,7 +165,6 @@
                     android:id="@+id/tvMail22"
                     android:layout_width="fill_parent"
                     android:layout_height="17dp"
-                    android:text="Small Text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_below="@+id/tvMail1"
                     android:layout_toRightOf="@+id/tvMail1"
@@ -180,7 +174,6 @@
                     android:id="@+id/tvMail33"
                     android:layout_width="fill_parent"
                     android:layout_height="17dp"
-                    android:text="Small Text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_below="@+id/tvMail2"
                     android:layout_toRightOf="@+id/tvMail2"
@@ -190,7 +183,6 @@
                     android:id="@+id/tvMail44"
                     android:layout_width="fill_parent"
                     android:layout_height="17dp"
-                    android:text="Small Text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_below="@+id/tvMail3"
                     android:layout_toRightOf="@+id/tvMail3"

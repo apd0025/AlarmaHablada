@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import alvaroperezdelgado.alarmahablada.Model.Container;
-import alvaroperezdelgado.alarmahablada.Model.Emails;
 
 /**
  * Esta clase es la que controla el layout que el TabLayout mostrará
@@ -30,7 +29,8 @@ public class TabFragment1Time extends Fragment {
     private ImageView ivIconWeather;
     private TextView tvMail1,tvMail2,tvMail3,tvMail4,tvMail11,tvMail22,tvMail33,tvMail44;
     private TextView tvCalendar1,tvCalendar2,tvCalendar3,tvCalendar4,tvCalendar5;
-    private Emails emails;
+    //Aqui tenemos todos nuestros objetos a mostrar, mail, calendar, weather
+    private Container container1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +41,9 @@ public class TabFragment1Time extends Fragment {
         Calendar cal = Calendar.getInstance();
         //obtener la vista
         View v = null;
-        emails=emails.getInstance();
+
+        container1=Container.getInstance();
+
         //desde aqui llamamos al layout que queremos que muestre
         //si nuestra version android es superior a Jelly bean ejecutaremos este código, sino el del else
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -81,24 +83,37 @@ public class TabFragment1Time extends Fragment {
 
 
         //ponemos en los widgets del tiempo antes creados la infomacion que necesitamos
-        tvLocation.setText(Container.getInstance().getWeather().getLocation());
-        tvCondition.setText(Container.getInstance().getWeather().getCondition());
-        tvTemperature.setText(Container.getInstance().getWeather().getDegrees() + "\u00B0"+"C");
+        tvLocation.setText(container1.getWeather().getLocation());
+        tvCondition.setText(container1.getWeather().getCondition());
+        tvTemperature.setText(container1.getWeather().getDegrees() + "\u00B0"+"C");
         //TODO quitar este if warro necesito cargar la clase weather activity antes
-        if(Container.getInstance().getWeather().getIconResourceId()!=1) {
+        if(container1.getWeather().getIconResourceId()!=1) {
             @SuppressWarnings("deprecation") Drawable weatherIconDrawable = getResources().getDrawable(Container.getInstance().getWeather().getIconResourceId());
             ivIconWeather.setImageDrawable(weatherIconDrawable);
         }
-        int tam=emails.size();
 
-        tvMail1.setText(emails.getEmail(tam-1)[0]);
-        tvMail2.setText(emails.getEmail(tam-2)[0]);
-        tvMail3.setText(emails.getEmail(tam-3)[0]);
-        tvMail4.setText(emails.getEmail(tam-4)[0]);
-        tvMail11.setText("| "+emails.getEmail(tam-1)[1]);
-        tvMail22.setText("| "+emails.getEmail(tam-2)[1]);
-        tvMail33.setText("| "+emails.getEmail(tam-3)[1]);
-        tvMail44.setText("| "+emails.getEmail(tam-4)[1]);
+        //Mostramos en pantalla los emails que tenemos en Emails
+        int tamMails=container1.getEmails().size();
+
+        tvMail1.setText(container1.getEmails().getEmail(tamMails - 1)[0]);
+        tvMail2.setText(container1.getEmails().getEmail(tamMails - 2)[0]);
+        tvMail3.setText(container1.getEmails().getEmail(tamMails - 3)[0]);
+        tvMail4.setText(container1.getEmails().getEmail(tamMails - 4)[0]);
+        tvMail11.setText("| "+container1.getEmails().getEmail(tamMails - 1)[1]);
+        tvMail22.setText("| "+container1.getEmails().getEmail(tamMails - 2)[1]);
+        tvMail33.setText("| "+container1.getEmails().getEmail(tamMails - 3)[1]);
+        tvMail44.setText("| "+container1.getEmails().getEmail(tamMails - 4)[1]);
+
+        //Mostramos por pantalla los eventos del calendario que tenemos en ListCalendarEvents
+        int tamCalEvents=container1.getListCalendarEvents().size();
+
+        tvCalendar1.setText(container1.getListCalendarEvents().getCalendarEvent(tamCalEvents-1).toString());
+        tvCalendar2.setText(container1.getListCalendarEvents().getCalendarEvent(tamCalEvents-2).toString());
+        tvCalendar3.setText(container1.getListCalendarEvents().getCalendarEvent(tamCalEvents-3).toString());
+        tvCalendar4.setText(container1.getListCalendarEvents().getCalendarEvent(tamCalEvents-4).toString());
+
+
+
 
         return v;
     }

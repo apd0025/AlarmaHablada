@@ -2,6 +2,8 @@ package alvaroperezdelgado.alarmahablada.Model;
 
 import java.io.File;
 
+import alvaroperezdelgado.alarmahablada.Calendar.ListCalendarEvents;
+
 /**
  * Clase container
  * sirve para guardar los Strings que va a leer nuestra alarma
@@ -10,14 +12,10 @@ public class Container {
     //guarda el string con el mensaje customizado
     private String customMessage = "Este es un mensaje personalizado";
 
-    //guarda el string con lo que queremos leer del calendario
-    private String ubuCalendarString = "No tienes eventos para hoy";
-
     //Guardamos el saludo
     private final String goodMorning="Buenos dias";
     private final String goodAfternoon="Buenas tardes";
     private final String goodNight="Buenas noches";
-
 
     //guarda la cancion que queramos reproducir
     private File song = null;
@@ -27,6 +25,9 @@ public class Container {
     private Emails emails=Emails.getInstance();
     //guarda el objeto user
     private User user=User.getInstance();
+    //guarda el objeto ListCalendarEvents
+    private ListCalendarEvents listCalendarEvents=ListCalendarEvents.getInstance();
+
 
 
     //guarda un objeto contenedor
@@ -51,14 +52,6 @@ public class Container {
         this.customMessage = customMessage;
     }
 
-    public String getUbuCalendarString() {
-        return ubuCalendarString;
-    }
-
-    public void setUbuCalendarString(String ubuCalendarString) {
-        this.ubuCalendarString = ubuCalendarString;
-    }
-
     public File getSong() {
         return song;
     }
@@ -75,4 +68,7 @@ public class Container {
         return emails;
     }
 
+    public ListCalendarEvents getListCalendarEvents() {
+        return listCalendarEvents;
+    }
 }
