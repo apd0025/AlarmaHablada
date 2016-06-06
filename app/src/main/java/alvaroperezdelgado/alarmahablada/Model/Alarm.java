@@ -15,6 +15,8 @@ public class Alarm {
     private int hour=0;
     private int min=00;
     private Calendar calendar;
+    private String showHour="00",showMin="00";
+
 
     private enum week {mon, tue, wed, thu, fri, sat, sun};
 
@@ -47,6 +49,7 @@ public class Alarm {
 
     public void setHour(int hour) {
         this.hour = hour;
+        this.showHour=convertOneDigit(hour);
     }
 
     public int getMin() {
@@ -55,6 +58,7 @@ public class Alarm {
 
     public void setMin(int min) {
         this.min = min;
+        this.showMin=convertOneDigit(min);
     }
 
     public List<Boolean> getAlarmDays() {
@@ -130,6 +134,29 @@ public class Alarm {
         }
     }
 
+    public String getShowHour() {
+        return showHour;
+    }
+
+    public String getShowMin() {
+        return showMin;
+    }
+
+    /**
+     * Este método sirve para poner un 0 delante cuando se necesita
+     * @param aux
+     * @return
+     */
+    public String convertOneDigit(int aux){
+        String string;
+        //Colocamos el 0 delante de la hora y el minuto para que quede bien
+        if(aux<10){
+            string="0"+aux;
+        }else{
+            string=String.valueOf(aux);
+        }
+        return string;
+    }
     public void deleteListChoosenoptions() {
         choosenoptions.removeAll(choosenoptions);
     }

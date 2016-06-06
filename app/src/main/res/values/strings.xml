@@ -38,6 +38,21 @@
     <string name="Friday">Viernes</string>
     <string name="Saturday">Sábado</string>
     <string name="Sunday">Domingo</string>
+    <!-- Meses del año -->
+    <string name="January">Enero</string>
+    <string name="February">Febrero</string>
+    <string name="March">Marzo</string>
+    <string name="April">Abril</string>
+    <string name="May">Mayo</string>
+    <string name="June">Junio</string>
+    <string name="July">Julio</string>
+    <string name="August">Agosto</string>
+    <string name="September">Septiembre</string>
+    <string name="October">Octubre</string>
+    <string name="November">Noviembre</string>
+    <string name="December">Diciembre</string>
+
+
     <string name="Name">Nombre</string>
     <string name="Song">Canción</string>
     <string name="calendar">Calendario</string>
@@ -57,6 +72,8 @@
     <string name="Empty">Vacío</string>
     <string name="SetTitle">Introduce tu titulo</string>
     <string name="SetGmailMail">Introduce tu Mail de gmail sin \"@gmail.com\"</string>
+    <string name="Welcome">Saludo</string>
+    <string name="Stop">Stop</string>
 
 
 </resources>

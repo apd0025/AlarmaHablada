@@ -25,12 +25,12 @@ public class ListCalendarEvents {
 
     /**
      * Método que sirve para añadir eventos a la lista de eventos.
+     *
      * @param calendarEvent
      */
     public void addCalendarEvent(CalendarEvent calendarEvent) {
         eventList.add(calendarEvent);
     }
-
 
 
     /**
@@ -44,6 +44,7 @@ public class ListCalendarEvents {
 
     /**
      * Método que nos devuelve el número de eventos que tenemos almacenados.
+     *
      * @return eventList.size()
      */
     public int size() {
@@ -52,11 +53,12 @@ public class ListCalendarEvents {
 
     /**
      * Método que sirve para devolvernos un evento dentro de la lista.
+     *
      * @param index
      * @return
      */
     public CalendarEvent getCalendarEvent(int index) {
-        if (index < size()&&index>=0) {
+        if (index < size() && index >= 0) {
             return eventList.get(index);
         } else {
             return new CalendarEvent("No");
@@ -75,15 +77,20 @@ public class ListCalendarEvents {
     /**
      * Método que sirve para crear una cadena con lo que vamos a decir hablando
      */
-    public void setSpeechMail() {
+    public void setSpeechCalendar() {
         String aux = "";
         if (size() < 1) {
             setSpeechCalendarEvents("No hay eventos para hoy");
         } else {
-            this.speechCalendarEvents = "Tienes " + size() + " eventos en tu calendario.";
-            for (int i = size() - 1; i >size() - 4; i--) {
-                //todo cambiar lo de la fecha... que solo diga la hora
-                aux = "Tienes un evento con título:" + getCalendarEvent(i).getTitle() +" que empieza a las "+getCalendarEvent(i).getBegin() +". ";
+            this.speechCalendarEvents = "Tienes " + size() + " eventos en tu calendario para hoy.";
+            for (int i = size() - 1; i > size() - 4&&i>=0; i--) {
+
+                if (getCalendarEvent(i).getBegin().getHours() == getCalendarEvent(i).getEnd().getHours()) {
+                    aux = "Tienes un evento con título " + getCalendarEvent(i).getTitle() + " que dura todo el día. ";
+
+                } else {
+                    aux = "Tienes un evento con título " + getCalendarEvent(i).getTitle() + " que empieza a las " + getCalendarEvent(i).getBegin().getHours() + ". ";
+                }
                 this.speechCalendarEvents = this.speechCalendarEvents.concat(aux);
             }
         }

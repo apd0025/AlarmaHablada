@@ -22,7 +22,7 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="147dp"
+                android:layout_height="150dp"
                 android:padding="@dimen/PaddingRelativeLayout">
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_height="90dp"
                     android:id="@+id/ivIconWeather1"
                     android:src="@drawable/na"
-                    android:layout_alignParentTop="true"
+                    android:layout_alignParentTop="false"
                     android:layout_centerHorizontal="true" />
 
                 <TextView

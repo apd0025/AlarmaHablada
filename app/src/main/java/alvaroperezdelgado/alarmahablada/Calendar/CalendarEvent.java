@@ -139,7 +139,7 @@ public class CalendarEvent {
             }else{
                 minutesEnd=String.valueOf(minutesE);
             }
-            //Si un evento empieza y termina a la misma hora pero del dia siguiente es que dura todo el dia.
+            //Si un evento empieza y termina a la misma hora pero del dia siguiente es que dura to do el dia.
             if(getBegin().getHours()==getEnd().getHours()&&getBegin().getMinutes()==getEnd().getMinutes()) {
                 return "Asunto: " + getTitle() + ". Todo el dia.";
             }

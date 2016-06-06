@@ -12,7 +12,7 @@ public class User {
     private String mailPass="444044ap";
     private String city = "Burgos";
     private String name="Usuario";
-    private String title="Vacío";
+    private String title="";
     private String twitterUser;
     private String twitterPass;
     private static User user;

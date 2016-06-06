@@ -16,13 +16,20 @@ import java.util.Calendar;
 
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class SetAlarm extends AppCompatActivity {
     //alarmManager
     private AlarmManager alarmManager;
 
     //time picker como obtendremos la hora de la alarma
-    private TimePicker alarmTimePicker;
+    @Bind(R.id.tmTimePicker)
+    TimePicker alarmTimePicker;
+    @Bind(R.id.btAcceptSet)
+    Button btAcceptTime;
+    @Bind(R.id.btCancelSet)
+    Button btCancelTime;
 
     //texto del medio
     private TextView tvUpdateText;
@@ -38,27 +45,19 @@ public class SetAlarm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm);
+
+        ButterKnife.bind(this);
         //obtenemos el objeto alarma
         this.context = this;
 
         //inicialize our alarmManager
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        //inicialize our timePicker
-        alarmTimePicker = (TimePicker) findViewById(R.id.tmTimePicker);
-
-
         //create an instance of a calendar
         final Calendar calendar = Calendar.getInstance();
 
-
         //obtenemos el objeto alarma
         alarm = Alarm.getInstance();
-
-
-        //Inicializar botones
-        Button btAcceptTime = (Button) findViewById(R.id.btAcceptSet);
-        Button btCancelTime = (Button) findViewById(R.id.btCancelSet);
 
         //create onClick listener to start the alarm
         btAcceptTime.setOnClickListener(new View.OnClickListener() {

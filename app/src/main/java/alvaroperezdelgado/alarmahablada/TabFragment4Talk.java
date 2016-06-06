@@ -15,68 +15,102 @@ import java.util.Locale;
 
 import alvaroperezdelgado.alarmahablada.Calendar.CalendarActivity;
 import alvaroperezdelgado.alarmahablada.Model.Container;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Esta clase es la que controla el layout que el TabLayout mostrará
  * En este caso muestra el fragment layout de la hablar
+ * Esta clase contiene toda la gestión de como se comportan los botones a la hora de pulsarlos, establecer que cadenas debe leer cada uno
  */
 public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitListener {
 
     private TextToSpeech textToSpeech;
-    private Button btSpeechMail;
-    private Button btSpeechCalendar;
-    private Button btSpeechCustom;
-    private Button btSpeechWeather;
-    private Button btWeather;
-    private Button btMail;
-    private Button btCalendar;
+
+    @Bind(R.id.btSpeechMail)
+    Button btSpeechMail;
+    @Bind(R.id.btSpeechCalendar)
+    Button btSpeechCalendar;
+    @Bind(R.id.btSpeechCustom)
+    Button btSpeechCustom;
+    @Bind(R.id.btSpeechWeather)
+    Button btSpeechWeather;
+    @Bind(R.id.btWeather)
+    Button btWeather;
+    @Bind(R.id.btMail)
+    Button btMail;
+    @Bind(R.id.btCalendar)
+    Button btCalendar;
+    @Bind(R.id.btSpeechHello)
+    Button btSpeechHello;
+    @Bind(R.id.btStop)
+    Button btStop;
+
+    private Container container1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //desde aqui llamamos al layout que queremos que muestre
         View v = inflater.inflate(R.layout.tab_fragment_4talk, container, false);
-        btSpeechMail = (Button) v.findViewById(R.id.btSpeechMail);
-        btSpeechCalendar = (Button) v.findViewById(R.id.btSpeechCalendar);
-        btSpeechCustom = (Button) v.findViewById(R.id.btSpeechCustom);
-        btSpeechWeather = (Button) v.findViewById(R.id.btSpeechWeather);
-        btWeather = (Button) v.findViewById(R.id.btWeather);
-        btMail = (Button) v.findViewById(R.id.btMail);
-        btCalendar=(Button)v.findViewById(R.id.btCalendar);
+
+        //Inyectamos los widgets con butterknife
+        ButterKnife.bind(this, v);
+
+        container1 = Container.getInstance();
 
         textToSpeech = new TextToSpeech(getActivity(), this);
 
-
+        //Boton de hablar del mail
         btSpeechMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(),MailActivity.class));
-                Container.getInstance().getEmails().setSpeechMail();
-                System.out.println(Container.getInstance().getEmails().getSpeechMail().toString());
-                speak(Container.getInstance().getEmails().getSpeechMail().toString());
+                container1.getEmails().setSpeechMail();
+                speak(container1.getEmails().getSpeechMail().toString());
             }
         });
 
+        //Boton de hablar de calendario
         btSpeechCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                speak(Container.getInstance().getListCalendarEvents().getSpeechCalendarEvents());
+                container1.getListCalendarEvents().setSpeechCalendar();
+                speak(container1.getListCalendarEvents().getSpeechCalendarEvents());
             }
         });
 
+        //Boton de hablar del mensaje customizado
         btSpeechCustom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(Container.getInstance().getCustomMessage());
+                speak(container1.getCustomMessage());
             }
         });
 
+        //Boton de hablar del tiempo
         btSpeechWeather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Container.getInstance().getWeather().setSpeechWeather();
-                String cadena=Container.getInstance().getWeather().getSpeechWeather().toString();
+                container1.getWeather().setSpeechWeather();
+                String cadena = container1.getWeather().getSpeechWeather().toString();
                 speak(cadena);
+            }
+        });
+
+        //Boton de hablar del saludo inicial
+        btSpeechHello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                container1.setWelcomeSpeech();
+                String cadena = container1.getWelcomeSpeech().toString();
+                speak(cadena);
+            }
+        });
+
+        //Boton de parada
+        btStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak("");
             }
         });
 
@@ -87,21 +121,25 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
                 startActivity(intent);
             }
         });
+
         btMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), MailActivity.class));
             }
         });
+
         btCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), CalendarActivity.class));
             }
         });
+
         return v;
     }
 
+    //Inicializamos lo fundamental para que funcione el textToSpeech
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {

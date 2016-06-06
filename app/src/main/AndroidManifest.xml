@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Alarm.AddAlarm" />
-        <activity android:name=".Alarm.Days" />
+        <activity android:name=".Alarm.SetDays" />
         <activity android:name=".Alarm.SelectSong" />
         <activity android:name=".Alarm.SetAlarmCustomMessage" />
         <activity android:name=".WeatherActivity" />

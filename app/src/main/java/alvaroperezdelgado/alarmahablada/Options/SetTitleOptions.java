@@ -15,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SetTitleOptions extends AppCompatActivity {
-    final String[] datos = {"Vácio", "Don", "Doña"};
+    final String[] datos = {"", "Don", "Doña"};
     //Declaramos un objeto tipo user
     User user;
     //Instanciamos con butterknife los widgets

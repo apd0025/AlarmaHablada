@@ -7,7 +7,7 @@ public class Weather {
     public int degrees=1;
     public String location="Burgos";
     public String condition="Hola";
-    public String speechWeather="Vacio";
+    public String speechWeather="No hay información del tiempo";
     public int iconResourceId=1;
 
 

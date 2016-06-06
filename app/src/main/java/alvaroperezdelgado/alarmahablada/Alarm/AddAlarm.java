@@ -16,6 +16,8 @@ import alvaroperezdelgado.alarmahablada.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class AddAlarm extends AppCompatActivity {
@@ -26,18 +28,27 @@ public class AddAlarm extends AppCompatActivity {
     private Alarm alarm;
 
     //inicializar los componentes de la interfaz
-    private TextView tvDaysClick;
-    private TextView tvSongClick;
-    private TextView tvCustomMessageClick;
-    private TextView tvSetAlarmClick;
-    private TextView tvTimeShow;
-    private TextView tvCustomMessageAddShow;
-    private TextView tvSongAddShow;
-    private TextView tvDaysAddShow;
-
+    @Bind(R.id.tvDaysAddClick)
+    TextView tvDaysClick;
+    @Bind(R.id.tvSongAddClick)
+    TextView tvSongClick;
+    @Bind(R.id.tvCustomMessageAddClick)
+    TextView tvCustomMessageClick;
+    @Bind(R.id.tvTimeAddClick)
+    TextView tvSetAlarmClick;
+    @Bind(R.id.tvTimeShow)
+    TextView tvTimeShow;
+    @Bind(R.id.tvCustomMessageAddShow)
+    TextView tvCustomMessageAddShow;
+    @Bind(R.id.tvSongAddShow)
+    TextView tvSongAddShow;
+    @Bind(R.id.tvDaysAddShow)
+    TextView tvDaysAddShow;
     //Inicializar botones
-    private Button btAccept;
-    private Button btCancel;
+    @Bind(R.id.btAcceptAddAlarm)
+    Button btAccept;
+    @Bind(R.id.btCancelAddAlarm)
+    Button btCancel;
 
     //Objeto alarm manager que gestiona nuestra alarma
     private AlarmManager alarmManager;
@@ -46,27 +57,19 @@ public class AddAlarm extends AppCompatActivity {
     //Hasta lo especificado en el calendario
     PendingIntent pendingIntent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
-        tvDaysClick = (TextView) findViewById(R.id.tvDaysAddClick);
-        tvSongClick = (TextView) findViewById(R.id.tvSongAddClick);
-        tvCustomMessageClick = (TextView) findViewById(R.id.tvCustomMessageAddClick);
-        tvSetAlarmClick=(TextView)findViewById(R.id.tvTimeAddClick);
-        btAccept=(Button)findViewById(R.id.btAcceptAddAlarm);
-        btCancel=(Button)findViewById(R.id.btCancelAddAlarm);
-        tvTimeShow=(TextView)findViewById(R.id.tvTimeShow);
-        tvCustomMessageAddShow =(TextView)findViewById(R.id.tvCustomMessageAddShow);
-        tvSongAddShow =(TextView)findViewById(R.id.tvSongAddShow);
-        tvDaysAddShow=(TextView)findViewById(R.id.tvDaysAddShow);
+
+        //Inyectamos los widgets con butterKnife
+        ButterKnife.bind(this);
 
         //obtener una instancia de alarm
         alarm=Alarm.getInstance();
 
         //mostrar informacion a traves de los textview
-        tvTimeShow.setText(alarm.getHour()+" : "+alarm.getMin());
+        tvTimeShow.setText(alarm.getShowHour()+" : "+alarm.getShowMin());
         tvCustomMessageAddShow.setText(Container.getInstance().getCustomMessage());
         //tvSongAddShow.setText(Container.getInstance().getSong().getName().toString());
         tvDaysAddShow.setText("LUNES TODO");
@@ -76,7 +79,7 @@ public class AddAlarm extends AppCompatActivity {
         tvDaysClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAlarm.this, Days.class));
+                startActivity(new Intent(AddAlarm.this, SetDays.class));
             }
         });
         tvSongClick.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +133,7 @@ public class AddAlarm extends AppCompatActivity {
                 //le pasamos el reloj de tiempo real, el calendario que contiene la hora y minuto a los que vamos a poner la alarma
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
                         , pendingIntent);
+                startActivity(new Intent(AddAlarm.this, MainActivity.class));
             }
         });
 

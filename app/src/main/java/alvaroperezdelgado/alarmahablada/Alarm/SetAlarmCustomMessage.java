@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class SetAlarmCustomMessage extends AppCompatActivity {
 
@@ -16,11 +18,14 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
     //cadena par aguardar el mensaje personalizado
     private String aux;
     //boton de aceptar de la activiti que guardará los valores y retornara a la anterior vista
-    private Button acept;
+    @Bind(R.id.btSetCustomMessageAccept)
+    Button acept;
     //boton de cancelar de la activiti que guardará los valores y retornara a la anterior vista
-    private Button cancel;
+    @Bind(R.id.btSetCustomMessageCancel)
+    Button cancel;
     //campo donde introduciremos el texto que queremos guardar
-    private EditText message;
+    @Bind(R.id.etSetName)
+    EditText message;
     //objeto singleton alarm donde guardaremos el mensaje
     private Container container;
 
@@ -28,10 +33,9 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm_custom_message);
-        //instanciamos los widgets antes mencionados
-        acept = (Button) findViewById(R.id.btSetCustomMessageAccept);
-        cancel = (Button) findViewById(R.id.btSetCustomMessageCancel);
-        message = (EditText) findViewById(R.id.etSetName);
+
+        //Inyectamos los widgets con butterKnife
+        ButterKnife.bind(this);
 
         //obtenemos la instancia del contenedor
         container = Container.getInstance();

@@ -36,8 +36,9 @@ public class CalendarActivity extends AppCompatActivity {
         year = Calendar.getInstance().get(Calendar.YEAR);
         day = Calendar.getInstance().get(Calendar.DATE);
         month=beginTime.get(Calendar.MONTH);
-        endTime.set(year, beginTime.getTime().getMonth(), day, 23, 59);
+        endTime.set(year, month, day, 23, 59);
         long endMills = endTime.getTimeInMillis();
+
         //Obtenemos la lista de eventos y la borramos, porque vamos a volver a recuperar todos
         ListCalendarEvents listCalendarEvents=ListCalendarEvents.getInstance();
         listCalendarEvents.removeAll();
@@ -80,12 +81,13 @@ public class CalendarActivity extends AppCompatActivity {
                 final Date end = new Date(eventCursor.getLong(2));
                 final String description = eventCursor.getString(3);
 
-                listCalendarEvents.addCalendarEvent(new CalendarEvent(title,description,begin,end));
-                Log.d("h", "---------------------------------------------------------");
+                //Añadimos a nuestra clase listCalendarEvents el evento obtenido
+                listCalendarEvents.addCalendarEvent(new CalendarEvent(title, description, begin, end));
                 Log.d("Cursor", "Title: " + title + "\tDescription: " + description + "\tBegin: " + begin.getHours()+":"+begin.getMinutes() + "\tEnd: " + end.getHours()+":"+end.getMinutes());
             }
         }
-        listCalendarEvents.setSpeechMail();
+        //Obtenemos la cadena que vamos a leer
+        //listCalendarEvents.setSpeechCalendar();
         startActivity(new Intent(this, MainActivity.class));
     }
 }

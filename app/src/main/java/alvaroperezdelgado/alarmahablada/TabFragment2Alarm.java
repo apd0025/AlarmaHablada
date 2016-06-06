@@ -15,26 +15,34 @@ import alvaroperezdelgado.alarmahablada.Alarm.AddAlarm;
 import alvaroperezdelgado.alarmahablada.Alarm.AlarmReceiver;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.User;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Esta clase es la que controla el layout que el TabLayout mostrará
  * En este caso muestra el fragment layout de la alarma
+ * Esta clase sirve para gestionar la alarma, todas sus propiedades
  */
 public class TabFragment2Alarm extends Fragment {
 
-    private TextView tvTabAlarmName;
-    private TextView tvTabAlarmTime;
-    private TextView tvTabAlarmdays;
+    @Bind(R.id.tvTabAlarmName)
+    TextView tvTabAlarmName;
+    @Bind(R.id.tvTabAlarmTime)
+    TextView tvTabAlarmTime;
+    @Bind(R.id.tvTabAlarmdays)
+    TextView tvTabAlarmdays;
 
+    @Bind(R.id.btNewAlarm)
+    Button btNewAlarm;
+    @Bind(R.id.btSetAlarmCancel)
+    Button btCancelAlarm;
 
-    private Button btNewAlarm;
-    private Button btCancelAlarm;
     private Alarm alarm;
 
     //alarmManager
     private AlarmManager alarmManager;
-    //Create a pendidgIntent that delays the intent
-    //until the specified calendar time
+
+    //Crearemos un pendingIntent para retrasar un intent hasta una hora especificada
     PendingIntent pendingIntent;
 
     @Override
@@ -42,17 +50,15 @@ public class TabFragment2Alarm extends Fragment {
 
         //Obtenemos la vista
         View v = inflater.inflate(R.layout.tab_fragment_2alarm, container, false);
-        //Inicializamos los botones
-        btNewAlarm = (Button) v.findViewById(R.id.btNewAlarm);
-        btCancelAlarm = (Button) v.findViewById(R.id.btSetAlarmCancel);
-        tvTabAlarmName = (TextView) v.findViewById(R.id.tvTabAlarmName);
-        tvTabAlarmTime = (TextView) v.findViewById(R.id.tvTabAlarmTime);
-        tvTabAlarmdays = (TextView) v.findViewById(R.id.tvTabAlarmdays);
+        //Inyectar con butterKnife
+        ButterKnife.bind(this, v);
 
         alarm = Alarm.getInstance();
         //Iniciamos los objetos visuales con valor
         tvTabAlarmName.setText(User.getInstance().getName());
-        tvTabAlarmTime.setText(alarm.getHour() + " : " + alarm.getMin());
+
+
+        tvTabAlarmTime.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
         tvTabAlarmdays.setText("Dias TODO");
         btNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,28 +69,24 @@ public class TabFragment2Alarm extends Fragment {
         });
 
         final Intent intent = new Intent(getActivity(), AlarmReceiver.class);
-        //inicialize our alarmManager
+        //Inicializamos el alarm manager
         alarmManager = (AlarmManager) this.getContext().getSystemService(getContext().ALARM_SERVICE);
-
 
         btCancelAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //cancel the alarm
+                //Cancelar alarma
                 alarmManager.cancel(pendingIntent);
 
-                //put extra string into intent
-                //tells the clock that you pressed the alarm off button
+                //Ponemos una cadena en extra en el intent, para saber si hemos pulsado el boton de off
                 intent.putExtra("extra", "alarm off");
 
-
-                //stop the ringtone
+                //Parar el ringtone
                 getContext().sendBroadcast(intent);
-
-
             }
         });
+
         //desde aqui llamamos al layout que queremos que muestre
         return v;
 

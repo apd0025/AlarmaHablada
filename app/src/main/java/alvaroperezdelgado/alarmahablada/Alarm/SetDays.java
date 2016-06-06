@@ -11,36 +11,43 @@ import java.util.List;
 
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Esta clase sirve para seleccionar los dias de la semana en funcion de unos switch que hemos creado con cada uno de los dias
  */
-public class Days extends AppCompatActivity {
+public class SetDays extends AppCompatActivity {
 
-    //Button accept
-    private Button btAceptar;
-    //objet alarm
+    //objeto alarma
     private Alarm alarm;
 
-    private enum week {Mon, tue, wed, thu, fri, sat, sun}
+    private enum week {Mon, tue, wed, thu, fri, sat, sun};
 
-    ;
-
-    private Switch swMon, swTue, swWed, swThu, swFri, swSat, swSun;
+    //Button acceptar
+    @Bind(R.id.btAcceptDays)
+    Button btAceptar;
+    @Bind(R.id.swMonday)
+    Switch swMon;
+    @Bind(R.id.swTuesday)
+    Switch swTue;
+    @Bind(R.id.swWednesday)
+    Switch swWed;
+    @Bind(R.id.swThursday)
+    Switch swThu;
+    @Bind(R.id.swFriday)
+    Switch swFri;
+    @Bind(R.id.swSaturday)
+    Switch swSat;
+    @Bind(R.id.swSunday)
+    Switch swSun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_days);
-
-        //get id switches
-        swMon = (Switch) findViewById(R.id.swMonday);
-        swTue = (Switch) findViewById(R.id.swTuesday);
-        swWed = (Switch) findViewById(R.id.swWednesday);
-        swThu = (Switch) findViewById(R.id.swThursday);
-        swFri = (Switch) findViewById(R.id.swFriday);
-        swSat = (Switch) findViewById(R.id.swSaturday);
-        swSun = (Switch) findViewById(R.id.swSunday);
+        //Inyectamos los widgets con ButterKnife
+        ButterKnife.bind(this);
 
         //get instance Alarm
         alarm = Alarm.getInstance();
@@ -71,7 +78,7 @@ public class Days extends AppCompatActivity {
             swSun.setChecked(true);
         }
 
-        findViewById(R.id.btAcceptDays).setOnClickListener(new View.OnClickListener() {
+        btAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //primero borramos la lista anterior de dias
@@ -86,7 +93,7 @@ public class Days extends AppCompatActivity {
                 alarm.setAlarmDays(7, swSun.isChecked());
 
                 //Volvemos a la actividad anterior
-                startActivity(new Intent(Days.this, AddAlarm.class));
+                startActivity(new Intent(SetDays.this, AddAlarm.class));
             }
         });
     }
