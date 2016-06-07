@@ -116,7 +116,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/swSong"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -129,12 +129,12 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch2"
+                android:id="@+id/swWeather"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/switch1"
+                android:layout_below="@+id/swSong"
                 android:checked="false"
                 android:paddingTop="@dimen/ButtonPadding"
                 android:text="@string/weather"
@@ -142,12 +142,12 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch3"
+                android:id="@+id/swCalendar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/switch2"
+                android:layout_below="@+id/swWeather"
                 android:checked="false"
                 android:paddingTop="@dimen/ButtonPadding"
                 android:text="@string/calendar"
@@ -155,12 +155,12 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch4"
+                android:id="@+id/swCustomMessage"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/switch3"
+                android:layout_below="@+id/swCalendar"
                 android:checked="false"
                 android:paddingTop="@dimen/ButtonPadding"
                 android:text="@string/CustomMessage"

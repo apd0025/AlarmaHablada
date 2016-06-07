@@ -8,11 +8,16 @@ import alvaroperezdelgado.alarmahablada.Calendar.ListCalendarEvents;
 /**
  * Clase container
  * sirve para guardar los Strings que va a leer nuestra alarma
+ * Tambien guardaremos objetos que tengan Strings y accederemos a ellos desde aquí
  */
 public class Container {
+
     //guarda el string con el mensaje customizado
-    private String customMessage = "Este es un mensaje personalizado";
-    private String welcomeSpeech = "";
+    private String customMessage;
+    private String welcomeSpeech;
+
+    private String songName;
+
     //Guardamos el saludo
     private final String goodMorning = "Buenos dias";
     private final String goodAfternoon = "Buenas tardes";
@@ -33,10 +38,10 @@ public class Container {
     //guarda un objeto contenedor
     private static Container container;
 
-
-    /*
-       Metodo para obtener una instancia de la clase que es singleton
-        */
+    /**
+     *  Método para obtener una instancia de la clase que es singleton
+     * @return
+     */
     public static Container getInstance() {
         if (container == null) {
             container = new Container();
@@ -44,34 +49,83 @@ public class Container {
         return container;
     }
 
+    /**
+     * Método para obtener el mensaje personalizado
+     * @return
+     */
     public String getCustomMessage() {
         return customMessage;
     }
 
+    /**
+     * Método para establecer el mensaje personalizado
+     * @param customMessage
+     */
     public void setCustomMessage(String customMessage) {
         this.customMessage = customMessage;
     }
 
+    /**
+     * Método para obtener la canción seleccionada
+     * @return
+     */
     public File getSong() {
         return song;
     }
 
+    public void setSongName(String songName) {
+        this.songName = songName;
+    }
+
+    /**
+     * Método para establecer una canción
+     * @param song
+     */
     public void setSong(File song) {
+        this.songName=song.getName().toString();
         this.song = song;
     }
 
+    /**
+     * Método para obtener el nombre de la canción
+     * @return
+     */
+    public String getSongName(){
+        if(getSong()==null){
+            return "Por defecto";
+        }else{
+            return getSong().getName().toString();
+        }
+    }
+
+    /**
+     * Método que nos devuelve el objeto Weather alojado en Container
+     * @return
+     */
     public Weather getWeather() {
         return weather;
     }
 
+    /**
+     * Método que nos devuelve el objeto Emails alogajo en Container
+     * @return
+     */
     public Emails getEmails() {
         return emails;
     }
 
+    /**
+     * Método que nos devuevle el objeto ListCalendarEvents alojado en Container
+     * @return
+     */
     public ListCalendarEvents getListCalendarEvents() {
         return listCalendarEvents;
     }
 
+    /**
+     * Método que nos devuelve la cadena welcomeSpeech que contiene el saludo inicial
+     * @return
+     */
     public String getWelcomeSpeech() {
         return welcomeSpeech;
     }
@@ -82,6 +136,7 @@ public class Container {
     public void setWelcomeSpeech() {
         String aux = "";
         Calendar cal = Calendar.getInstance();
+        //Establecemos si es por la mañana, tarde o noche
         if (cal.getTime().getHours() < 12 && cal.getTime().getHours() > 3) {
             aux = goodMorning;
         } else if (cal.getTime().getHours() < 21 && cal.getTime().getHours() >= 12) {
@@ -106,8 +161,7 @@ public class Container {
 
     /**
      * Traduce de un numero a una cadena que muestra el mes
-     *
-     * @param month
+     * @param
      * @return
      */
     public String getMonthString(int month) {
@@ -154,6 +208,12 @@ public class Container {
         }
 
     }
+
+    /**
+     *
+     * @param weekday
+     * @return
+     */
     public String getWeekdayString(int weekday) {
         String aux;
         switch (weekday) {

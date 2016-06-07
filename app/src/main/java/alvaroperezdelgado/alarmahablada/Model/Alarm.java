@@ -11,11 +11,10 @@ import java.util.List;
  */
 
 public class Alarm {
-    int id = 1;
-    private int hour=0;
-    private int min=00;
+    private int hour;
+    private int min;
     private Calendar calendar;
-    private String showHour="00",showMin="00";
+    private String showHour,showMin;
 
 
     private enum week {mon, tue, wed, thu, fri, sat, sun};
@@ -41,6 +40,7 @@ public class Alarm {
             }
         }
         return alarm;
+
     }
 
     public int getHour() {

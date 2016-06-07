@@ -1,13 +1,15 @@
 package alvaroperezdelgado.alarmahablada.Options;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import alvaroperezdelgado.alarmahablada.MainActivity;
+import alvaroperezdelgado.alarmahablada.MainActivity2;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
@@ -28,7 +30,7 @@ public class SetCityOptions extends AppCompatActivity {
     //objeto singleton user donde guardaremos el nombre
     private User user;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_city_options);
         //Necesitamos esto para que se haga la asignacion de los widgets
@@ -39,16 +41,29 @@ public class SetCityOptions extends AppCompatActivity {
         acept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.setCity(city.getText().toString());
-                startActivity(new Intent(SetCityOptions.this, MainActivity.class));
+                String sCity=city.getText().toString();
+                user.setCity(sCity);
+                savePreferences(sCity);
+                startActivity(new Intent(SetCityOptions.this, MainActivity2.class));
             }
         });
         //cuando pulsamos el boton cancelar
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SetCityOptions.this, MainActivity.class));
+                startActivity(new Intent(SetCityOptions.this, MainActivity2.class));
             }
         });
+    }
+
+    /**
+     * Método que guarda en un xml MyPreferences el dato de la ciudad
+     * @param sCity
+     */
+    public void savePreferences(String sCity){
+        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString("UserCity",sCity);
+        editor.commit();
     }
 }

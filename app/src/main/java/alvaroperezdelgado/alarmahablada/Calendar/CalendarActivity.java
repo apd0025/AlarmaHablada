@@ -16,7 +16,7 @@ import android.util.Log;
 import java.util.Calendar;
 import java.util.Date;
 
-import alvaroperezdelgado.alarmahablada.MainActivity;
+import alvaroperezdelgado.alarmahablada.MainActivity2;
 import alvaroperezdelgado.alarmahablada.R;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -88,6 +88,6 @@ public class CalendarActivity extends AppCompatActivity {
         }
         //Obtenemos la cadena que vamos a leer
         //listCalendarEvents.setSpeechCalendar();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MainActivity2.class));
     }
 }

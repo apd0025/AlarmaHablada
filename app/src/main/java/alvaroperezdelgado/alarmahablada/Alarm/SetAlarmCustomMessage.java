@@ -1,6 +1,8 @@
 package alvaroperezdelgado.alarmahablada.Alarm;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,7 +18,7 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
 
     //Declaramos los widgets que vamos a usar
     //cadena par aguardar el mensaje personalizado
-    private String aux;
+    private String sCustomMessage;
     //boton de aceptar de la activiti que guardará los valores y retornara a la anterior vista
     @Bind(R.id.btSetCustomMessageAccept)
     Button acept;
@@ -44,8 +46,9 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
         acept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                aux = message.getText().toString();
-                container.setCustomMessage(aux);
+                sCustomMessage = message.getText().toString();
+                container.setCustomMessage(sCustomMessage);
+                savePreferences(sCustomMessage);
                 startActivity(new Intent(SetAlarmCustomMessage.this, AddAlarm.class));
             }
         });
@@ -55,5 +58,15 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
                 startActivity(new Intent(SetAlarmCustomMessage.this, AddAlarm.class));
             }
         });
+    }
+    /**
+     * Método que guarda en un xml MyPreferences el dato del Mail
+     * @param sCustomMessage
+     */
+    public void savePreferences(String sCustomMessage){
+        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString("ContainerCustomMessage", sCustomMessage);
+        editor.commit();
     }
 }

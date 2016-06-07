@@ -32,7 +32,7 @@ public class MailActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                startActivity(new Intent(MailActivity.this, MainActivity.class));
+                startActivity(new Intent(MailActivity.this, MainActivity2.class));
                 return null;
             }
 
@@ -40,7 +40,7 @@ public class MailActivity extends AppCompatActivity {
         findViewById(R.id.btMailBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MailActivity.this, MainActivity.class));
+                startActivity(new Intent(MailActivity.this, MainActivity2.class));
             }
         });
     }

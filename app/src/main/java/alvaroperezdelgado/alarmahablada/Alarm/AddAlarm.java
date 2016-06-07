@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Calendar;
 
-import alvaroperezdelgado.alarmahablada.MainActivity;
+import alvaroperezdelgado.alarmahablada.MainActivity2;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
@@ -49,6 +50,15 @@ public class AddAlarm extends AppCompatActivity {
     Button btAccept;
     @Bind(R.id.btCancelAddAlarm)
     Button btCancel;
+    //Inicializar switches
+    @Bind(R.id.swSong)
+    Switch swSong;
+    @Bind(R.id.swWeather)
+    Switch swWeather;
+    @Bind(R.id.swCalendar)
+    Switch swCalendar;
+    @Bind(R.id.swCustomMessage)
+    Switch swCustomMessage;
 
     //Objeto alarm manager que gestiona nuestra alarma
     private AlarmManager alarmManager;
@@ -71,7 +81,7 @@ public class AddAlarm extends AppCompatActivity {
         //mostrar informacion a traves de los textview
         tvTimeShow.setText(alarm.getShowHour()+" : "+alarm.getShowMin());
         tvCustomMessageAddShow.setText(Container.getInstance().getCustomMessage());
-        //tvSongAddShow.setText(Container.getInstance().getSong().getName().toString());
+        tvSongAddShow.setText(Container.getInstance().getSongName());
         tvDaysAddShow.setText("LUNES TODO");
 
 
@@ -133,7 +143,7 @@ public class AddAlarm extends AppCompatActivity {
                 //le pasamos el reloj de tiempo real, el calendario que contiene la hora y minuto a los que vamos a poner la alarma
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
                         , pendingIntent);
-                startActivity(new Intent(AddAlarm.this, MainActivity.class));
+                startActivity(new Intent(AddAlarm.this, MainActivity2.class));
             }
         });
 
@@ -142,7 +152,7 @@ public class AddAlarm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(AddAlarm.this, MainActivity.class));
+                startActivity(new Intent(AddAlarm.this, MainActivity2.class));
             }
         });
     }

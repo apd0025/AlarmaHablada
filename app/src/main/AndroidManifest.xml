@@ -3,7 +3,6 @@
     package="alvaroperezdelgado.alarmahablada">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.READ_CALENDAR" />
 
     <application
@@ -39,7 +38,8 @@
         <activity android:name=".Options.SetCityOptions" />
         <activity android:name=".Options.SetMailOptions" />
         <activity android:name=".Options.SetTitleOptions" />
-        <activity android:name=".Calendar.CalendarActivity"></activity>
+        <activity android:name=".Calendar.CalendarActivity" />
+        <activity android:name=".MainActivity2"></activity>
     </application>
 
 </manifest>

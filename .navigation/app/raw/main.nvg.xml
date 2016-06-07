@@ -30,7 +30,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "alvaroperezdelgado.alarmahablada.MainActivity"/>
+        className = "alvaroperezdelgado.alarmahablada.MainActivity2"/>
       <point      
         x = "2071"      
         y = "4254"/>

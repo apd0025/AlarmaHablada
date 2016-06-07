@@ -31,7 +31,7 @@ public class Weather {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation() {
         this.location = User.getInstance().getCity();
     }
 

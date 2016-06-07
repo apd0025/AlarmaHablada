@@ -1,6 +1,8 @@
 package alvaroperezdelgado.alarmahablada.Alarm;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -53,29 +55,30 @@ public class SelectSong extends AppCompatActivity {
                 items[i] = mySongs.get(i).getName().toString().replace(".mp3", "");
             }
 
-        //creamos un adaptador para poder poner todos los nombres de canciones.
-        //primero ponesmo el context
-        //song_layout que es donde esta el layout de como se pondra una cancion
-        //el objeto textview que mostrara en el listView
-        //items que son todos los string de nombres de nuestras canciones
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.song_layout, R.id.tvSongLayout, items);
+            //creamos un adaptador para poder poner todos los nombres de canciones.
+            //primero ponesmo el context
+            //song_layout que es donde esta el layout de como se pondra una cancion
+            //el objeto textview que mostrara en el listView
+            //items que son todos los string de nombres de nuestras canciones
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.song_layout, R.id.tvSongLayout, items);
 
-        //se lo asignamos al listView
-        lv.setAdapter(adapter);
+            //se lo asignamos al listView
+            lv.setAdapter(adapter);
 
-        //obtenemos la instancia del contenedor
-        container = Container.getInstance();
+            //obtenemos la instancia del contenedor
+            container = Container.getInstance();
 
-        //cuando selecionemos una cancion vamos a añadirla a nuestro contenedor
-        //atraves de su posicion y partiendo del arrayList mysongs
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //cuando selecionemos una cancion vamos a añadirla a nuestro contenedor
+            //atraves de su posicion y partiendo del arrayList mysongs
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                container.setSong(mySongs.get(position));
-                startActivity(new Intent(SelectSong.this, AddAlarm.class));
-            }
-        });
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    container.setSong(mySongs.get(position));
+                    savePreferences(mySongs.get(position).getName().toString());
+                    startActivity(new Intent(SelectSong.this, AddAlarm.class));
+                }
+            });
         } catch (Exception e) {
             toast("NO TIENES TARJETA SD");
         }
@@ -107,5 +110,17 @@ public class SelectSong extends AppCompatActivity {
     //metodo toast que sirve para mostrar como notificacion un texto
     public void toast(String text) {
         Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Método que guarda en un xml MyPreferences el dato del Mail
+     *
+     * @param sSongName
+     */
+    public void savePreferences(String sSongName) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("ContainerSongName", sSongName);
+        editor.commit();
     }
 }

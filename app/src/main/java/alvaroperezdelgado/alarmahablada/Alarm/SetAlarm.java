@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -79,7 +80,7 @@ public class SetAlarm extends AppCompatActivity {
                 //guardamos en alarma la hora y el minuto
                 alarm.setMin(minute);
                 alarm.setHour(hour);
-
+                savePreferences(hour, minute);
                 //Volvemos a la pantalla anterior
                 startActivity(new Intent(SetAlarm.this,AddAlarm.class));
             }
@@ -93,5 +94,18 @@ public class SetAlarm extends AppCompatActivity {
         });
 
 
+    }
+
+    /**
+     * Método que guarda en un xml MyPreferences el dato del Mail
+     * @param sHour
+     * @param sMin
+     */
+    public void savePreferences(int sHour,int sMin){
+        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putInt("AlarmHour", sHour);
+        editor.putInt("AlarmMin", sMin);
+        editor.commit();
     }
 }

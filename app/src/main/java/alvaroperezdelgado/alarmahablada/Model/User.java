@@ -7,12 +7,11 @@ package alvaroperezdelgado.alarmahablada.Model;
  */
 public class User {
 
-    private int id = 1;
-    private String mailUser="apd0025tfg";
-    private String mailPass="444044ap";
-    private String city = "Burgos";
-    private String name="Usuario";
-    private String title="";
+    private String mailUser;
+    private String mailPass;
+    private String city;
+    private String name;
+    private String title;
     private String twitterUser;
     private String twitterPass;
     private static User user;
@@ -74,6 +73,7 @@ public class User {
 
     public void setCity(String city) {
         this.city = city;
+        Weather.getInstance().setLocation();
     }
     public String getTitle() {
         return title;

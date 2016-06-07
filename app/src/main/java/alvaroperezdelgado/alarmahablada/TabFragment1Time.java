@@ -18,6 +18,7 @@ import alvaroperezdelgado.alarmahablada.Model.Container;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+
 /**
  * Esta clase es la que controla el layout que el TabLayout mostrará
  * En este caso muestra el fragment layout de la hora
@@ -124,7 +125,15 @@ public class TabFragment1Time extends Fragment {
         tvCalendar4.setText(container1.getListCalendarEvents().getCalendarEvent(tamCalEvents - 4).toString());
 
         Container.getInstance().setWelcomeSpeech();
-
         return v;
+    }
+
+    /**
+     * Cargamos la configuración de los datos guardados, usando SharedPreferences que se guardarán en un
+     * archivo xml
+     */
+    public void loadConfiguration(){
+      //  SharedPreferences sharedPreferences=getSharedPreferences(String, int);
+
     }
 }
