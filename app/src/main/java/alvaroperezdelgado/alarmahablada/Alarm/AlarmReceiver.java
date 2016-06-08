@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.util.Log;
 
 /**
- * Created by perez on 10/2/16.
  * Esta clase es a la que llama alarmManager en la hora establecida
  * Hereda de broadcastReceiver
  * Llama a RingTonePlayingService que es el que hace que suene la alarma

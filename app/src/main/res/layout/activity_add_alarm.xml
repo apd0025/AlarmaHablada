@@ -5,189 +5,201 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="574dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/toolbar"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin">
-
-            <TextView
-                android:id="@+id/tvTimeAddClick"
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/tvCustomMessageAddShow"
-                android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/tvCustomMessageAddShow"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/Time"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTimeShow"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="Hola"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/tvCustomMessageAddClick"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
+                >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/tvTimeAddClick"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/CustomMessage"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                android:layout_below="@+id/toolbar">
 
-            <TextView
-                android:id="@+id/tvCustomMessageAddShow"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/tvTimeShow"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/tvTimeAddClick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/tvCustomMessageAddShow"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignRight="@+id/tvCustomMessageAddShow"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/Time"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <TextView
-                android:id="@+id/tvSongAddClick"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/tvCustomMessageAddClick"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/SelectSong"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvTimeShow"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="Hola"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/tvSongAddShow"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/tvSongAddClick"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/Name"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/tvCustomMessageAddClick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvTimeAddClick"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/CustomMessage"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <TextView
-                android:id="@+id/tvDaysAddClick"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/tvSongAddClick"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/Days"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvCustomMessageAddShow"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvTimeShow"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="Large Text"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/tvDaysAddShow"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/tvSongAddClick"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/Name"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/tvSongAddClick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvCustomMessageAddClick"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/SelectSong"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <Switch
-                android:id="@+id/swSong"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:checked="false"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/Song"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvSongAddShow"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/tvSongAddClick"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/Name"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <Switch
-                android:id="@+id/swWeather"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/swSong"
-                android:checked="false"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/weather"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvDaysAddClick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvSongAddClick"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/Days"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <Switch
-                android:id="@+id/swCalendar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/swWeather"
-                android:checked="false"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/calendar"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvDaysAddShow"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvSongAddClick"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/Name"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <Switch
-                android:id="@+id/swCustomMessage"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/swCalendar"
-                android:checked="false"
-                android:paddingTop="@dimen/ButtonPadding"
-                android:text="@string/CustomMessage"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <Switch
+                    android:id="@+id/swSong"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/Song"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_below="@+id/tvDaysAddClick"
+                    android:textStyle="bold"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <Button
-                android:id="@+id/btAcceptAddAlarm"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accept"
-                android:layout_above="@+id/btCancelAddAlarm"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                <Switch
+                    android:id="@+id/swWeather"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/swSong"
+                    android:checked="false"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/weather"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-            <Button
-                android:id="@+id/btCancelAddAlarm"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/cancel"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                <Switch
+                    android:id="@+id/swCalendar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/swWeather"
+                    android:checked="false"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/calendar"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
 
-        </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+                <Switch
+                    android:id="@+id/swCustomMessage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/swCalendar"
+                    android:checked="false"
+                    android:paddingTop="@dimen/ButtonPadding"
+                    android:text="@string/CustomMessage"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/ButtonPadding" />
+
+            </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btCancelAddAlarm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/btAcceptAddAlarm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/accept"
+            android:layout_above="@+id/btCancelAddAlarm"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

@@ -81,6 +81,7 @@ public class TabFragment1Time extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             //obtener la vista
             v = inflater.inflate(R.layout.tab_fragment_1time, container, false);
+
             tvDate = (TextView) v.findViewById(R.id.tvDate);
             tvDate.setText(dateFormat.format(cal.getTime()));
         } else {

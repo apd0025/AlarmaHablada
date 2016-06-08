@@ -4,7 +4,9 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -13,6 +15,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
 import alvaroperezdelgado.alarmahablada.TabFragment4Talk;
@@ -36,8 +40,6 @@ public class RingTonePlayingService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-
-
         return null;
     }
 
@@ -49,7 +51,6 @@ public class RingTonePlayingService extends Service {
 
         //Recuperamos el contenido "extra" del intent
         String state=intent.getExtras().getString("extra");
-
 
         Log.e("Ringtone state:extra is",state);
 
@@ -72,11 +73,12 @@ public class RingTonePlayingService extends Service {
 
         //Si no hay musica sonando y se presiona "alarm on"
         //La musica empezara a sonar
+        Boolean isRinging=false;
         if(!this.isRunning&& start_id==1){
             //obtenemos una instancia de container
             container=Container.getInstance();
             Log.e("There is no music, ", "and you want start");
-
+            Alarm.getInstance().setIsActive(true);
             //si hay algo en el song, o es distinto de nulo que lea esa cancion.
             if(!(container.getSong()==null)) {
                 //creamos una uri a traves de nuestro archivo File cancion para pasarselo al mediaPlayer
@@ -94,11 +96,9 @@ public class RingTonePlayingService extends Service {
             mediaPlayer.start();
             //Como iniciar una actividad desde aqui
             //startActivity(new Intent(RingTonePlayingService.this, AddMessageUser.class));
-
+            Alarm.getInstance().setIsRinging(true);
             this.isRunning=true;
             this.start_id=0;
-
-
 
 
             //TODO poner icono y contenido de los mensajes y mirar lo del build y que se muestre bajando y tambien mirar lo del api
@@ -108,7 +108,6 @@ public class RingTonePlayingService extends Service {
                 NotificationManager notificationManager=(NotificationManager)
                         getSystemService(NOTIFICATION_SERVICE);
 
-                //TODO
                 //Hacemos un intent que nos lleve a la clase Speech la notificacion
                 Intent intent2=new Intent(this.getApplicationContext(),TabFragment4Talk.class);
 
@@ -134,7 +133,7 @@ public class RingTonePlayingService extends Service {
 
             }else{//si esta por debajo de jellybean ejecutara esta notficacion
                 //Hacemos un intent que nos lleve a la clase Speech
-                Intent intent2= new Intent(new Intent(this.getApplicationContext(), TabFragment4Talk.class));
+                Intent intent2= new Intent(new Intent(this.getApplicationContext(), MainActivity2.class));
 
                 //Inicializamos un pendingIntent con el intent anterior
                 PendingIntent pendingIntent=PendingIntent.getActivity(this.getApplicationContext(),0,intent2,0);
@@ -155,6 +154,10 @@ public class RingTonePlayingService extends Service {
                 notificationManager.notify(NOTIFICATION_ID,builder.build());
             }
 
+            //Cambiamos el estado de la alarma isActive a False
+            Alarm.getInstance().setIsActive(false);
+            //Lo guardamos en el xml
+            savePreferences(false);
         }
         //Si hay musica escuchandose y el usuario pulsa "alarm off"
         //La musica deberia pararse
@@ -166,11 +169,10 @@ public class RingTonePlayingService extends Service {
 
             mediaPlayer.reset();
 
-
             this.isRunning=false;
             this.start_id=0;
-
-
+            Alarm.getInstance().setIsRinging(false);
+            Alarm.getInstance().setIsActive(false);
         }
         //Si la musica no esta escuchandose y se pulsa "alarm off"
         //No hacer nada
@@ -192,8 +194,10 @@ public class RingTonePlayingService extends Service {
         else {
             Log.e("Else  ","somehow");
         }
-
-
+        //Cambiamos el estado de la alarma isActive a False
+        Alarm.getInstance().setIsActive(false);
+        //Lo guardamos en el xml
+        savePreferences(false);
         return START_NOT_STICKY;
     }
 
@@ -205,7 +209,16 @@ public class RingTonePlayingService extends Service {
         super.onDestroy();
         this.isRunning=false;
     }
-
+    /**
+     * Método que guarda en un xml MyPreferences el dato de is active
+     *
+     */
+    public void savePreferences(Boolean isActive) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("AlarmIsActive", isActive);
+        editor.commit();
+    }
 
 
 

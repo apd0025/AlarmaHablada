@@ -42,6 +42,7 @@ public class SetAlarm extends AppCompatActivity {
     //Create a pendidgIntent that delays the intent
     //until the specified calendar time
     PendingIntent pendingIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +61,11 @@ public class SetAlarm extends AppCompatActivity {
         //obtenemos el objeto alarma
         alarm = Alarm.getInstance();
 
-        //create onClick listener to start the alarm
+        //Boton de aceptar la alarma creamos los datos de lahora
         btAcceptTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int hour,minute;
+                int hour, minute;
 
                 //Esto comprueba si la version es superior a la que necesita o no para usar un metodo u otro
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -72,7 +73,7 @@ public class SetAlarm extends AppCompatActivity {
                     //get the string values of the hour and minute
                     hour = alarmTimePicker.getHour();
                     minute = alarmTimePicker.getMinute();
-                }else{
+                } else {
 
                     hour = alarmTimePicker.getCurrentHour();
                     minute = alarmTimePicker.getCurrentMinute();
@@ -82,28 +83,29 @@ public class SetAlarm extends AppCompatActivity {
                 alarm.setHour(hour);
                 savePreferences(hour, minute);
                 //Volvemos a la pantalla anterior
-                startActivity(new Intent(SetAlarm.this,AddAlarm.class));
+                startActivity(new Intent(SetAlarm.this, AddAlarm.class));
             }
         });
+
+        //Boton de cancelar para volver a la pantlala anterior
         btCancelTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Volvemos a la pantalla anterior
-                startActivity(new Intent(SetAlarm.this,AddAlarm.class));
+                startActivity(new Intent(SetAlarm.this, AddAlarm.class));
             }
         });
-
-
     }
 
     /**
      * Método que guarda en un xml MyPreferences el dato del Mail
+     *
      * @param sHour
      * @param sMin
      */
-    public void savePreferences(int sHour,int sMin){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
+    public void savePreferences(int sHour, int sMin) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("AlarmHour", sHour);
         editor.putInt("AlarmMin", sMin);
         editor.commit();

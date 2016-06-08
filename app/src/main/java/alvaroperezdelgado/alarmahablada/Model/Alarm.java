@@ -14,14 +14,23 @@ public class Alarm {
     private int hour;
     private int min;
     private Calendar calendar;
-    private String showHour,showMin;
+    private String showHour, showMin;
+    //para saber si la hemos activado
+    private Boolean isActive = false;
+    //para saber si esta sonando
+    private Boolean isRinging = false;
+    //para saber si la tenemos permitida
+    private Boolean isAllowed = false;
 
 
-    private enum week {mon, tue, wed, thu, fri, sat, sun};
+    private enum week {mon, tue, wed, thu, fri, sat, sun}
+
+    ;
 
     //0-Mon,1-tue,2-wed,3-thu,4-fri,5-sat,6-sun
     private static List<Boolean> alarmDays = new ArrayList<Boolean>(7);
-    //0-customMessage, 1-ubuMail, 2-ubuCalendar, 3-twitter, 4-weathfer, 5-music
+
+    //0-customMessage, 1-Mail, 2-Calendar, 3-weathfer, 4-music
     private static List<Boolean> choosenoptions = new ArrayList<Boolean>(6);
 
     private static Alarm alarm;
@@ -49,7 +58,7 @@ public class Alarm {
 
     public void setHour(int hour) {
         this.hour = hour;
-        this.showHour=convertOneDigit(hour);
+        this.showHour = convertOneDigit(hour);
     }
 
     public int getMin() {
@@ -58,11 +67,55 @@ public class Alarm {
 
     public void setMin(int min) {
         this.min = min;
-        this.showMin=convertOneDigit(min);
+        this.showMin = convertOneDigit(min);
     }
 
     public List<Boolean> getAlarmDays() {
         return alarmDays;
+    }
+
+    public String getShowHour() {
+        return showHour;
+    }
+
+    public String getShowMin() {
+        return showMin;
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public Boolean getIsRinging() {
+        return isRinging;
+    }
+
+    public void setIsRinging(Boolean isRinging) {
+        this.isRinging = isRinging;
+    }
+
+    public Boolean getIsAllowed() {
+        return isAllowed;
+    }
+
+    public void setIsAllowed(Boolean isAllowed) {
+        this.isAllowed = isAllowed;
+    }
+
+    public static void setChoosenoptions(List<Boolean> choosenoptions) {
+        Alarm.choosenoptions = choosenoptions;
     }
 
     public void setAlarmDays(int index, boolean value) {
@@ -134,33 +187,27 @@ public class Alarm {
         }
     }
 
-    public String getShowHour() {
-        return showHour;
-    }
-
-    public String getShowMin() {
-        return showMin;
-    }
 
     /**
      * Este método sirve para poner un 0 delante cuando se necesita
+     *
      * @param aux
      * @return
      */
-    public String convertOneDigit(int aux){
+    public String convertOneDigit(int aux) {
         String string;
         //Colocamos el 0 delante de la hora y el minuto para que quede bien
-        if(aux<10){
-            string="0"+aux;
-        }else{
-            string=String.valueOf(aux);
+        if (aux < 10) {
+            string = "0" + aux;
+        } else {
+            string = String.valueOf(aux);
         }
         return string;
     }
+
     public void deleteListChoosenoptions() {
         choosenoptions.removeAll(choosenoptions);
     }
-
 
 
 }

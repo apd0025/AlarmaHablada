@@ -75,6 +75,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
             public void onClick(View v) {
                 container1.getListCalendarEvents().setSpeechCalendar();
                 speak(container1.getListCalendarEvents().getSpeechCalendarEvents());
+
             }
         });
 

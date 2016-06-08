@@ -2,7 +2,9 @@ package alvaroperezdelgado.alarmahablada;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,13 +31,15 @@ public class TabFragment2Alarm extends Fragment {
     TextView tvTabAlarmName;
     @Bind(R.id.tvTabAlarmTime)
     TextView tvTabAlarmTime;
-    @Bind(R.id.tvTabAlarmdays)
+    @Bind(R.id.tvIsActive)
     TextView tvTabAlarmdays;
 
     @Bind(R.id.btNewAlarm)
     Button btNewAlarm;
     @Bind(R.id.btSetAlarmCancel)
     Button btCancelAlarm;
+    @Bind(R.id.swIsAllowed)
+    Button swIsAllowed;
 
     private Alarm alarm;
 
@@ -59,7 +63,8 @@ public class TabFragment2Alarm extends Fragment {
 
 
         tvTabAlarmTime.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
-        tvTabAlarmdays.setText("Dias TODO");
+        tvTabAlarmdays.setText(alarm.getIsActive().toString());
+        //Boton de añadir alarma
         btNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +77,7 @@ public class TabFragment2Alarm extends Fragment {
         //Inicializamos el alarm manager
         alarmManager = (AlarmManager) this.getContext().getSystemService(getContext().ALARM_SERVICE);
 
+        //Boton de cancelar alarma
         btCancelAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,13 +90,45 @@ public class TabFragment2Alarm extends Fragment {
 
                 //Parar el ringtone
                 getContext().sendBroadcast(intent);
+                alarm.setIsActive(false);
+                System.out.println(alarm.getIsActive().toString());
+                startActivity(new Intent(getActivity(),MainActivity2.class));
             }
         });
 
+        if(alarm.getIsRinging()){
+            tvTabAlarmName.setText("Hola mundo");
+        }
+        //Switch comportamiento de este switch
+         /*
+        swIsAllowed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(swIsAllowed.isActivated()){
+                    alarm.setIsAllowed(true);
+                }else{
+                    alarm.setIsAllowed(false);
+                }
+            }
+        });
+*/
         //desde aqui llamamos al layout que queremos que muestre
         return v;
 
     }
 
+
+    /**
+     * Método que guarda en un xml MyPreferences el dato del Mail
+     *
+     * @param sHour
+     * @param sMin
+     */
+    public void savePreferences(int sHour, int sMin) {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("AlarmIsActive", false);
+        editor.commit();
+    }
 
 }

@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -144,6 +145,10 @@ public class AddAlarm extends AppCompatActivity {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
                         , pendingIntent);
                 startActivity(new Intent(AddAlarm.this, MainActivity2.class));
+                //ponemos que la tenemos activa
+                alarm.setIsActive(true);
+                //guardamos el estado a true
+                savePreferences();
             }
         });
 
@@ -155,6 +160,16 @@ public class AddAlarm extends AppCompatActivity {
                 startActivity(new Intent(AddAlarm.this, MainActivity2.class));
             }
         });
+    }
+    /**
+     * Método que guarda en un xml MyPreferences el dato de isActive de alarm
+     *
+     */
+    public void savePreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("AlarmIsActive",true);
+        editor.commit();
     }
 
 }

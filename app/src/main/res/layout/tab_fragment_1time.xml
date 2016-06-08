@@ -22,7 +22,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="fill_parent"
                 android:orientation="horizontal"
                 android:padding="@dimen/PaddingRelativeLayout">
 
@@ -67,7 +67,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="105dp">
+                android:layout_height="fill_parent">
 
                 <TextClock
                     android:id="@+id/textClock"

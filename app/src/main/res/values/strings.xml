@@ -74,6 +74,8 @@
     <string name="SetGmailMail">Introduce tu Mail de gmail sin \"@gmail.com\"</string>
     <string name="Welcome">Saludo</string>
     <string name="Stop">Stop</string>
+    <string name="isActive">Está activa</string>
+    <string name="isAllowed">Está permitida</string>
 
 
 </resources>

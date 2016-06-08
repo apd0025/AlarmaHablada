@@ -39,7 +39,8 @@ public class Container {
     private static Container container;
 
     /**
-     *  Método para obtener una instancia de la clase que es singleton
+     * Método para obtener una instancia de la clase que es singleton
+     *
      * @return
      */
     public static Container getInstance() {
@@ -51,6 +52,7 @@ public class Container {
 
     /**
      * Método para obtener el mensaje personalizado
+     *
      * @return
      */
     public String getCustomMessage() {
@@ -59,6 +61,7 @@ public class Container {
 
     /**
      * Método para establecer el mensaje personalizado
+     *
      * @param customMessage
      */
     public void setCustomMessage(String customMessage) {
@@ -67,6 +70,7 @@ public class Container {
 
     /**
      * Método para obtener la canción seleccionada
+     *
      * @return
      */
     public File getSong() {
@@ -79,27 +83,30 @@ public class Container {
 
     /**
      * Método para establecer una canción
+     *
      * @param song
      */
     public void setSong(File song) {
-        this.songName=song.getName().toString();
+        this.songName = song.getName().toString();
         this.song = song;
     }
 
     /**
      * Método para obtener el nombre de la canción
+     *
      * @return
      */
-    public String getSongName(){
-        if(getSong()==null){
+    public String getSongName() {
+        if (getSong() == null) {
             return "Por defecto";
-        }else{
+        } else {
             return getSong().getName().toString();
         }
     }
 
     /**
      * Método que nos devuelve el objeto Weather alojado en Container
+     *
      * @return
      */
     public Weather getWeather() {
@@ -108,6 +115,7 @@ public class Container {
 
     /**
      * Método que nos devuelve el objeto Emails alogajo en Container
+     *
      * @return
      */
     public Emails getEmails() {
@@ -116,6 +124,7 @@ public class Container {
 
     /**
      * Método que nos devuevle el objeto ListCalendarEvents alojado en Container
+     *
      * @return
      */
     public ListCalendarEvents getListCalendarEvents() {
@@ -124,6 +133,7 @@ public class Container {
 
     /**
      * Método que nos devuelve la cadena welcomeSpeech que contiene el saludo inicial
+     *
      * @return
      */
     public String getWelcomeSpeech() {
@@ -151,16 +161,17 @@ public class Container {
         int day = cal.get(Calendar.DATE);
         int iMonth = cal.get(Calendar.MONTH);
 
-        String month=getMonthString(iMonth);
-        String weekDay=getWeekdayString(iWeekDay);
+        String month = getMonthString(iMonth);
+        String weekDay = getWeekdayString(iWeekDay);
         //Añadimos que dia es
         aux = aux.concat("Hoy es " + weekDay + " dia " + day + " de " + month);
-        this.welcomeSpeech=aux;
+        this.welcomeSpeech = aux;
     }
 
 
     /**
      * Traduce de un numero a una cadena que muestra el mes
+     *
      * @param
      * @return
      */
@@ -210,7 +221,6 @@ public class Container {
     }
 
     /**
-     *
      * @param weekday
      * @return
      */
@@ -228,7 +238,7 @@ public class Container {
                 aux = "Martes";
                 return aux;
             case 4:
-                aux = "Miercoles";
+                aux = "Miércoles";
                 return aux;
             case 5:
                 aux = "Jueves";
@@ -237,7 +247,7 @@ public class Container {
                 aux = "Viernes";
                 return aux;
             case 7:
-                aux = "Sabado";
+                aux = "Sábado";
                 return aux;
 
             default:

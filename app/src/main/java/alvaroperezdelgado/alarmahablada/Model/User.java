@@ -16,8 +16,10 @@ public class User {
     private String twitterPass;
     private static User user;
 
-    /*
-    Metodo para obtener una instancia de la clase que es singleton
+    /**
+     * Metodo para obtener una instancia de la clase que es singleton
+     *
+     * @return
      */
     public static User getInstance() {
         if (user == null) {
@@ -75,6 +77,7 @@ public class User {
         this.city = city;
         Weather.getInstance().setLocation();
     }
+
     public String getTitle() {
         return title;
     }
@@ -86,6 +89,7 @@ public class User {
     public static User getUser() {
         return user;
     }
+
     public static void setUser(User user) {
         User.user = user;
     }

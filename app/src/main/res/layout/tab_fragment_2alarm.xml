@@ -22,7 +22,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="479dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/toolbar">
@@ -57,8 +57,8 @@
                         android:layout_alignParentStart="true"
                         android:layout_below="@+id/tvTabAlarmName"
                         android:gravity="center"
-                        android:text="@string/Time"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:text="@string/tvAlarma"
+                        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
                     <TextView
                         android:id="@+id/tvTabAlarmTime"
@@ -71,7 +71,8 @@
                         android:layout_below="@+id/textView3"
                         android:gravity="center"
                         android:text="Medium Text"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="@dimen/LargeFontClock" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -83,11 +84,11 @@
                         android:layout_alignParentStart="true"
                         android:layout_below="@+id/tvTabAlarmTime"
                         android:gravity="center"
-                        android:text="@string/Days"
+                        android:text="@string/isActive"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <TextView
-                        android:id="@+id/tvTabAlarmdays"
+                        android:id="@+id/tvIsActive"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignEnd="@+id/tvTabAlarmTime"
@@ -125,9 +126,20 @@
                         android:text="@string/Name"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/isAllowed"
+                        android:id="@+id/swIsAllowed"
+                        android:layout_below="@+id/tvIsActive"
+                        android:layout_centerHorizontal="true"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:checked="false" />
+
                 </RelativeLayout>
 
             </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 

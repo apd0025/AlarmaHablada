@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.widget.Toast;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -12,6 +12,10 @@ import javax.mail.MessagingException;
 import alvaroperezdelgado.alarmahablada.Email.EmailManager;
 import alvaroperezdelgado.alarmahablada.Model.User;
 
+/**
+ * Clase encargada de obtener la información del correo electrónico
+ * Guarda esta información en la clase Emails
+ */
 public class MailActivity extends AppCompatActivity {
     Message[] messages=null;
 
@@ -23,25 +27,29 @@ public class MailActivity extends AppCompatActivity {
         User user=User.getInstance();
         final EmailManager emailManager = new EmailManager(user.getMailUser(), user.getMailPass(), "gmail.com", "smtp.gmail.com", "imap.gmail.com");
 
-        new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... strings) {
-                try {
-                    messages = emailManager.getMails();
-                } catch (MessagingException e) {
-                    e.printStackTrace();
+        /**
+         * Tarea asincrona que se ejecuta en segundo plano
+         */
+        try {
+            new AsyncTask<String, Void, String>() {
+                @Override
+                protected String doInBackground(String... strings) {
+                    try {
+                        messages = emailManager.getMails();
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+
+                    }
+
+                    startActivity(new Intent(MailActivity.this, MainActivity2.class));
+                    return null;
                 }
 
-                startActivity(new Intent(MailActivity.this, MainActivity2.class));
-                return null;
-            }
+            }.execute();
 
-        }.execute();
-        findViewById(R.id.btMailBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MailActivity.this, MainActivity2.class));
-            }
-        });
+        }catch(Exception e){
+            Toast.makeText(this, "No ha sido posible obtener la información del correo electrónico", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+/**
+ * Clase que sirve para adaptar los fragments que va a haber en mainActivity y en el menú principal
+ */
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
 
@@ -29,7 +32,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 TabFragment4Talk tab4 = new TabFragment4Talk();
                 return tab4;
             case 4:
-                TabFragment5Help tab5= new TabFragment5Help();
+                TabFragment5Help tab5 = new TabFragment5Help();
                 return tab5;
             default:
                 return null;
