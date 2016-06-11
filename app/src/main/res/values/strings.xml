@@ -8,10 +8,10 @@
     <string name="ubuMail">UBU Mail</string>
     <string name="ubuCalendar">Ubu Calendario</string>
     <string name="accept">Aceptar</string>
-    <string name="DateTime">Dias</string>
+    <string name="DateTime">Días</string>
     <string name="CustomMessage">Mensaje personalizado</string>
     <string name="Time">Hora</string>
-    <string name="Days">Dias</string>
+    <string name="Days">Días</string>
     <string name="Access">Accesos</string>
     <string name="UBU">UBU</string>
     <string name="twitterAccess">Acceso a twitter</string>
@@ -23,7 +23,7 @@
     <string name="accessUbu">Acceso a UBU</string>
     <string name="accessWeather">Acceso a el Tiempo</string>
     <string name="accessCp">Introduce Código Postal</string>
-    <string name="cp">Codigo postal</string>
+    <string name="cp">Código postal</string>
     <string name="accessMessage">Introduce tu mensaje personalizado</string>
     <string name="accessCustomMessage">Introduce el mensaje personalizado</string>
     <string name="Music">Música</string>

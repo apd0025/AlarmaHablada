@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
@@ -60,7 +60,7 @@ public class SetTitleOptions extends AppCompatActivity {
                 }
                 savePreferences(sTitle);
                 //volvemos a main activity
-                startActivity(new Intent(SetTitleOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetTitleOptions.this, MainActivity.class));
             }
         });
         //Cuando pulsamos a cancelar
@@ -68,7 +68,7 @@ public class SetTitleOptions extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //volvemos a main activity
-                startActivity(new Intent(SetTitleOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetTitleOptions.this, MainActivity.class));
             }
         });
 

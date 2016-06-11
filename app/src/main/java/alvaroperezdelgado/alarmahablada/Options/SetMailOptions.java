@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
@@ -48,13 +48,13 @@ public class SetMailOptions extends AppCompatActivity {
                 user.setMailUser(mailAddress);
                 user.setMailPass(mailPass);
                 savePreferences(mailAddress, mailPass);
-                startActivity(new Intent(SetMailOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetMailOptions.this, MainActivity.class));
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SetMailOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetMailOptions.this, MainActivity.class));
             }
         });
 

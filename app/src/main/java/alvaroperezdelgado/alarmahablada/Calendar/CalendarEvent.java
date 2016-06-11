@@ -141,10 +141,10 @@ public class CalendarEvent {
             }
             //Si un evento empieza y termina a la misma hora pero del dia siguiente es que dura to do el dia.
             if(getBegin().getHours()==getEnd().getHours()&&getBegin().getMinutes()==getEnd().getMinutes()) {
-                return "Asunto: " + getTitle() + ". Todo el dia.";
+                return  getTitle() + ". Todo el dia.";
             }
 
-            return "Asunto: " + getTitle() + ". De " + getBegin().getHours() + ":" + minutesBeg + " a " + getEnd().getHours() + ":" + minutesEnd + ".";
+            return getTitle() + ". De " + getBegin().getHours() + ":" + minutesBeg + " a " + getEnd().getHours() + ":" + minutesEnd + ".";
 
         }
     }

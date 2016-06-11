@@ -1,5 +1,6 @@
 package alvaroperezdelgado.alarmahablada.Alarm;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,11 +10,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.IBinder;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 import alvaroperezdelgado.alarmahablada.LoadClasses.LoadActivity;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
@@ -24,7 +28,7 @@ import alvaroperezdelgado.alarmahablada.R;
 /**
  * Esta clase se ocupa de reproducir el sonido de la alarma
  */
-public class RingTonePlayingService extends Service {
+public class SpeechPlayingService extends Service implements TextToSpeech.OnInitListener{
 
     private int NOTIFICATION_ID=1;
     //mediaPlayer sirve para reproducir canciones
@@ -35,6 +39,7 @@ public class RingTonePlayingService extends Service {
     private boolean isRunning;
     //container contiene lo que queremos leer
     Container container;
+    TextToSpeech textToSpeech;
 
     @Nullable
     @Override
@@ -47,7 +52,7 @@ public class RingTonePlayingService extends Service {
     public int onStartCommand(Intent intent, int flags, int start_id) {
         Log.e("RingtonePlayingService", ", OnStartCommand");
         Log.i("LocalService", "Received start id " + start_id + ": " + intent);
-
+textToSpeech=new TextToSpeech(this,this);
         //Recuperamos el contenido "extra" del intent
         String state=intent.getExtras().getString("extra");
 
@@ -79,22 +84,10 @@ public class RingTonePlayingService extends Service {
             Log.e("There is no music, ", "and you want start");
             Alarm.getInstance().setIsActive(true);
             //si hay algo en el song, o es distinto de nulo que lea esa cancion.
-            if(!(container.getSong()==null)) {
-                //creamos una uri a traves de nuestro archivo File cancion para pasarselo al mediaPlayer
-                Uri u = Uri.parse(container.getSong().toString());
 
-                //creamos el media player pasandole el contexto y el audio que queremos escuchar
-                mediaPlayer = MediaPlayer.create(this, u);
-            }//sino que ponga una cancion por defecto
-            else {
-                //cancion por defecto
-                mediaPlayer = MediaPlayer.create(this, R.raw.dove);
-            }
 
-            //Iniciamos la musica
-            mediaPlayer.start();
-            //Como iniciar una actividad desde aqui
-            //startActivity(new Intent(RingTonePlayingService.this, AddMessageUser.class));
+
+
             Alarm.getInstance().setIsRinging(true);
             this.isRunning=true;
             this.start_id=0;
@@ -109,11 +102,9 @@ public class RingTonePlayingService extends Service {
 
                 //Hacemos un intent que nos lleve a la clase Speech la notificacion
                 Intent intent2=new Intent(this.getApplicationContext(),LoadActivity.class);
-                //TODO
-                intent2.putExtra("extra","alarm");
+
                 //Inicializamos un pendingIntent con el intent anterior
                 PendingIntent pendingIntentMainActivity=PendingIntent.getActivity(this,0,intent2,0);
-
 
                 //construimos la notificacion
                 Notification notificationPopup= null;
@@ -136,13 +127,11 @@ public class RingTonePlayingService extends Service {
 
                 Intent intent2= new Intent(new Intent(this.getApplicationContext(), LoadActivity.class));
                 intent2.putExtra("extra","alarm");
-                //TODO
                 //Inicializamos un pendingIntent con el intent anterior
                 PendingIntent pendingIntent=PendingIntent.getActivity(this.getApplicationContext(),0,intent2,0);
 
-
                 //construimos la notificacion
-                NotificationCompat.Builder builder=new NotificationCompat.Builder(RingTonePlayingService.this);
+                NotificationCompat.Builder builder=new NotificationCompat.Builder(SpeechPlayingService.this);
                 builder.setSmallIcon(R.drawable.icon_0);
                 builder.setContentIntent(pendingIntent);
                 builder.setAutoCancel(true);
@@ -206,7 +195,6 @@ public class RingTonePlayingService extends Service {
     @Override
     public void onDestroy() {
 
-        Log.e("RingTonePlayingService",", onDestroy");
 
         super.onDestroy();
         this.isRunning=false;
@@ -223,5 +211,62 @@ public class RingTonePlayingService extends Service {
     }
 
 
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
 
+            final Intent intent = new Intent(this, AlarmReceiver.class);
+
+            //sirve para cancelar el sonido de la alarma
+            //Inicializamos el alarm manager
+            AlarmManager alarmManager = (AlarmManager) this.getSystemService(getApplicationContext().ALARM_SERVICE);
+            //Ponemos una cadena en extra en el intent, para saber si hemos pulsado el boton de off
+            intent.putExtra("extra", "alarm off");
+            //Parar el ringtone
+            getApplicationContext().sendBroadcast(intent);
+            //----
+
+
+            //primero seleccionamos el idioma en el que queremos que lo lea
+            textToSpeech.setLanguage(new Locale("spa", "ESP"));
+
+            String aux=null;
+            //obtenemos una instancia de container
+            container=Container.getInstance();
+            //Ponemos la cadena del saludo inicial
+            container.setWelcomeSpeech();
+            aux=container.getWelcomeSpeech();
+            Log.d("SpeechAlarm", "Making string speak");
+            //se miran los textos que queremos decir y los preparamos para decirlos
+            if(Alarm.getInstance().getSelectWeather()){
+                container.getWeather().setSpeechWeather();
+                aux=aux.concat(", "+container.getWeather().getSpeechWeather());
+            }
+            if(Alarm.getInstance().getSelectCalendar()){
+                container.getListCalendarEvents().setSpeechCalendar();
+                aux=aux.concat(", "+container.getListCalendarEvents().getSpeechCalendarEvents());
+            }
+            if(Alarm.getInstance().getSelectMail()){
+                container.getEmails().setSpeechMail();
+                aux=aux.concat(", "+container.getEmails().getSpeechMail());
+            }
+            if(Alarm.getInstance().getSelectCustom()){
+                aux=aux.concat(", "+container.getCustomMessage());
+
+            }
+            //Método que hace hablar a nuestra aplicación
+            speak(aux);
+        }
+        if ( status == TextToSpeech.LANG_MISSING_DATA | status == TextToSpeech.LANG_NOT_SUPPORTED )
+        {
+            Toast.makeText(this, "ERROR LANG_MISSING_DATA | LANG_NOT_SUPPORTED", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void speak( String str )
+    {
+        textToSpeech.speak( str, TextToSpeech.QUEUE_FLUSH, null );
+        textToSpeech.setSpeechRate( 0.0f );
+        textToSpeech.setPitch( 0.0f );
+    }
 }

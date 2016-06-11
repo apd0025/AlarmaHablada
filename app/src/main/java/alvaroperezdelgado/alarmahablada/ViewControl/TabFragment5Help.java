@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import alvaroperezdelgado.alarmahablada.R;
 
 public class TabFragment5Help extends Fragment {
 

@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 
 import android.content.Intent;
@@ -14,6 +14,7 @@ import alvaroperezdelgado.alarmahablada.Options.SetCityOptions;
 import alvaroperezdelgado.alarmahablada.Options.SetMailOptions;
 import alvaroperezdelgado.alarmahablada.Options.SetNameOptions;
 import alvaroperezdelgado.alarmahablada.Options.SetTitleOptions;
+import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 

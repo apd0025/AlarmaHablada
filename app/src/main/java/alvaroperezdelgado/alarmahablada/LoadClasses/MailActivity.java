@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.LoadClasses;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,8 +9,11 @@ import android.widget.Toast;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 
+import alvaroperezdelgado.alarmahablada.Alarm.SpeechAlarm;
 import alvaroperezdelgado.alarmahablada.Email.EmailManager;
 import alvaroperezdelgado.alarmahablada.Model.User;
+import alvaroperezdelgado.alarmahablada.R;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 
 /**
  * Clase encargada de obtener la información del correo electrónico
@@ -40,8 +43,20 @@ public class MailActivity extends AppCompatActivity {
                         e.printStackTrace();
 
                     }
-
-                    startActivity(new Intent(MailActivity.this, MainActivity2.class));
+                    String recive = "init";
+                    try {
+                        recive = getIntent().getExtras().getString("extra");
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                    if (recive == "init") {
+                        //Nos lleva a cargar la información de los mails
+                        startActivity(new Intent(MailActivity.this, MainActivity.class));
+                    } else {
+                        Intent intent = new Intent(MailActivity.this, SpeechAlarm.class);
+                        startActivity(intent);
+                    }
+                    startActivity(new Intent(MailActivity.this, MainActivity.class));
                     return null;
                 }
 

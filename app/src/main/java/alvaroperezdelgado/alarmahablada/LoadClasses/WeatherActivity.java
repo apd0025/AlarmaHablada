@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.LoadClasses;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.Model.User;
+import alvaroperezdelgado.alarmahablada.R;
 import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 import alvaroperezdelgado.alarmahablada.YahooWeather.data.Item;
 import alvaroperezdelgado.alarmahablada.YahooWeather.service.WeatherSerciceCallback;
@@ -63,8 +64,23 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
         container.getWeather().setDegrees(temperature);
         container.getWeather().setCondition(description);
 
-        //Nos lleva a cargar la información de los mails
-        startActivity(new Intent(this, MailActivity.class));
+        //Comprobación para ver si la aplicación se esta cargando de 0 o la estamos cargando de la
+        //notificación de la alarma.
+        String recive = "init";
+        try {
+            recive = getIntent().getExtras().getString("extra");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        if (recive == "init") {
+            //Nos lleva a cargar la información de los mails
+            startActivity(new Intent(this, MailActivity.class));
+        } else {
+            Intent intent = new Intent(this, MailActivity.class);
+            intent.putExtra("extra", "alarm");
+            startActivity(intent);
+        }
+
 
     }
 

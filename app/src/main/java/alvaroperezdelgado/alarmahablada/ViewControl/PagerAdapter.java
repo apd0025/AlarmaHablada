@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

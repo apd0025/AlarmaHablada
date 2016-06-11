@@ -1,7 +1,6 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
@@ -13,8 +12,8 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-import alvaroperezdelgado.alarmahablada.Calendar.CalendarActivity;
 import alvaroperezdelgado.alarmahablada.Model.Container;
+import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -35,12 +34,7 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
     Button btSpeechCustom;
     @Bind(R.id.btSpeechWeather)
     Button btSpeechWeather;
-    @Bind(R.id.btWeather)
-    Button btWeather;
-    @Bind(R.id.btMail)
-    Button btMail;
-    @Bind(R.id.btCalendar)
-    Button btCalendar;
+
     @Bind(R.id.btSpeechHello)
     Button btSpeechHello;
     @Bind(R.id.btStop)
@@ -115,27 +109,6 @@ public class TabFragment4Talk extends Fragment implements TextToSpeech.OnInitLis
             }
         });
 
-        btWeather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btMail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), MailActivity.class));
-            }
-        });
-
-        btCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), CalendarActivity.class));
-            }
-        });
 
         return v;
     }

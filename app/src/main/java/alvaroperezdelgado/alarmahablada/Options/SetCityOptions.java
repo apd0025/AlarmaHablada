@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
@@ -44,14 +44,14 @@ public class SetCityOptions extends AppCompatActivity {
                 String sCity=city.getText().toString();
                 user.setCity(sCity);
                 savePreferences(sCity);
-                startActivity(new Intent(SetCityOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetCityOptions.this, MainActivity.class));
             }
         });
         //cuando pulsamos el boton cancelar
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SetCityOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetCityOptions.this, MainActivity.class));
             }
         });
     }

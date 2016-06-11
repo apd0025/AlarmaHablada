@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,8 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import alvaroperezdelgado.alarmahablada.R;
 
-public class MainActivity2 extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

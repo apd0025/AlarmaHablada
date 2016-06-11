@@ -21,7 +21,14 @@ public class Alarm {
     private Boolean isRinging = false;
     //para saber si la tenemos permitida
     private Boolean isAllowed = false;
-
+    //Para saber si han elegido mail para la alarma
+    private Boolean selectMail;
+    //Para saber si han elegido calendar para alarma
+    private Boolean selectCalendar;
+    //Para saber si han elegido weather para alarma
+    private Boolean selectWeather;
+    //Para saber si han elegido customMesage para alarma
+    private Boolean selectCustom;
 
     private enum week {mon, tue, wed, thu, fri, sat, sun}
 
@@ -106,6 +113,38 @@ public class Alarm {
         this.isRinging = isRinging;
     }
 
+    public Boolean getSelectCalendar() {
+        return selectCalendar;
+    }
+
+    public void setSelectCalendar(Boolean selectCalendar) {
+        this.selectCalendar = selectCalendar;
+    }
+
+    public Boolean getSelectWeather() {
+        return selectWeather;
+    }
+
+    public void setSelectWeather(Boolean selectWeather) {
+        this.selectWeather = selectWeather;
+    }
+
+    public Boolean getSelectCustom() {
+        return selectCustom;
+    }
+
+    public void setSelectCustom(Boolean selectCustom) {
+        this.selectCustom = selectCustom;
+    }
+
+    public Boolean getSelectMail() {
+        return selectMail;
+    }
+
+    public void setSelectMail(Boolean selectMail) {
+        this.selectMail = selectMail;
+    }
+
     public Boolean getIsAllowed() {
         return isAllowed;
     }
@@ -155,37 +194,7 @@ public class Alarm {
     }
 
 
-    public List<Boolean> getChoosenoptions() {
-        return choosenoptions;
-    }
 
-    public void setChoosenoptions(int index, boolean value) {
-        switch (index) {
-            case 1:
-                choosenoptions.add(0, value);
-                break;
-            case 2:
-                choosenoptions.add(1, value);
-                break;
-            case 3:
-                choosenoptions.add(2, value);
-                break;
-            case 4:
-                choosenoptions.add(3, value);
-                break;
-            case 5:
-                choosenoptions.add(4, value);
-                break;
-            case 6:
-                choosenoptions.add(5, value);
-                break;
-            case 7:
-                choosenoptions.add(6, value);
-                break;
-            default:
-                break;
-        }
-    }
 
 
     /**

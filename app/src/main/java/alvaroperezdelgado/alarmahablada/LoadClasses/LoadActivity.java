@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.LoadClasses;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -23,31 +23,56 @@ import alvaroperezdelgado.alarmahablada.Calendar.ListCalendarEvents;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.Model.User;
+import alvaroperezdelgado.alarmahablada.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LoadActivity extends AppCompatActivity {
 
     private User user;
     private Alarm alarm;
     private Container container;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //instanciamos los objetos user y alarm
-        user=User.getInstance();
-        alarm=Alarm.getInstance();
-        container=Container.getInstance();
+        user = User.getInstance();
+        alarm = Alarm.getInstance();
+        container = Container.getInstance();
+
+        //Cargamos todos los datos que tenemos guardados en la aplicacion
         loadConfiguration();
+
+        //Cargamos la información del calendario
         loadCalendar();
-        startActivity(new Intent(this,WeatherActivity.class));
-        //startActivity(new Intent(this, MainActivity2.class));
+
+        //Comprobación para ver si la aplicción se esta cargando de 0 o la estamos cargando de la
+        //notificación de la alarma.
+        String recive = "init";
+        try {
+            recive = getIntent().getExtras().getString("extra");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        if (recive == "init") {
+            //Nos lleva a la informacion del tiempo
+            startActivity(new Intent(this, WeatherActivity.class));
+        } else {
+            Intent intent = new Intent(this, WeatherActivity.class);
+            intent.putExtra("extra", "alarm");
+            startActivity(intent);
+        }
+
+
+        //startActivity(new Intent(this, MainActivity.class));
     }
 
     /**
      * Método que carga la configuracion anterior de un archivo .xml
      */
-    public void loadConfiguration(){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+    public void loadConfiguration() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         //Cargar los datos del usuario
         user.setName(sharedPreferences.getString("UserName", "User"));
         user.setMailUser(sharedPreferences.getString("UserMailUser", "apd0025tfg"));
@@ -59,7 +84,12 @@ public class MainActivity extends AppCompatActivity {
         alarm.setHour(sharedPreferences.getInt("AlarmHour", 10));
         alarm.setMin(sharedPreferences.getInt("AlarmMin", 0));
         alarm.setIsActive(sharedPreferences.getBoolean("AlarmIsActive", false));
-        alarm.setIsAllowed(sharedPreferences.getBoolean("AlarmIsAllowed",false));
+        alarm.setIsAllowed(sharedPreferences.getBoolean("AlarmIsAllowed", false));
+        alarm.setSelectCalendar(sharedPreferences.getBoolean("selectCalendar", true));
+        alarm.setSelectWeather(sharedPreferences.getBoolean("selectWeather", true));
+        alarm.setSelectCustom(sharedPreferences.getBoolean("selectCustom", true));
+        alarm.setSelectMail(sharedPreferences.getBoolean("selectMail", true));
+
 
         //Cargar el mensaje customizado
         container.setCustomMessage(sharedPreferences.getString("ContainerCustomMessage", "Este es un mensaje personalizado"));
@@ -71,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Método que se encarga de cargar los datos del calendario
      */
-    public void loadCalendar(){
+    public void loadCalendar() {
         //Creamos variables para dia mes año
-        int day,month,year ;
+        int day, month, year;
         //Ponemos una fecha de inicio donde mirará a ver si hay ahí eventos
         Calendar beginTime = Calendar.getInstance();
         long startMills = beginTime.getTimeInMillis();
@@ -82,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
         Calendar endTime = Calendar.getInstance();
         year = Calendar.getInstance().get(Calendar.YEAR);
         day = Calendar.getInstance().get(Calendar.DATE);
-        month=beginTime.get(Calendar.MONTH);
+        month = beginTime.get(Calendar.MONTH);
         endTime.set(year, month, day, 23, 59);
         long endMills = endTime.getTimeInMillis();
 
         //Obtenemos la lista de eventos y la borramos, porque vamos a volver a recuperar todos
-        ListCalendarEvents listCalendarEvents=ListCalendarEvents.getInstance();
+        ListCalendarEvents listCalendarEvents = ListCalendarEvents.getInstance();
         listCalendarEvents.removeAll();
         ContentResolver contentResolver = getContentResolver();
         //Comprobacion que nos pide el propio codigo
@@ -130,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Añadimos a nuestra clase listCalendarEvents el evento obtenido
                 listCalendarEvents.addCalendarEvent(new CalendarEvent(title, description, begin, end));
-                Log.d("Cursor", "Title: " + title + "\tDescription: " + description + "\tBegin: " + begin.getHours()+":"+begin.getMinutes() + "\tEnd: " + end.getHours()+":"+end.getMinutes());
+                Log.d("Cursor", "Title: " + title + "\tDescription: " + description + "\tBegin: " + begin.getHours() + ":" + begin.getMinutes() + "\tEnd: " + end.getHours() + ":" + end.getMinutes());
             }
         }
     }

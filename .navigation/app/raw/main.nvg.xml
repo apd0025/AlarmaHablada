@@ -6,7 +6,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "alvaroperezdelgado.alarmahablada.WeatherActivity"/>
+        className = "alvaroperezdelgado.alarmahablada.LoadClasses.WeatherActivity"/>
       <point      
         x = "266"      
         y = "2700"/>
@@ -30,7 +30,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "alvaroperezdelgado.alarmahablada.MainActivity2"/>
+        className = "alvaroperezdelgado.alarmahablada.ViewControl.MainActivity"/>
       <point      
         x = "2071"      
         y = "4254"/>

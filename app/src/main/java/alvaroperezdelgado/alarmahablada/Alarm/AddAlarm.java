@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.R;
@@ -52,8 +52,8 @@ public class AddAlarm extends AppCompatActivity {
     @Bind(R.id.btCancelAddAlarm)
     Button btCancel;
     //Inicializar switches
-    @Bind(R.id.swSong)
-    Switch swSong;
+    @Bind(R.id.swMail)
+    Switch swMail;
     @Bind(R.id.swWeather)
     Switch swWeather;
     @Bind(R.id.swCalendar)
@@ -83,8 +83,21 @@ public class AddAlarm extends AppCompatActivity {
         tvTimeShow.setText(alarm.getShowHour()+" : "+alarm.getShowMin());
         tvCustomMessageAddShow.setText(Container.getInstance().getCustomMessage());
         tvSongAddShow.setText(Container.getInstance().getSongName());
-        tvDaysAddShow.setText("LUNES TODO");
 
+        //inicializar los switches con su valor
+        //mostraremos el switch activado o desactivado en funcion de si esta o no activado
+        if (alarm.getSelectCustom() == true) {
+            swCustomMessage.setChecked(true);
+        }
+        if (alarm.getSelectCalendar() == true) {
+            swCalendar.setChecked(true);
+        }
+        if (alarm.getSelectMail() == true) {
+            swMail.setChecked(true);
+        }
+        if (alarm.getSelectWeather()== true) {
+            swWeather.setChecked(true);
+        }
 
         //Control de los botones
         tvDaysClick.setOnClickListener(new View.OnClickListener() {
@@ -144,9 +157,15 @@ public class AddAlarm extends AppCompatActivity {
                 //le pasamos el reloj de tiempo real, el calendario que contiene la hora y minuto a los que vamos a poner la alarma
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
                         , pendingIntent);
-                startActivity(new Intent(AddAlarm.this, MainActivity2.class));
+                startActivity(new Intent(AddAlarm.this, MainActivity.class));
                 //ponemos que la tenemos activa
                 alarm.setIsActive(true);
+                //Guardamos el estado de los switches
+                alarm.setSelectCalendar(swCalendar.isChecked());
+                alarm.setSelectMail(swMail.isChecked());
+                alarm.setSelectCustom(swCustomMessage.isChecked());
+                alarm.setSelectWeather(swWeather.isChecked());
+
                 //guardamos el estado a true
                 savePreferences();
             }
@@ -157,7 +176,7 @@ public class AddAlarm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(AddAlarm.this, MainActivity2.class));
+                startActivity(new Intent(AddAlarm.this, MainActivity.class));
             }
         });
     }
@@ -169,6 +188,11 @@ public class AddAlarm extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("AlarmIsActive",true);
+        editor.putBoolean("selectCalendar",swCalendar.isChecked());
+        editor.putBoolean("selectWeather",swWeather.isChecked());
+        editor.putBoolean("selectCustom",swCustomMessage.isChecked());
+        editor.putBoolean("selectMail",swMail.isChecked());
+
         editor.commit();
     }
 

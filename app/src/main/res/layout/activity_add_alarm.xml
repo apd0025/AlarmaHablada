@@ -68,12 +68,12 @@
                     android:id="@+id/tvCustomMessageAddShow"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/tvTimeShow"
                     android:paddingTop="@dimen/ButtonPadding"
                     android:text="Large Text"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_alignTop="@+id/tvCustomMessageAddClick"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
                 <TextView
                     android:id="@+id/tvSongAddClick"
@@ -124,12 +124,12 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Switch
-                    android:id="@+id/swSong"
+                    android:id="@+id/swMail"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:paddingTop="@dimen/ButtonPadding"
-                    android:text="@string/Song"
+                    android:text="@string/mail"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_below="@+id/tvDaysAddClick"
                     android:textStyle="bold"
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/swSong"
+                    android:layout_below="@+id/swMail"
                     android:checked="false"
                     android:paddingTop="@dimen/ButtonPadding"
                     android:text="@string/weather"

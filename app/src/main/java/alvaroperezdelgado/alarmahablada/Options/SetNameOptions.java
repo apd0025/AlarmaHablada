@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import alvaroperezdelgado.alarmahablada.MainActivity2;
+import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
@@ -47,14 +47,14 @@ public class SetNameOptions extends AppCompatActivity {
                 String sName=name.getText().toString();
                 user.setName(sName);
                 savePreferences(sName);
-                startActivity(new Intent(SetNameOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetNameOptions.this, MainActivity.class));
             }
         });
         //Cuando pulsamos el boton cancelar
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SetNameOptions.this, MainActivity2.class));
+                startActivity(new Intent(SetNameOptions.this, MainActivity.class));
             }
         });
     }

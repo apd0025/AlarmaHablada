@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -17,6 +17,7 @@ import alvaroperezdelgado.alarmahablada.Alarm.AddAlarm;
 import alvaroperezdelgado.alarmahablada.Alarm.AlarmReceiver;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.User;
+import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -73,6 +74,7 @@ public class TabFragment2Alarm extends Fragment {
             }
         });
 
+        //para cancelar la alarma
         final Intent intent = new Intent(getActivity(), AlarmReceiver.class);
         //Inicializamos el alarm manager
         alarmManager = (AlarmManager) this.getContext().getSystemService(getContext().ALARM_SERVICE);
@@ -92,26 +94,14 @@ public class TabFragment2Alarm extends Fragment {
                 getContext().sendBroadcast(intent);
                 alarm.setIsActive(false);
                 System.out.println(alarm.getIsActive().toString());
-                startActivity(new Intent(getActivity(),MainActivity2.class));
+                startActivity(new Intent(getActivity(),MainActivity.class));
             }
         });
 
         if(alarm.getIsRinging()){
             tvTabAlarmName.setText("Hola mundo");
         }
-        //Switch comportamiento de este switch
-         /*
-        swIsAllowed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(swIsAllowed.isActivated()){
-                    alarm.setIsAllowed(true);
-                }else{
-                    alarm.setIsAllowed(false);
-                }
-            }
-        });
-*/
+
         //desde aqui llamamos al layout que queremos que muestre
         return v;
 

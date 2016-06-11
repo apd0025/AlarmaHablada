@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada;
+package alvaroperezdelgado.alarmahablada.ViewControl;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import alvaroperezdelgado.alarmahablada.Model.Container;
+import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -99,7 +100,6 @@ public class TabFragment1Time extends Fragment {
         tvLocation.setText(container1.getWeather().getLocation());
         tvCondition.setText(container1.getWeather().getCondition());
         tvTemperature.setText(container1.getWeather().getDegrees() + "\u00B0" + "C");
-        //TODO quitar este if warro necesito cargar la clase weather activity antes
         if (container1.getWeather().getIconResourceId() != 1) {
             @SuppressWarnings("deprecation") Drawable weatherIconDrawable = getResources().getDrawable(Container.getInstance().getWeather().getIconResourceId());
             ivIconWeather.setImageDrawable(weatherIconDrawable);
@@ -129,12 +129,5 @@ public class TabFragment1Time extends Fragment {
         return v;
     }
 
-    /**
-     * Cargamos la configuración de los datos guardados, usando SharedPreferences que se guardarán en un
-     * archivo xml
-     */
-    public void loadConfiguration(){
-      //  SharedPreferences sharedPreferences=getSharedPreferences(String, int);
 
-    }
 }
