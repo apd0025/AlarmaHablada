@@ -16,7 +16,6 @@ import android.widget.TextView;
 import alvaroperezdelgado.alarmahablada.Alarm.AddAlarm;
 import alvaroperezdelgado.alarmahablada.Alarm.AlarmReceiver;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
-import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,8 +27,7 @@ import butterknife.ButterKnife;
  */
 public class TabFragment2Alarm extends Fragment {
 
-    @Bind(R.id.tvTabAlarmName)
-    TextView tvTabAlarmName;
+
     @Bind(R.id.tvTabAlarmTime)
     TextView tvTabAlarmTime;
     @Bind(R.id.tvIsActive)
@@ -39,8 +37,7 @@ public class TabFragment2Alarm extends Fragment {
     Button btNewAlarm;
     @Bind(R.id.btSetAlarmCancel)
     Button btCancelAlarm;
-    @Bind(R.id.swIsAllowed)
-    Button swIsAllowed;
+
 
     private Alarm alarm;
 
@@ -60,8 +57,6 @@ public class TabFragment2Alarm extends Fragment {
 
         alarm = Alarm.getInstance();
         //Iniciamos los objetos visuales con valor
-        tvTabAlarmName.setText(User.getInstance().getName());
-
 
         tvTabAlarmTime.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
         tvTabAlarmdays.setText(alarm.getIsActive().toString());
@@ -98,9 +93,6 @@ public class TabFragment2Alarm extends Fragment {
             }
         });
 
-        if(alarm.getIsRinging()){
-            tvTabAlarmName.setText("Hola mundo");
-        }
 
         //desde aqui llamamos al layout que queremos que muestre
         return v;

@@ -38,25 +38,31 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:id="@+id/btCancelSet"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/ButtonColorAcceptCancel"
+            android:textColor="@color/ButtonTextColorAcceptCancel"
+            android:layout_marginTop="10dp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/accept"
             android:id="@+id/btAcceptSet"
-            android:layout_alignParentTop="true"
+            android:layout_column="16"
+            android:layout_above="@+id/btCancelSet"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:background="@color/ButtonColorAcceptCancel"
+            android:textColor="@color/ButtonTextColorAcceptCancel" />
 
     </RelativeLayout>
 

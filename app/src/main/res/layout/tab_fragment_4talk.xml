@@ -35,7 +35,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/btSpeechCalendar"
-                    android:text="@string/CustomMessage" />
+                    android:text="@string/CustomMessage"
+                    android:background="@color/ButtonColorAcceptCancel"
+                    android:textColor="@color/ButtonTextColorAcceptCancel"
+                    android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/btSpeechWeather"
@@ -44,7 +47,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/btSpeechCustom"
-                    android:text="@string/weather" />
+                    android:text="@string/weather"
+                    android:background="@color/ButtonColorAcceptCancel"
+                    android:textColor="@color/ButtonTextColorAcceptCancel"
+                    android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/btSpeechCalendar"
@@ -53,7 +59,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/calendar" />
+                    android:text="@string/calendar"
+                    android:textColor="@color/ButtonTextColorAcceptCancel"
+                    android:background="@color/ButtonColorAcceptCancel"
+                    android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/btSpeechMail"
@@ -62,7 +71,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/btSpeechWeather"
-                    android:text="@string/mail" />
+                    android:text="@string/mail"
+                    android:background="@color/ButtonColorAcceptCancel"
+                    android:textColor="@color/ButtonTextColorAcceptCancel"
+                    android:layout_marginTop="10dp"/>
                 <Button
                     android:id="@+id/btSpeechHello"
                     android:layout_width="fill_parent"
@@ -70,7 +82,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/btSpeechMail"
-                    android:text="@string/Welcome" />
+                    android:text="@string/Welcome"
+                    android:background="@color/ButtonColorAcceptCancel"
+                    android:textColor="@color/ButtonTextColorAcceptCancel"
+                    android:layout_marginTop="10dp"/>
 
             </RelativeLayout>
 

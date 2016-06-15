@@ -18,12 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Colocamos los iconos del menu
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Hora"));
-        tabLayout.addTab(tabLayout.newTab().setText("Alarma"));
-        tabLayout.addTab(tabLayout.newTab().setText("Opciones"));
-        tabLayout.addTab(tabLayout.newTab().setText("Habla"));
-        tabLayout.addTab(tabLayout.newTab().setText("Ayuda"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.hour_01));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.alarm_01));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.settings_01));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.speak_01));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.help_01));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
