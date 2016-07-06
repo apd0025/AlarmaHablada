@@ -109,7 +109,7 @@ public class RingTonePlayingService extends Service {
 
                 //Hacemos un intent que nos lleve a la clase Speech la notificacion
                 Intent intent2=new Intent(this.getApplicationContext(),LoadActivity.class);
-                //TODO
+
                 intent2.putExtra("extra","alarm");
                 //Inicializamos un pendingIntent con el intent anterior
                 PendingIntent pendingIntentMainActivity=PendingIntent.getActivity(this,0,intent2,0);
@@ -120,7 +120,7 @@ public class RingTonePlayingService extends Service {
                 //Construimos los parametros de la notificacion
                 notificationPopup = new Notification.Builder(this)
                         .setContentTitle("Alarma!!")
-                        .setContentText("alarma")
+                        .setContentText("Alarma Hablada")
                         .setContentIntent(pendingIntentMainActivity)
                         .setAutoCancel(true)
                         .setSmallIcon(R.mipmap.ic_launcher)
@@ -136,20 +136,20 @@ public class RingTonePlayingService extends Service {
 
                 Intent intent2= new Intent(new Intent(this.getApplicationContext(), LoadActivity.class));
                 intent2.putExtra("extra","alarm");
-                //TODO
+
                 //Inicializamos un pendingIntent con el intent anterior
                 PendingIntent pendingIntent=PendingIntent.getActivity(this.getApplicationContext(),0,intent2,0);
 
 
                 //construimos la notificacion
                 NotificationCompat.Builder builder=new NotificationCompat.Builder(RingTonePlayingService.this);
-                builder.setSmallIcon(R.drawable.icon_0);
+                builder.setSmallIcon(R.drawable.reloj_notify);
                 builder.setContentIntent(pendingIntent);
                 builder.setAutoCancel(true);
-                builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon_0));
-                builder.setContentTitle("Titulo notificacion");
-                builder.setContentText("Contenido hola mundo");
-                builder.setSubText("Subtexto eyy que paso");
+                builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                builder.setContentTitle("Alarma!!");
+                builder.setContentText("Alarma Hablada");
+                builder.setSubText("Pulsa para escuchar");
 
                 //Enviar la notificacion
                 NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);

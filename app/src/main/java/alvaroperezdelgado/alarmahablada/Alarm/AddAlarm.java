@@ -30,8 +30,7 @@ public class AddAlarm extends AppCompatActivity {
     private Alarm alarm;
 
     //inicializar los componentes de la interfaz
-    @Bind(R.id.tvDaysAddClick)
-    TextView tvDaysClick;
+
     @Bind(R.id.tvSongAddClick)
     TextView tvSongClick;
     @Bind(R.id.tvCustomMessageAddClick)
@@ -44,8 +43,7 @@ public class AddAlarm extends AppCompatActivity {
     TextView tvCustomMessageAddShow;
     @Bind(R.id.tvSongAddShow)
     TextView tvSongAddShow;
-    @Bind(R.id.tvDaysAddShow)
-    TextView tvDaysAddShow;
+
     //Inicializar botones
     @Bind(R.id.btAcceptAddAlarm)
     Button btAccept;
@@ -100,12 +98,7 @@ public class AddAlarm extends AppCompatActivity {
         }
 
         //Control de los botones
-        tvDaysClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AddAlarm.this, SetDays.class));
-            }
-        });
+
         tvSongClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

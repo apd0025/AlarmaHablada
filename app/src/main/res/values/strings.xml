@@ -76,6 +76,9 @@
     <string name="Stop">Stop</string>
     <string name="isActive">Está activa</string>
     <string name="isAllowed">Está permitida</string>
+    <string name="Contact">Contacto</string>
+    <string name="Email">Correo electrónico</string>
+    <string name="Back">Volver</string>
 
 
 </resources>

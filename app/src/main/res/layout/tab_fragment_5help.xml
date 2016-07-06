@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -20,4 +21,68 @@
             android:layout_alignParentTop="true">
             </LinearLayout>
         </ScrollView>
-    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btCalendarHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/HeightTalkButtons"
+        android:text="@string/calendar"
+        android:background="@color/ButtonColorAcceptCancel"
+        android:textColor="@color/ButtonTextColorAcceptCancel"
+        android:layout_above="@+id/btMailHelp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btWeatherHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/HeightTalkButtons"
+        android:text="@string/weather"
+        android:background="@color/ButtonColorAcceptCancel"
+        android:textColor="@color/ButtonTextColorAcceptCancel"
+        android:layout_above="@+id/btCalendarHelp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btMailHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/HeightTalkButtons"
+        android:text="@string/Email"
+        android:background="@color/ButtonColorAcceptCancel"
+        android:textColor="@color/ButtonTextColorAcceptCancel"
+        android:layout_alignBottom="@+id/scrollView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_alignTop="@+id/scrollView3"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btContactHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/HeightTalkButtons"
+        android:text="@string/Contact"
+        android:background="@color/ButtonColorAcceptCancel"
+        android:textColor="@color/ButtonTextColorAcceptCancel"
+        android:layout_above="@+id/btWeatherHelp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:gravity="center"
+        android:text="Aplicación creada por Álvaro Pérez Delgado."
+        android:id="@+id/textView2"
+        android:layout_below="@+id/imageButton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

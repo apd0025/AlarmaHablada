@@ -3,8 +3,6 @@ package alvaroperezdelgado.alarmahablada.Model;
 import java.io.File;
 import java.util.Calendar;
 
-import alvaroperezdelgado.alarmahablada.Calendar.ListCalendarEvents;
-
 /**
  * Clase container
  * sirve para guardar los Strings que va a leer nuestra alarma

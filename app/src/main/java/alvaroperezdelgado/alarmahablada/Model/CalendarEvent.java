@@ -1,4 +1,4 @@
-package alvaroperezdelgado.alarmahablada.Calendar;
+package alvaroperezdelgado.alarmahablada.Model;
 
 import java.util.Date;
 

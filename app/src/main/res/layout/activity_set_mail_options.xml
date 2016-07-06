@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:id="@+id/etSetMailPass"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:hint="@string/SetPassword"
                 android:gravity="left|top"
                 android:layout_below="@+id/etSetMailAddress"
@@ -75,6 +75,7 @@
                 android:background="@color/ButtonColorAcceptCancel"
                 android:textColor="@color/ButtonTextColorAcceptCancel"
                 android:layout_marginTop="10dp"/>
+
         </RelativeLayout>
 
     </RelativeLayout>

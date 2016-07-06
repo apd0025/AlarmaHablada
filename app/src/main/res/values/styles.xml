@@ -7,16 +7,10 @@
         <!--   darker variant for the status bar and contextual app bars -->
         <item name="colorPrimaryDark">#303F9F</item>
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">#FFFFFF</item>
-
-    </style>
-
-    <style name="Timepicker" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#3F51B5</item>
-        <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">#303F9F</item>
-        <!--   theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">#BE344B</item>
+
     </style>
+
+
 
 </resources>

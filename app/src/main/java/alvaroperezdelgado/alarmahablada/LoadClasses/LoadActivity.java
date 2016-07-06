@@ -18,8 +18,8 @@ import android.util.Log;
 import java.util.Calendar;
 import java.util.Date;
 
-import alvaroperezdelgado.alarmahablada.Calendar.CalendarEvent;
-import alvaroperezdelgado.alarmahablada.Calendar.ListCalendarEvents;
+import alvaroperezdelgado.alarmahablada.Model.CalendarEvent;
+import alvaroperezdelgado.alarmahablada.Model.ListCalendarEvents;
 import alvaroperezdelgado.alarmahablada.Model.Alarm;
 import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.Model.User;
@@ -34,7 +34,7 @@ public class LoadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_load);
 
         //instanciamos los objetos user y alarm
         user = User.getInstance();
@@ -84,7 +84,6 @@ public class LoadActivity extends AppCompatActivity {
         alarm.setHour(sharedPreferences.getInt("AlarmHour", 10));
         alarm.setMin(sharedPreferences.getInt("AlarmMin", 0));
         alarm.setIsActive(sharedPreferences.getBoolean("AlarmIsActive", false));
-        alarm.setIsAllowed(sharedPreferences.getBoolean("AlarmIsAllowed", false));
         alarm.setSelectCalendar(sharedPreferences.getBoolean("selectCalendar", true));
         alarm.setSelectWeather(sharedPreferences.getBoolean("selectWeather", true));
         alarm.setSelectCustom(sharedPreferences.getBoolean("selectCustom", true));
@@ -144,7 +143,7 @@ public class LoadActivity extends AppCompatActivity {
 
             Uri.Builder builder = CalendarContract.Instances.CONTENT_URI.buildUpon();
 
-            //Pasamosla fecha de inicio y final
+            //Pasamos la fecha de inicio y final
             ContentUris.appendId(builder, startMills);
             ContentUris.appendId(builder, endMills);
             //creamos otro cursor para mirar dentro de ese calendario

@@ -66,12 +66,12 @@
                 android:gravity="right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/tvNameOptionsDisplay"
                 android:paddingTop="@dimen/ButtonPadding"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:hint="@string/City" />
+                android:hint="@string/City"
+                android:layout_below="@+id/tvNameOptions"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:id="@+id/tvMailOptions"

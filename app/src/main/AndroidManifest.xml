@@ -40,7 +40,11 @@
         <activity android:name=".Options.SetTitleOptions" />
         <activity android:name=".Calendar.CalendarActivity" />
         <activity android:name=".ViewControl.MainActivity" />
-        <activity android:name=".Alarm.SpeechAlarm"></activity>
+        <activity android:name=".Alarm.SpeechAlarm" />
+        <activity android:name=".Help.HelpContact" />
+        <activity android:name=".Help.HelpCalendar" />
+        <activity android:name=".Help.HelpMail" />
+        <activity android:name=".Help.HelpWeather"></activity>
     </application>
 
 </manifest>

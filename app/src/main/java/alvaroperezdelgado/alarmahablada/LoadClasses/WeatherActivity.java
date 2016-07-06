@@ -29,7 +29,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO cargar imagen
+
         setContentView(R.layout.activity_weather);
 
         container = Container.getInstance();
@@ -94,7 +94,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
     public void serviceFailure(Exception exception) {
         dialog.hide();
         Toast.makeText(this, "No ha sido posible obtener la información meteorológica", Toast.LENGTH_SHORT).show();
-        //Si falla al cargar el tiempo qeu pase a cargar los mails
+        //Si falla al cargar el tiempo que pase a cargar los mails
         startActivity(new Intent(this, MailActivity.class));
     }
 }

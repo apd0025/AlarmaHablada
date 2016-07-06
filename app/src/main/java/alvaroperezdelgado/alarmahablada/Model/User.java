@@ -12,8 +12,7 @@ public class User {
     private String city;
     private String name;
     private String title;
-    private String twitterUser;
-    private String twitterPass;
+
     private static User user;
 
     /**
@@ -51,22 +50,6 @@ public class User {
 
     public void setMailPass(String mailPass) {
         this.mailPass = mailPass;
-    }
-
-    public String getTwitterUser() {
-        return twitterUser;
-    }
-
-    public void setTwitterUser(String twitterUser) {
-        this.twitterUser = twitterUser;
-    }
-
-    public String getTwitterPass() {
-        return twitterPass;
-    }
-
-    public void setTwitterPass(String twitterPass) {
-        this.twitterPass = twitterPass;
     }
 
     public String getCity() {
