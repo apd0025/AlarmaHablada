@@ -75,19 +75,6 @@
                         android:textSize="@dimen/LargeFontClock" />
 
                     <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/tvTabAlarmTime"
-                        android:gravity="center"
-                        android:text="@string/isActive"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <TextView
                         android:id="@+id/tvIsActive"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -95,10 +82,10 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_alignRight="@+id/tvTabAlarmTime"
-                        android:layout_below="@+id/textView5"
                         android:gravity="center"
                         android:text="Medium Text"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_below="@+id/tvTabAlarmTime" />
 
                     <Button
                         android:id="@+id/btSetAlarmCancel"

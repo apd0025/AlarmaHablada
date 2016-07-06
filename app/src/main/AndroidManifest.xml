@@ -44,7 +44,8 @@
         <activity android:name=".Help.HelpContact" />
         <activity android:name=".Help.HelpCalendar" />
         <activity android:name=".Help.HelpMail" />
-        <activity android:name=".Help.HelpWeather"></activity>
+        <activity android:name=".Help.HelpWeather" />
+        <activity android:name=".Help.HelpAlarm"></activity>
     </application>
 
 </manifest>

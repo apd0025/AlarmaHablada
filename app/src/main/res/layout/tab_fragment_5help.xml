@@ -73,7 +73,8 @@
         android:textColor="@color/ButtonTextColorAcceptCancel"
         android:layout_above="@+id/btWeatherHelp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,5 +85,16 @@
         android:id="@+id/textView2"
         android:layout_below="@+id/imageButton"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btAlarmHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/HeightTalkButtons"
+        android:text="@string/tvAlarma"
+        android:background="@color/ButtonColorAcceptCancel"
+        android:textColor="@color/ButtonTextColorAcceptCancel"
+        android:layout_above="@+id/btContactHelp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

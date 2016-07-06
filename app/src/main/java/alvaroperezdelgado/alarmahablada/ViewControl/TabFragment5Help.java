@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import alvaroperezdelgado.alarmahablada.Help.HelpAlarm;
 import alvaroperezdelgado.alarmahablada.Help.HelpCalendar;
 import alvaroperezdelgado.alarmahablada.Help.HelpContact;
 import alvaroperezdelgado.alarmahablada.Help.HelpMail;
@@ -28,6 +29,8 @@ public class TabFragment5Help extends Fragment {
     Button btContactHelp;
     @Bind(R.id.btWeatherHelp)
     Button btWeatherHelp;
+    @Bind(R.id.btAlarmHelp)
+    Button btAlarmHelp;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //desde aqui llamamos al layout que queremos que muestre
@@ -56,6 +59,12 @@ public class TabFragment5Help extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), HelpWeather.class));
+            }
+        });
+        btAlarmHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), HelpAlarm.class));
             }
         });
         return view;

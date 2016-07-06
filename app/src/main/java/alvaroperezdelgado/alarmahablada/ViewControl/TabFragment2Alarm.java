@@ -59,7 +59,11 @@ public class TabFragment2Alarm extends Fragment {
         //Iniciamos los objetos visuales con valor
 
         tvTabAlarmTime.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
-        tvTabAlarmdays.setText(alarm.getIsActive().toString());
+        if(alarm.getIsActive()) {
+            tvTabAlarmdays.setText("Alarma activada");
+        }else {
+            tvTabAlarmdays.setText("Alarma desactivada");
+        }
         //Boton de añadir alarma
         btNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,8 +91,6 @@ public class TabFragment2Alarm extends Fragment {
 
                 //Parar el ringtone
                 getContext().sendBroadcast(intent);
-                alarm.setIsActive(false);
-                System.out.println(alarm.getIsActive().toString());
                 startActivity(new Intent(getActivity(),MainActivity.class));
             }
         });

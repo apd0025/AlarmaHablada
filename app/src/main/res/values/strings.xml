@@ -70,7 +70,7 @@
     <string name="Sr">Don</string>
     <string name="Mrs">Doña</string>
     <string name="Empty">Vacío</string>
-    <string name="SetTitle">Introduce tu titulo</string>
+    <string name="SetTitle">Introduce tu título</string>
     <string name="SetGmailMail">Introduce tu Mail de gmail sin \"@gmail.com\"</string>
     <string name="Welcome">Saludo</string>
     <string name="Stop">Stop</string>
@@ -79,6 +79,11 @@
     <string name="Contact">Contacto</string>
     <string name="Email">Correo electrónico</string>
     <string name="Back">Volver</string>
+    <string name="helpAlarm">Ayuda para alarma</string>
+    <string name="helpCalendar">Ayuda para calendario</string>
+    <string name="helpContact">Ayuda para contacto</string>
+    <string name="helpMail">Ayuda para Correo electrónico</string>
+    <string name="helpWeather">Ayuda para el tiempo</string>
 
 
 </resources>

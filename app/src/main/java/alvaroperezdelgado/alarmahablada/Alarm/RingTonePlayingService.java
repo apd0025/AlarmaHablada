@@ -175,6 +175,7 @@ public class RingTonePlayingService extends Service {
             this.start_id=0;
             Alarm.getInstance().setIsRinging(false);
             Alarm.getInstance().setIsActive(false);
+            Alarm.getInstance().setIsActive(false);
         }
         //Si la musica no esta escuchandose y se pulsa "alarm off"
         //No hacer nada
