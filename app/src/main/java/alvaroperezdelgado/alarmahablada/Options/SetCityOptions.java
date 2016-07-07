@@ -15,6 +15,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que almacena los datos de la ciudad que posteriormente serán utilizados para obtener la
+ * información meteorológica.
+ */
 public class SetCityOptions extends AppCompatActivity {
 
     //boton de aceptar de la activiti que guardará los valores y retornara a la anterior vista
@@ -29,19 +33,20 @@ public class SetCityOptions extends AppCompatActivity {
 
     //objeto singleton user donde guardaremos el nombre
     private User user;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_city_options);
         //Necesitamos esto para que se haga la asignacion de los widgets
         ButterKnife.bind(this);
-        user=User.getInstance();
+        user = User.getInstance();
 
         //Controlar lo que pasa al hacer click en el boton aceptar
         acept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sCity=city.getText().toString();
+                String sCity = city.getText().toString();
                 user.setCity(sCity);
                 savePreferences(sCity);
                 startActivity(new Intent(SetCityOptions.this, MainActivity.class));
@@ -58,12 +63,13 @@ public class SetCityOptions extends AppCompatActivity {
 
     /**
      * Método que guarda en un xml MyPreferences el dato de la ciudad
+     *
      * @param sCity
      */
-    public void savePreferences(String sCity){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
-        editor.putString("UserCity",sCity);
+    public void savePreferences(String sCity) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserCity", sCity);
         editor.commit();
     }
 }

@@ -24,7 +24,7 @@
         <activity android:name=".Alarm.SetDays" />
         <activity android:name=".Alarm.SelectSong" />
         <activity android:name=".Alarm.SetAlarmCustomMessage" />
-        <activity android:name=".LoadClasses.WeatherActivity" />
+        <activity android:name=".LoadClasses.LoadWeatherActivity" />
         <activity android:name=".Alarm.SetAlarm" />
 
         <receiver android:name=".Alarm.AlarmReceiver" />
@@ -33,7 +33,7 @@
             android:name=".Alarm.RingTonePlayingService"
             android:enabled="true" />
 
-        <activity android:name=".LoadClasses.MailActivity" />
+        <activity android:name=".LoadClasses.LoadMailActivity" />
         <activity android:name=".Options.SetNameOptions" />
         <activity android:name=".Options.SetCityOptions" />
         <activity android:name=".Options.SetMailOptions" />

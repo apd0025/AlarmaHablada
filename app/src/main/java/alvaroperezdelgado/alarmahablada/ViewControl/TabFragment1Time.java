@@ -21,8 +21,8 @@ import butterknife.ButterKnife;
 
 
 /**
- * Esta clase es la que controla el layout que el TabLayout mostrará
- * En este caso muestra el fragment layout de la hora
+ * Esta clase es la que controla el layout que el TabLayout mostrará.
+ * En este caso muestra el fragment layout de la hora.
  */
 public class TabFragment1Time extends Fragment {
 

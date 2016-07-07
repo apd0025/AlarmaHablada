@@ -83,7 +83,7 @@ public class ListCalendarEvents {
             setSpeechCalendarEvents("No hay eventos para hoy");
         } else {
             this.speechCalendarEvents = "Tienes " + size() + " eventos en tu calendario para hoy.";
-            for (int i = size() - 1; i > size() - 4&&i>=0; i--) {
+            for (int i = size() - 1; i > size() - 4 && i >= 0; i--) {
 
                 if (getCalendarEvent(i).getBegin().getHours() == getCalendarEvent(i).getEnd().getHours()) {
                     aux = "Tienes un evento con título " + getCalendarEvent(i).getTitle() + " que dura todo el día. ";

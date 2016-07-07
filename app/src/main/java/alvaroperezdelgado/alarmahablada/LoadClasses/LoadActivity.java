@@ -25,6 +25,11 @@ import alvaroperezdelgado.alarmahablada.Model.Container;
 import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 
+/**
+ * Clase que sirve para Cargar todos los datos almacenados anteriormente.
+ * Esta clase también carga los datos del calendario almacenados en nuestro terminal para poder mostrarlos.
+ * Guarda la informacion en Alarm, User y Calendar.
+ */
 public class LoadActivity extends AppCompatActivity {
 
     private User user;
@@ -57,9 +62,9 @@ public class LoadActivity extends AppCompatActivity {
         }
         if (recive == "init") {
             //Nos lleva a la informacion del tiempo
-            startActivity(new Intent(this, WeatherActivity.class));
+            startActivity(new Intent(this, LoadWeatherActivity.class));
         } else {
-            Intent intent = new Intent(this, WeatherActivity.class);
+            Intent intent = new Intent(this, LoadWeatherActivity.class);
             intent.putExtra("extra", "alarm");
             startActivity(intent);
         }

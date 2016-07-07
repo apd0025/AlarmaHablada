@@ -26,7 +26,7 @@ import alvaroperezdelgado.alarmahablada.R;
 
 
 /**
- * Esta clase se ocupa de reproducir el sonido de la alarma
+ * Esta clase se ocupa de reproducir el sonido de la alarma.
  */
 public class SpeechPlayingService extends Service implements TextToSpeech.OnInitListener{
 

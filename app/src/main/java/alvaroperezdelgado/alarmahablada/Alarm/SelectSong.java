@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 
 /**
  * Esta clase sirve para seleccionar una cancion de nuestra tarjeta sd, para posteriormente almacenarla
- * en nuestra clase Container para poder reproducirla con la alarma
+ * en nuestra clase Container para poder reproducirla con la alarma.
  */
 public class SelectSong extends AppCompatActivity {
 //para acceder a la tarjeta sd necesitamos poner esto en el manifiesto

@@ -8,7 +8,10 @@ import android.support.v7.widget.Toolbar;
 
 import alvaroperezdelgado.alarmahablada.R;
 
-
+/**
+ * Clase que controla los demás Fragments del menú principal. Aquí se crean los iconos que se mostrarán
+ * en el menú.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

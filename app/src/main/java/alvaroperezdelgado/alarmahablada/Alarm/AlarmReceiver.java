@@ -14,18 +14,18 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         //Para comprobar con el log a ver si funciona
-        Log.e("AlarmReceiver",", onReceive");
+        Log.e("AlarmReceiver", ", onReceive");
 
         //Recuperamos el contenido "extra" del intent
-        String get_your_string=intent.getExtras().getString("extra");
+        String get_your_string = intent.getExtras().getString("extra");
 
-        Log.e("What is the key?",get_your_string);
+        Log.e("What is the key?", get_your_string);
 
         //Creamos el intent que nos lleva al ringtoneservice
-        Intent intentService= new Intent(context,RingTonePlayingService.class);
+        Intent intentService = new Intent(context, RingTonePlayingService.class);
 
         //Pasamos el contenido "extra" que obtuvimos arriba al RingTonePlayingService
-        intentService.putExtra("extra",get_your_string);
+        intentService.putExtra("extra", get_your_string);
 
         //iniciamos el servicio del RingToneservice
         context.startService(intentService);

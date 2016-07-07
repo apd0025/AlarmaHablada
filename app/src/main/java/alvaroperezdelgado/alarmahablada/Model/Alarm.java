@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * Esta clase contendra toda la información que podemos tener en un objeto alarma.
- * La utilizaremos para acceder de una forma mas sencilla a nuestra informacion.
- * Esta clase sera singleton ya que solo queremos una alarma
+ * La utilizaremos para acceder de una forma mas sencilla a nuestra información.
+ * Esta clase sera singleton ya que solo queremos una alarma.
  */
 
 public class Alarm {
@@ -20,13 +20,13 @@ public class Alarm {
     //para saber si esta sonando
     private Boolean isRinging = false;
     //Para saber si han elegido mail para la alarma
-    private Boolean selectMail=true;
+    private Boolean selectMail = true;
     //Para saber si han elegido calendar para alarma
-    private Boolean selectCalendar=true;
+    private Boolean selectCalendar = true;
     //Para saber si han elegido weather para alarma
-    private Boolean selectWeather=true;
+    private Boolean selectWeather = true;
     //Para saber si han elegido customMesage para alarma
-    private Boolean selectCustom=true;
+    private Boolean selectCustom = true;
     //0-customMessage, 1-Mail, 2-Calendar, 3-weathfer, 4-music
     private static List<Boolean> choosenoptions = new ArrayList<Boolean>(6);
 

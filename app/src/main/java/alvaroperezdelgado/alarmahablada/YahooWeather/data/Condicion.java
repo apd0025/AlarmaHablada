@@ -3,7 +3,7 @@ package alvaroperezdelgado.alarmahablada.YahooWeather.data;
 import org.json.JSONObject;
 
 /**
- * Created by perez on 6/4/16.
+ * Clase que obtien y guarda la información de la temperatura y la descripción del tiempo.
  */
 public class Condicion implements JSONPopulator {
     private int code;

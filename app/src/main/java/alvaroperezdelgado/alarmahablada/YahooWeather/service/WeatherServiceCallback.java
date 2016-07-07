@@ -4,9 +4,9 @@ package alvaroperezdelgado.alarmahablada.YahooWeather.service;
 import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 
 /**
- * Created by perez on 6/4/16.
+ * Interface que realiza la conexión con el API de YahooWeather
  */
-public interface WeatherSerciceCallback {
+public interface WeatherServiceCallback {
     void serviceSuccess(Channel channel);
     void serviceFailure(Exception exception);
 }

@@ -11,9 +11,14 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que explica lo necesario para poder añadir una cuenta a nuestro terminal y poder así, acceder
+ * a los eventos del calendario.
+ */
 public class HelpCalendar extends AppCompatActivity {
     @Bind(R.id.btCancelHelpCalendar)
     Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

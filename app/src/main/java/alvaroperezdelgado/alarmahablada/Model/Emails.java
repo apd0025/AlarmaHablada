@@ -8,7 +8,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 
 /**
- * Esta clase servira para poder obtener cadenas de caracteres de los mails recividos.
+ * Esta clase sirve para poder obtener cadenas de caracteres de los mails recibidos.
  */
 public class Emails {
     //Para saber si hay algo añadido

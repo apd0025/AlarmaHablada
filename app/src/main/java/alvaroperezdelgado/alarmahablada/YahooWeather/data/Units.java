@@ -3,7 +3,7 @@ package alvaroperezdelgado.alarmahablada.YahooWeather.data;
 import org.json.JSONObject;
 
 /**
- * Created by perez on 6/4/16.
+ * Clase que obtiene la temperatura del lugar requerido.
  */
 public class Units implements JSONPopulator {
 
@@ -15,6 +15,6 @@ public class Units implements JSONPopulator {
 
     @Override
     public void populate(JSONObject data) {
-        temperature= data.optString("temperature");
+        temperature = data.optString("temperature");
     }
 }

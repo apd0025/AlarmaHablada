@@ -14,6 +14,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que almacena un mensaje personalizado para que la alarma, al tocar la notificación, nos diga
+ * dicho mensaje.
+ */
 public class SetAlarmCustomMessage extends AppCompatActivity {
 
     //Declaramos los widgets que vamos a usar
@@ -59,13 +63,15 @@ public class SetAlarmCustomMessage extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Método que guarda en un xml MyPreferences el dato del Mail
+     *
      * @param sCustomMessage
      */
-    public void savePreferences(String sCustomMessage){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
+    public void savePreferences(String sCustomMessage) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("ContainerCustomMessage", sCustomMessage);
         editor.commit();
     }

@@ -17,15 +17,17 @@ import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 
 
 /**
- * Created by perez on 6/4/16.
+ * Clase que hace la petición del archivo JSON a YahooWether para después obtener los datos del
+ * paquete YahooWeather.data
+ * Esta clase necesita una ciudad para realizar la petición.
  */
 public class YahooWeatherService {
-    private WeatherSerciceCallback callback;
+    private WeatherServiceCallback callback;
     private String location;
     private Exception error;
 
 
-    public YahooWeatherService(WeatherSerciceCallback callback) {
+    public YahooWeatherService(WeatherServiceCallback callback) {
         this.callback = callback;
     }
 

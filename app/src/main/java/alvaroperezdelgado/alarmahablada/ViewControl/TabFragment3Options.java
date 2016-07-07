@@ -19,8 +19,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Esta clase es la que controla el layout que el TabLayout mostrará
- * En este caso muestra el fragment layout de las opciones
+ * Esta clase es la que controla el layout que el TabLayout mostrará.
+ * En este caso muestra el fragment layout de las opciones.
  */
 public class TabFragment3Options extends Fragment {
     @Bind(R.id.tvNameOptions)
@@ -39,12 +39,12 @@ public class TabFragment3Options extends Fragment {
     TextView mailDisplay;
     @Bind(R.id.tvTitleOptionsDisplay)
     TextView titleDisplay;
-    User user= User.getInstance();
+    User user = User.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //desde aqui llamamos al layout que queremos que muestre
-        View view= inflater.inflate(R.layout.tab_fragment_3options, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment_3options, container, false);
         ButterKnife.bind(this, view);
         name.setOnClickListener(new View.OnClickListener() {
             @Override

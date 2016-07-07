@@ -11,9 +11,14 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que sirve para controlar lo que hace la vista de ayuda del tiempo, en la que se explica
+ * como se debe usar la aplicación para poder obtener la información meteorológica.
+ */
 public class HelpWeather extends AppCompatActivity {
     @Bind(R.id.btCancelHelpWeather)
     Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

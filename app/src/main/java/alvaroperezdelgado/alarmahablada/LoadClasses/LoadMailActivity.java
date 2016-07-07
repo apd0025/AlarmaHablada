@@ -17,17 +17,17 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 
 /**
  * Clase encargada de obtener la información del correo electrónico
- * Guarda esta información en la clase Emails
+ * Guarda esta información en la clase Emails.
  */
-public class MailActivity extends AppCompatActivity {
-    Message[] messages=null;
+public class LoadMailActivity extends AppCompatActivity {
+    Message[] messages = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mail);
-        User user=User.getInstance();
+        User user = User.getInstance();
         final EmailManager emailManager = new EmailManager(user.getMailUser(), user.getMailPass(), "gmail.com", "smtp.gmail.com", "imap.gmail.com");
 
         /**
@@ -51,18 +51,18 @@ public class MailActivity extends AppCompatActivity {
                     }
                     if (recive == "init") {
                         //Nos lleva a cargar la información de los mails
-                        startActivity(new Intent(MailActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoadMailActivity.this, MainActivity.class));
                     } else {
-                        Intent intent = new Intent(MailActivity.this, SpeechAlarm.class);
+                        Intent intent = new Intent(LoadMailActivity.this, SpeechAlarm.class);
                         startActivity(intent);
                     }
-                    startActivity(new Intent(MailActivity.this, MainActivity.class));
+                    startActivity(new Intent(LoadMailActivity.this, MainActivity.class));
                     return null;
                 }
 
             }.execute();
 
-        }catch(Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "No ha sido posible obtener la información del correo electrónico", Toast.LENGTH_SHORT).show();
 
         }

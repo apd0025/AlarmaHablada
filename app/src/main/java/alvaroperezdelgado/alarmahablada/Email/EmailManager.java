@@ -15,7 +15,8 @@ import javax.mail.internet.MimeMessage;
 import alvaroperezdelgado.alarmahablada.Model.Emails;
 
 /**
- * Created by perez on 10/5/16.
+ * Clase que gestiona la conexion con nuestro correo electrónico, se conecta a través de STMP.
+ * Tiene almacenado  lo necesario para hacer este tipo de conexión.
  */
 public class EmailManager {
     private String stmpHost = "smtp.gmail.com";
@@ -26,12 +27,14 @@ public class EmailManager {
 
     private Folder inbox;
     private Store store;
+
     public EmailManager(String username, String password, String urlServer, String stmpHost, String mailServer) {
         account = new EmailAccount(username, password, urlServer);
         this.stmpHost = stmpHost;
         this.mailServer = mailServer;
         initProtocol();
     }
+
     private void initProtocol() {
         EmailAuthenticator authenticator = new EmailAuthenticator(account);
 
@@ -54,6 +57,7 @@ public class EmailManager {
         props2.setProperty("mail.imaps.socketFactory.fallback", "false");
         imapSession = Session.getInstance(props2);
     }
+
     public Message[] getMails() throws MessagingException {
         Emails emails = Emails.getInstance();
 
@@ -61,6 +65,7 @@ public class EmailManager {
         store.connect(mailServer, account.username, account.password);
         inbox = store.getFolder("Inbox");
         inbox.open(Folder.READ_ONLY);
+        emails.removeEmailList();
         Message[] result = inbox.getMessages();
         for (int i = 0, n = result.length; i < n; i++) {
             Message message = result[i];
@@ -70,16 +75,17 @@ public class EmailManager {
         }
         return result;
     }
+
     public void close() {
         //Close connection
         try {
             inbox.close(false);
             store.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+
     public synchronized void sendMail(String subject, String body, String sender, String recipients) throws Exception {
         MimeMessage message = new MimeMessage(smtpSession);
         DataHandler handler = new DataHandler(new ByteArrayDataSource(body.getBytes(), "text/plain"));

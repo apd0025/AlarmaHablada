@@ -3,7 +3,7 @@ package alvaroperezdelgado.alarmahablada.YahooWeather.data;
 import org.json.JSONObject;
 
 /**
- * Created by perez on 6/4/16.
+ * Interface que sirve para que las demás hereden de ella y todas tengan el método populate.
  */
 public interface JSONPopulator {
 

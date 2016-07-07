@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * Esta clase sirve para modelar un evento del calendario.
- * Guardaremos el titulo del evento, la descripcion del mismo y sus fechas de inicio y terminación
+ * Guardaremos el titulo del evento, la descripcion del mismo y sus fechas de inicio y terminación.
  */
 public class CalendarEvent {
     private String title, description;
@@ -17,6 +17,7 @@ public class CalendarEvent {
 
     /**
      * Constructor para el caso de que no haya nada que devuelva vacio
+     *
      * @param title
      */
     public CalendarEvent(String title) {
@@ -25,6 +26,7 @@ public class CalendarEvent {
 
     /**
      * Constructor normal
+     *
      * @param title
      * @param description
      * @param begin
@@ -39,6 +41,7 @@ public class CalendarEvent {
 
     /**
      * Obtener la descripción
+     *
      * @return
      */
     public String getDescription() {
@@ -47,6 +50,7 @@ public class CalendarEvent {
 
     /**
      * Poner la descripción
+     *
      * @param description
      */
     public void setDescription(String description) {
@@ -55,6 +59,7 @@ public class CalendarEvent {
 
     /**
      * Obtener la fecha de inicio
+     *
      * @return
      */
     public Date getBegin() {
@@ -63,6 +68,7 @@ public class CalendarEvent {
 
     /**
      * Poner la fecha de inicio
+     *
      * @param begin
      */
     public void setBegin(Date begin) {
@@ -71,6 +77,7 @@ public class CalendarEvent {
 
     /**
      * Obtener la fecha de fin
+     *
      * @return
      */
     public Date getEnd() {
@@ -79,6 +86,7 @@ public class CalendarEvent {
 
     /**
      * Poner la fecha de fin
+     *
      * @param end
      */
     public void setEnd(Date end) {
@@ -87,6 +95,7 @@ public class CalendarEvent {
 
     /**
      * Obtenemos si es un evento allday
+     *
      * @return
      */
     public boolean isAllDay() {
@@ -95,6 +104,7 @@ public class CalendarEvent {
 
     /**
      * Poner que es un evento allday
+     *
      * @param allDay
      */
     public void setAllDay(boolean allDay) {
@@ -103,6 +113,7 @@ public class CalendarEvent {
 
     /**
      * Obtener el titulo
+     *
      * @return
      */
     public String getTitle() {
@@ -112,6 +123,7 @@ public class CalendarEvent {
 
     /**
      * Poner el titulo
+     *
      * @param title
      */
     public void setTitle(String title) {
@@ -126,22 +138,22 @@ public class CalendarEvent {
         } else {
             int minutesB = getBegin().getMinutes();
             int minutesE = getBegin().getMinutes();
-            String minutesBeg="";
-            String minutesEnd="";
+            String minutesBeg = "";
+            String minutesEnd = "";
             //Esto es solo para que se quede el 00
-            if(minutesB==0){
-                minutesBeg="00";
-            }else{
-                minutesBeg=String.valueOf(minutesB);
+            if (minutesB == 0) {
+                minutesBeg = "00";
+            } else {
+                minutesBeg = String.valueOf(minutesB);
             }
-            if (minutesE==0){
-                minutesEnd="00";
-            }else{
-                minutesEnd=String.valueOf(minutesE);
+            if (minutesE == 0) {
+                minutesEnd = "00";
+            } else {
+                minutesEnd = String.valueOf(minutesE);
             }
             //Si un evento empieza y termina a la misma hora pero del dia siguiente es que dura to do el dia.
-            if(getBegin().getHours()==getEnd().getHours()&&getBegin().getMinutes()==getEnd().getMinutes()) {
-                return  getTitle() + ". Todo el dia.";
+            if (getBegin().getHours() == getEnd().getHours() && getBegin().getMinutes() == getEnd().getMinutes()) {
+                return getTitle() + ". Todo el dia.";
             }
 
             return getTitle() + ". De " + getBegin().getHours() + ":" + minutesBeg + " a " + getEnd().getHours() + ":" + minutesEnd + ".";

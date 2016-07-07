@@ -15,6 +15,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que sirve para almacenar el nombre del usuario con el fin de dar un tratamiento más personalizado.
+ * Esto se guarda en la clase User
+ */
 public class SetNameOptions extends AppCompatActivity {
 
     private String aux;

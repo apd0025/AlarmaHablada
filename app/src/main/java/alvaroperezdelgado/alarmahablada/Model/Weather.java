@@ -3,7 +3,7 @@ package alvaroperezdelgado.alarmahablada.Model;
 /**
  * Clase que guarda de manera ordenada los datos necesarios para mostrar la información del tiempo.
  * También se encarga de generar el String que se leerá.
- * Es una clase Singleton ya que solo vamos a querer una instancia de la misma para nuestro proposito
+ * Es una clase Singleton ya que solo vamos a querer una instancia de la misma para nuestro proposito.
  */
 public class Weather {
     public int degrees = 0;

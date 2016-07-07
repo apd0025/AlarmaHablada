@@ -21,9 +21,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Esta clase es la que controla el layout que el TabLayout mostrará
- * En este caso muestra el fragment layout de la alarma
- * Esta clase sirve para gestionar la alarma, todas sus propiedades
+ * Esta clase es la que controla el layout que el TabLayout mostrará.
+ * En este caso muestra el fragment layout de la alarma.
+ * Esta clase sirve para gestionar la alarma, todas sus propiedades.
  */
 public class TabFragment2Alarm extends Fragment {
 
@@ -59,9 +59,9 @@ public class TabFragment2Alarm extends Fragment {
         //Iniciamos los objetos visuales con valor
 
         tvTabAlarmTime.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
-        if(alarm.getIsActive()) {
+        if (alarm.getIsActive()) {
             tvTabAlarmdays.setText("Alarma activada");
-        }else {
+        } else {
             tvTabAlarmdays.setText("Alarma desactivada");
         }
         //Boton de añadir alarma
@@ -91,7 +91,7 @@ public class TabFragment2Alarm extends Fragment {
 
                 //Parar el ringtone
                 getContext().sendBroadcast(intent);
-                startActivity(new Intent(getActivity(),MainActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
             }
         });
 

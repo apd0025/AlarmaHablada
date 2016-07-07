@@ -3,7 +3,7 @@ package alvaroperezdelgado.alarmahablada.YahooWeather.data;
 import org.json.JSONObject;
 
 /**
- * Created by perez on 6/4/16.
+ * Clase que obtiene el estado del tiempo.
  */
 public class Item implements JSONPopulator {
     private Condicion condition;

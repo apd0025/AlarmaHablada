@@ -16,6 +16,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que almacena los datos del tratamiento del usuario. Estos datos se utilizarán para
+ * referirse al usuario de una forma más personalizada.
+ */
 public class SetTitleOptions extends AppCompatActivity {
     final String[] datos = {"", "Don", "Doña"};
     //Declaramos un objeto tipo user
@@ -40,7 +44,7 @@ public class SetTitleOptions extends AppCompatActivity {
         setContentView(R.layout.activity_set_title_options);
         //Necesitamos esto para que se haga la asignacion de los widgets
         ButterKnife.bind(this);
-        user=user.getInstance();
+        user = user.getInstance();
         //Cuando pulsamos el boton aceptar nos pone en titulo de usuario lo que seleccionamos
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +54,13 @@ public class SetTitleOptions extends AppCompatActivity {
                 if (rbMr.isChecked()) {
                     //datos[1]=sr
                     user.setTitle(datos[1]);
-                    sTitle=datos[1];
+                    sTitle = datos[1];
                 } else if (rbMrs.isChecked()) {
                     user.setTitle(datos[2]);
-                    sTitle=datos[2];
+                    sTitle = datos[2];
                 } else {
                     user.setTitle(datos[0]);
-                    sTitle=datos[0];
+                    sTitle = datos[0];
                 }
                 savePreferences(sTitle);
                 //volvemos a main activity
@@ -73,13 +77,15 @@ public class SetTitleOptions extends AppCompatActivity {
         });
 
     }
+
     /**
      * Método que guarda en un xml MyPreferences el dato del titulo
+     *
      * @param sTitle
      */
-    public void savePreferences(String sTitle){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
+    public void savePreferences(String sTitle) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("UserTitle", sTitle);
         editor.commit();
     }

@@ -2,8 +2,8 @@ package alvaroperezdelgado.alarmahablada.Model;
 
 /**
  * Esta clase se encarga de guardar y tratar los datos propios del usuario
- * Como solo habra una instancia de usuario y no queremos que se creen mas
- * esta clase sera singleton
+ * Como solo habrá una instancia de usuario y no queremos que se creen más
+ * esta clase será singleton.
  */
 public class User {
 

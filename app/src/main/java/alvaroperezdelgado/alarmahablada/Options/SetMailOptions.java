@@ -15,6 +15,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que almacena la información del correo electrónico, que posteriormente será utilizada
+ * para acceder a nuestra cuenta de correo y recuperar los mails de la bandeja de entrada.
+ */
 public class SetMailOptions extends AppCompatActivity {
 
 
@@ -30,21 +34,22 @@ public class SetMailOptions extends AppCompatActivity {
     EditText password;
 
     User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_mail_options);
         //Necesitamos esto para que se haga la asignacion de los widgets
         ButterKnife.bind(this);
-        user= User.getInstance();
+        user = User.getInstance();
 
         //Controlar lo que pasa al hacer click en el boton aceptar
         acept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String mailAddress=address.getText().toString();
-                String mailPass=password.getText().toString();
+                String mailAddress = address.getText().toString();
+                String mailPass = password.getText().toString();
                 user.setMailUser(mailAddress);
                 user.setMailPass(mailPass);
                 savePreferences(mailAddress, mailPass);
@@ -62,12 +67,13 @@ public class SetMailOptions extends AppCompatActivity {
 
     /**
      * Método que guarda en un xml MyPreferences el dato del Mail
+     *
      * @param sAddress
      * @param sPass
      */
-    public void savePreferences(String sAddress,String sPass){
-        SharedPreferences sharedPreferences=getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
+    public void savePreferences(String sAddress, String sPass) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("UserMailUser", sAddress);
         editor.putString("UserMailPass", sPass);
         editor.commit();

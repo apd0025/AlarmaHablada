@@ -21,7 +21,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * Clase encargada de gestionar todas las opciones de la alarma, a través de ella se modifican
+ * todos los parámetros de la alarma. En ella se llama a las clases que modifican los datos de la alarma.
+ */
 public class AddAlarm extends AppCompatActivity {
 
     private Context context;
@@ -75,10 +78,10 @@ public class AddAlarm extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //obtener una instancia de alarm
-        alarm=Alarm.getInstance();
+        alarm = Alarm.getInstance();
 
         //mostrar informacion a traves de los textview
-        tvTimeShow.setText(alarm.getShowHour()+" : "+alarm.getShowMin());
+        tvTimeShow.setText(alarm.getShowHour() + " : " + alarm.getShowMin());
         tvCustomMessageAddShow.setText(Container.getInstance().getCustomMessage());
         tvSongAddShow.setText(Container.getInstance().getSongName());
 
@@ -93,7 +96,7 @@ public class AddAlarm extends AppCompatActivity {
         if (alarm.getSelectMail() == true) {
             swMail.setChecked(true);
         }
-        if (alarm.getSelectWeather()== true) {
+        if (alarm.getSelectWeather() == true) {
             swWeather.setChecked(true);
         }
 
@@ -115,14 +118,14 @@ public class AddAlarm extends AppCompatActivity {
         tvSetAlarmClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAlarm.this,SetAlarm.class));
+                startActivity(new Intent(AddAlarm.this, SetAlarm.class));
             }
         });
 
         //inicialize our alarmManager
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         //obtener una instancia de alarm
-        alarm=Alarm.getInstance();
+        alarm = Alarm.getInstance();
         //Creamos una instancia de calendar
         final Calendar calendar = Calendar.getInstance();
         //Creamos un intent con quien recive la llamada
@@ -173,18 +176,18 @@ public class AddAlarm extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Método que guarda en un xml MyPreferences el dato de isActive de alarm
-     *
      */
     public void savePreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("AlarmIsActive",true);
-        editor.putBoolean("selectCalendar",swCalendar.isChecked());
-        editor.putBoolean("selectWeather",swWeather.isChecked());
-        editor.putBoolean("selectCustom",swCustomMessage.isChecked());
-        editor.putBoolean("selectMail",swMail.isChecked());
+        editor.putBoolean("AlarmIsActive", true);
+        editor.putBoolean("selectCalendar", swCalendar.isChecked());
+        editor.putBoolean("selectWeather", swWeather.isChecked());
+        editor.putBoolean("selectCustom", swCustomMessage.isChecked());
+        editor.putBoolean("selectMail", swMail.isChecked());
 
         editor.commit();
     }

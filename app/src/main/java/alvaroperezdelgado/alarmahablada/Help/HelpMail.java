@@ -11,9 +11,14 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que sirve para controlar lo que hace la vista de ayuda de Mail, en la que se explica
+ * como se debe usar la aplicación para poder obtener la información del correo electrónico.
+ */
 public class HelpMail extends AppCompatActivity {
     @Bind(R.id.btCancelHelpMail)
     Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

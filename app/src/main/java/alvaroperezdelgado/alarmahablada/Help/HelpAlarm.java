@@ -11,9 +11,14 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase que sirve para controlar lo que hace la vista de ayuda de Alarma, en la que se explica
+ * como se debe usar la aplicación para poder configurar la alarma correctamente.
+ */
 public class HelpAlarm extends AppCompatActivity {
     @Bind(R.id.btCancelHelpAlarm)
     Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

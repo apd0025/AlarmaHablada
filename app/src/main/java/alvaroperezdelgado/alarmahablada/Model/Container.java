@@ -5,8 +5,8 @@ import java.util.Calendar;
 
 /**
  * Clase container
- * sirve para guardar los Strings que va a leer nuestra alarma
- * Tambien guardaremos objetos que tengan Strings y accederemos a ellos desde aquí
+ * sirve para guardar los Strings que va a leer nuestra alarma.
+ * Tambien guardaremos objetos que tengan Strings y accederemos a ellos desde aquí.
  */
 public class Container {
 

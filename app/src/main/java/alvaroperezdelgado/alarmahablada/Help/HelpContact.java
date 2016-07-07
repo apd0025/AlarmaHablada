@@ -11,9 +11,14 @@ import alvaroperezdelgado.alarmahablada.ViewControl.MainActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase informativa que gestiona la información del contacto, para poder preguntar las dudas
+ * al desarrollador.
+ */
 public class HelpContact extends AppCompatActivity {
     @Bind(R.id.btCancelHelpContact)
     Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

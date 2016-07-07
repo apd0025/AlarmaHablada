@@ -12,13 +12,13 @@ import alvaroperezdelgado.alarmahablada.Model.User;
 import alvaroperezdelgado.alarmahablada.R;
 import alvaroperezdelgado.alarmahablada.YahooWeather.data.Channel;
 import alvaroperezdelgado.alarmahablada.YahooWeather.data.Item;
-import alvaroperezdelgado.alarmahablada.YahooWeather.service.WeatherSerciceCallback;
+import alvaroperezdelgado.alarmahablada.YahooWeather.service.WeatherServiceCallback;
 import alvaroperezdelgado.alarmahablada.YahooWeather.service.YahooWeatherService;
 
 /**
- * Clase que se encarga de obtener los datos del tiempo
+ * Clase que se encarga de obtener los datos del tiempo, lo hace a través del API de YahooWeather.
  */
-public class WeatherActivity extends AppCompatActivity implements WeatherSerciceCallback {
+public class LoadWeatherActivity extends AppCompatActivity implements WeatherServiceCallback {
 
     private YahooWeatherService service;
     private ProgressDialog dialog;
@@ -74,9 +74,9 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
         }
         if (recive == "init") {
             //Nos lleva a cargar la información de los mails
-            startActivity(new Intent(this, MailActivity.class));
+            startActivity(new Intent(this, LoadMailActivity.class));
         } else {
-            Intent intent = new Intent(this, MailActivity.class);
+            Intent intent = new Intent(this, LoadMailActivity.class);
             intent.putExtra("extra", "alarm");
             startActivity(intent);
         }
@@ -95,6 +95,6 @@ public class WeatherActivity extends AppCompatActivity implements WeatherSercice
         dialog.hide();
         Toast.makeText(this, "No ha sido posible obtener la información meteorológica", Toast.LENGTH_SHORT).show();
         //Si falla al cargar el tiempo que pase a cargar los mails
-        startActivity(new Intent(this, MailActivity.class));
+        startActivity(new Intent(this, LoadMailActivity.class));
     }
 }

@@ -5,7 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
- * Clase que sirve para adaptar los fragments que va a haber en mainActivity y en el menú principal
+ * Clase que sirve para adaptar los fragments que va a haber en mainActivity y en el menú principal y
+ * establecer el orden en el que aparecen y que clase es cada una.
  */
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;

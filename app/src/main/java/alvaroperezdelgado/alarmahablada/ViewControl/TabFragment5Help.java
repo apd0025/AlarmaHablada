@@ -18,6 +18,11 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Esta clase es la que controla el layout que el TabLayout mostrará.
+ * En este caso muestra el fragment layout de la Ayuda.
+ * Clase que sirve para acceder a las opciones de ayuda desde el menú principal.
+ */
 public class TabFragment5Help extends Fragment {
 
 
@@ -31,10 +36,11 @@ public class TabFragment5Help extends Fragment {
     Button btWeatherHelp;
     @Bind(R.id.btAlarmHelp)
     Button btAlarmHelp;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //desde aqui llamamos al layout que queremos que muestre
-        View view= inflater.inflate(R.layout.tab_fragment_5help, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment_5help, container, false);
         ButterKnife.bind(this, view);
 
         btCalendarHelp.setOnClickListener(new View.OnClickListener() {

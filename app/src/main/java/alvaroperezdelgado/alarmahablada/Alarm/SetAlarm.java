@@ -20,6 +20,10 @@ import alvaroperezdelgado.alarmahablada.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Clase en la que esta el widget TimePicker donde seleccionaremos a que hora sonará la alarma.
+ * Guarda en la clase Alarm la hora y el minuto.
+ */
 public class SetAlarm extends AppCompatActivity {
     //alarmManager
     private AlarmManager alarmManager;
